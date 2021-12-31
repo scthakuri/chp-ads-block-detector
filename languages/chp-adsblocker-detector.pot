@@ -1,0 +1,199 @@
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: CHP Ads Block Detector\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-06-10 03:10+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: \n"
+"Language: \n"
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Loco https://localise.biz/\n"
+"X-Loco-Version: 2.5.2; wp-5.7.2\n"
+"X-Domain: chp-adsblocker-detector"
+
+#. Description of the plugin
+msgid ""
+"<code>CHP Ads Block Detector</code> plugin is developed in order to  detect "
+"most of the AdBlock extensions installed on the browser and show a popup to "
+"disable the extension. This plugin restricts the user to access the page "
+"unless the user will disable the extension for your website."
+msgstr ""
+
+#: includes/settings.php:69 includes/settings.php:70
+msgid "ADS BLOCK"
+msgstr ""
+
+#: view/settings.php:181
+msgid "And Many More . . ."
+msgstr ""
+
+#: view/settings.php:116 view/settings.php:140
+msgid "Button Text"
+msgstr ""
+
+#: view/settings.php:160
+msgid "Button Text Customizable"
+msgstr ""
+
+#: includes/settings.php:98 includes/settings.php:99
+msgid "Buy Pro"
+msgstr ""
+
+#: includes/settings.php:55
+msgid "BUY PRO!!"
+msgstr ""
+
+#: view/settings.php:188
+msgid "Check PRO Version"
+msgstr ""
+
+#: view/settings.php:14
+msgid "Check Pro Version"
+msgstr ""
+
+#. Name of the plugin
+msgid "CHP Ads Block Detector"
+msgstr ""
+
+#: view/settings.php:5
+msgid "CHP ADS Block Detector!"
+msgstr ""
+
+#: includes/functions.php:46
+msgid "Close"
+msgstr ""
+
+#: view/settings.php:136
+msgid "Close Button (Text)"
+msgstr ""
+
+#: view/settings.php:53
+msgid "Content"
+msgstr ""
+
+#: view/settings.php:169
+msgid "Control Body Scroll"
+msgstr ""
+
+#: view/settings.php:178
+msgid "Customize according to theme color"
+msgstr ""
+
+#: view/settings.php:172
+msgid "Disable for individual pages"
+msgstr ""
+
+#: view/settings.php:175
+msgid "Disbale for woocommerce pages"
+msgstr ""
+
+#: view/settings.php:30
+msgid "Enable"
+msgstr ""
+
+#: view/settings.php:81 view/settings.php:85
+msgid "From Left"
+msgstr ""
+
+#: view/settings.php:87 view/settings.php:91
+msgid "From Top"
+msgstr ""
+
+#. Author URI of the plugin
+msgid "https://codehelppro.com/"
+msgstr ""
+
+#. URI of the plugin
+msgid ""
+"https://codehelppro.com/product/wordpress/plugin/chp-ads-block-detector/"
+msgstr ""
+
+#: view/settings.php:163
+msgid "Overlay Effect Customizable"
+msgstr ""
+
+#: view/settings.php:78
+msgid "Position (in %)"
+msgstr ""
+
+#: view/settings.php:149
+msgid "PRO Version Capability"
+msgstr ""
+
+#: includes/functions.php:45
+msgid "Refresh"
+msgstr ""
+
+#: view/settings.php:111
+msgid "Refresh Button (Text)"
+msgstr ""
+
+#: view/settings.php:196
+msgid "Reset Changes"
+msgstr ""
+
+#: includes/scripts.php:66
+msgid "Response!!!"
+msgstr ""
+
+#: view/settings.php:195
+msgid "Save Changes"
+msgstr ""
+
+#: includes/settings.php:54 includes/settings.php:80 includes/settings.php:81
+#: view/settings.php:24
+msgid "Settings"
+msgstr ""
+
+#: includes/ajax.php:114
+msgid "Settings reset successfully."
+msgstr ""
+
+#: includes/ajax.php:101
+msgid "Settings save successfully"
+msgstr ""
+
+#: view/settings.php:122
+msgid "Show Close Button"
+msgstr ""
+
+#: view/settings.php:97
+msgid "Show Refresh Button"
+msgstr ""
+
+#: includes/settings.php:89 includes/settings.php:90
+msgid "Support"
+msgstr ""
+
+#. Author of the plugin
+msgid "Suresh Chand"
+msgstr ""
+
+#: view/settings.php:6
+msgid "The Best ads block detector wordpress plugin"
+msgstr ""
+
+#: view/settings.php:166
+msgid "Theme"
+msgstr ""
+
+#: view/settings.php:43
+msgid "Title"
+msgstr ""
+
+#: view/settings.php:8
+msgid "Version"
+msgstr ""
+
+#: includes/ajax.php:103
+msgid "We got some issue on updating settings."
+msgstr ""
+
+#: view/settings.php:69
+msgid "Width (in %)"
+msgstr ""
