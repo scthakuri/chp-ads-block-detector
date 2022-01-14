@@ -117,7 +117,8 @@ Yes, For this you have to purchase the premium version of Ads Block Detector. An
 
 == Changelog ==
 
-= 3.4 =
+= 3.4.1 =
+*  ☞ Make stable with wordpress
 *  ☞ Minor Issues Fixed
 
 = 2.5.5 =
