@@ -2,13 +2,30 @@
     n(document).on("ready", function () {
         0 < n(".chp_ads_color_picker").length && n(".chp_ads_color_picker").wpColorPicker();
     });
+
+    function get_tinymce_content(id) {
+        let content = '';
+        let inputid = id;
+        try {
+            let editor = tinyMCE.get(inputid);
+            let textArea = jQuery('textarea#' + inputid);
+            if (textArea.length > 0 && textArea.is(':visible')) {
+                content = textArea.val();
+            } else {
+                content = editor.getContent();
+            }
+        } catch (error) {
+            content = jQuery('textarea#' + inputid).val();
+        }
+        return content;
+    }
     
     n(document).on("click", "#chp_ads_save_settings", function (t) {
         t.preventDefault();
         var e = n(this),
             c = e.html();
         e.html('<img style="width:15px;" src="' + chpadb.plugin_path + 'assets/img/load.gif">');
-        var i = { content: tinyMCE.activeEditor.getContent() };
+        var i = { content: get_tinymce_content("chp_ads_content") };
         n(document)
             .find("#chp_ads_block_table .chpabd_form_settings.include")
             .each(function () {
@@ -16,22 +33,8 @@
             });
         t = { action: "chp_abd_action", settings: i };
         jQuery.post(ajaxurl, t, function (t) {
-            let called = false;
-            alerty.alert(
-                t,
-                {
-                    title: chpadb.response,
-                },
-                function () {
-                    called = true;
-                    e.html(c);
-                }
-            );
-
-            if( ! called ){
-                alert(t);
-                e.html(c);
-            }
+            alert(t);
+            e.html(c);
         });
     });
 
@@ -41,24 +44,8 @@
             c = e.html();
         e.html('<img style="width:15px;" src="' + chpadb.plugin_path + 'assets/img/load.gif">');
         jQuery.post(ajaxurl, { action: "chp_abd_action", reset: "reset" }, function (t) {
-            
-            let called = false;
-            alerty.alert(
-                t,
-                {
-                    title: chpadb.response,
-                },
-                function () {
-                    called = true;
-                    window.location.href = window.location.href;
-                }
-            );
-            
-            if( ! called ){
-                alert(t);
-                window.location.href = window.location.href;
-            }
-            
+            alert(t);
+            window.location.href = window.location.href;
         });
     });
 })(jQuery);

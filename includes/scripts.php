@@ -34,6 +34,20 @@ class scripts extends \CHPADB\adb{
         add_action( 'wp_footer',  [$this, 'js'], 100);
         add_action( 'wp_head',  [$this, 'css'], 100);
 
+        $this->randnum = $this->generateRandomString(30);
+    }
+
+    /**
+     * Generate random string
+     */
+    private function generateRandomString($length = 10) {
+        $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+        $charactersLength = strlen($characters);
+        $randomString = '';
+        for ($i = 0; $i < $length; $i++) {
+            $randomString .= $characters[rand(0, $charactersLength - 1)];
+        }
+        return $randomString;
     }
 
 
@@ -50,10 +64,6 @@ class scripts extends \CHPADB\adb{
         wp_enqueue_style( 'wp-color-picker' );
         wp_enqueue_script( 'wp-color-picker' );
 
-        //alert css
-        wp_enqueue_script( 'chp-ads-alerty-js', CHP_ADSB_URL . 'assets/js/alerty.js', array(), '1.0', true );
-        wp_enqueue_style( 'chp-ads-alerty-css', CHP_ADSB_URL . 'assets/css/alerty.css', array(), '1.0', true );
-
         //plugin css and js code
         $version = filemtime( CHP_ADSB_DIR. 'assets/js/admin.js' );
         wp_enqueue_script( 'chp-ads-admin-js', CHP_ADSB_URL . 'assets/js/admin.js', array(), 
@@ -65,7 +75,13 @@ class scripts extends \CHPADB\adb{
             'plugin_path' => CHP_ADSB_URL,
             'response' => __('Response!!!', 'chp-adsblocker-detector')
         ) );
+    }
 
+    public function minify($content){
+        $content = str_replace("\n", " ", $content);
+        $content = preg_replace("/([0-9]*px(?!;))/", "$1 ", $content);
+        $content = preg_replace('!\s+!', ' ', $content);
+        return $content;
     }
 
     public function css( ){
@@ -95,9 +111,11 @@ class scripts extends \CHPADB\adb{
 
             $header_part = CHP_ADSB_DIR . 'view/header_part.php';
             if( file_exists( $header_part ) ){
-
+                ob_start();
                 require_once $header_part;
-
+                $content = ob_get_clean();
+                $content = $this->minify($content);
+                echo $content;
             }
         }
 
@@ -122,10 +140,10 @@ class scripts extends \CHPADB\adb{
         $settings = (array) wp_parse_args($settings, \CHPADB\Includes\defaults());
 
         //modifiy the output
-        $settings = apply_filters('adb/modify/settings', $settings);
+        $settings = (object) apply_filters('adb/modify/settings', $settings);
         
         //Check Whether plugin is active
-        if( filter_var( $settings['enable'], FILTER_VALIDATE_BOOLEAN ) ){
+        if( filter_var( $settings->enable, FILTER_VALIDATE_BOOLEAN ) ){
 
             $iconAlernativeFile = CHP_ADSB_URL . 'assets/img/icon.png';
             $iconAlernativeFile = apply_filters( 'adb/change/icon', $iconAlernativeFile );

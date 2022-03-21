@@ -37,7 +37,6 @@ class settings{
 
         //register settings
         add_action('admin_init', [$this, 'settings']);
-
     }
 
     /**
@@ -184,14 +183,6 @@ class settings{
             
             add_settings_field(
                 'chp_adb_plugin_width',
-                '',
-                [$this, 'ofs_null'],
-                'chp_abd_settings',
-                'chp_abd_settings_section'
-            );
-
-            add_settings_field(
-                'chp_adb_plugin_from_left',
                 '',
                 [$this, 'ofs_null'],
                 'chp_abd_settings',

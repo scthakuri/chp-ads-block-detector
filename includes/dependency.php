@@ -36,8 +36,6 @@ class dependency{
             $path = CHP_ADSB_DIR . "includes/$class.php";
             
             if( file_exists( $path ) ){
-                require_once $path;
-
                 $class_path = "\CHPADB\Includes\\$class";
                 $module = new $class_path();
                 $module->init();

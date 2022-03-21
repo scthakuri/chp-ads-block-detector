@@ -4,7 +4,7 @@
  * Plugin Name:       CHP Ads Block Detector
  * Plugin URI:        https://codehelppro.com/product/wordpress/plugin/chp-ads-block-detector/
  * Description:       <code>CHP Ads Block Detector</code> plugin is developed in order to  detect most of the AdBlock extensions installed on the browser and show a popup to disable the extension. This plugin restricts the user to access the page unless the user will disable the extension for your website.
- * Version:           3.4.1
+ * Version:           3.5
  * Requires at least: 5.2
  * Requires PHP:      7.2
  * Tested up to:      5.8.3
@@ -39,17 +39,40 @@ if( ! class_exists( 'adb' ) ){
             //load language template
             add_action( 'plugins_loaded', [$this, 'setup_textdomain'] );
             add_filter( 'load_textdomain_mofile', [$this, 'load_lang'], 10, 2 );
+            add_action( 'admin_notices', [$this, 'check_for_premium_version'] );
 
              //load all the constants
             $this->constants();
 
-            //load all functions
-             require_once CHP_ADSB_DIR . 'includes/functions.php';
+            //load all require library
+            require_once CHP_ADSB_DIR . 'vendor/autoload.php';
 
             //load all dependency
-            require_once CHP_ADSB_DIR . 'includes/dependency.php';
             $dependency = new \CHPADB\Includes\dependency;
             $dependency->init();
+        }
+
+        /**
+         * Plugin Deactivate link
+         */
+        private function plugin_action_link( $plugin, $action = 'deactivate' ) {
+            if ( strpos( $plugin, '/' ) ) {
+                $plugin = str_replace( '\/', '%2F', $plugin );
+            }
+            $url = sprintf( admin_url( 'plugins.php?action=' . $action . '&plugin=%s&plugin_status=all&paged=1&s' ), $plugin );
+            $_REQUEST['plugin'] = $plugin;
+            $url = wp_nonce_url( $url, $action . '-plugin_' . $plugin );
+            return $url;
+        }
+
+        /**
+         * Check for premium version
+         */
+        public function check_for_premium_version(){
+            if( defined( "CHP_ADSB_VERSION_PRO" ) ){
+                $url = $this->plugin_action_link("chp-ads-block-detector/chp-adsblocker-detector.php");
+                echo sprintf('<div class="notice notice-error"><p>You have premium version of <strong>CHP ADS BLOCK DETECTOR</strong> Plugin. You can disable the free one. Click here to <a href="%s">deactivate a plugin.</a></p></div>', $url);
+            }
         }
 
         /**
@@ -90,7 +113,7 @@ if( ! class_exists( 'adb' ) ){
 
             //load all the constants
             $consts = array(
-                'CHP_ADSB_VERSION' => '3.4.1',
+                'CHP_ADSB_VERSION' => '3.5',
                 'CHP_ADSB_DIR' => plugin_dir_path( __FILE__ ),
                 'CHP_ADSB_URL' => plugin_dir_url( __FILE__ ),
                 'CHP_ADSB_PLUGIN_NAME' => plugin_basename(__FILE__)

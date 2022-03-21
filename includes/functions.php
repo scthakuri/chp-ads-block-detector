@@ -29,10 +29,7 @@ function setDefaultValues(){
     update_option( 'chp_adb_plugin_btn2_text', $options->btn2_text );
 
     update_option( 'chp_adb_plugin_width', $options->width );
-    update_option( 'chp_adb_plugin_from_left', $options->left );
     update_option( 'chp_adb_plugin_from_right', $options->top );
-
-    update_option( 'chp_adb_plugin_hide_mobile', $options->hidemobile );
 }
 
 
@@ -46,9 +43,9 @@ function defaults(){
         'btn2_show' => false,
         'btn1_text' => __('Refresh', 'chp-adsblocker-detector'),
         'btn2_text' => __('Close', 'chp-adsblocker-detector'),
-        'width' => '30',
-        'top' => '20',
-        'left' => '35',
+        'width' => '40',
+        'top' => '5',
+        'left' => '0',
         'hidemobile' => false
     );
 }

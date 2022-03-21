@@ -1,4 +1,4 @@
-<div class="chp_ads_blocker_detector chp_ads_blocker_detector-about-wrap">
+<div class="chp_ads_blocker_detector_admin chp_ads_blocker_detector-about-wrap">
     <div class="chp_ads_blocker_detector-top-section">
         <img class="chp_ads_blocker_detector-logo" src="<?php echo CHP_ADSB_URL . 'assets/img/icon.png'; ?>">
         <div class="chp_ads_blocker_detector-content">
@@ -78,12 +78,6 @@
                         <?php _e('Position (in %)', 'chp-adsblocker-detector'); ?>
                     </td>
                     <td>
-                        <label><?php _e('From Left', 'chp-adsblocker-detector'); ?> : </label>
-                        <input type="number" value="<?php echo get_option( 'chp_adb_plugin_from_left' ); ?>"
-                            style="width:20%; display:inline-block;margin-right:10px;"
-                            class="chpabd_form_settings include" name="left"
-                            placeholder="<?php _e('From Left', 'chp-adsblocker-detector'); ?>">
-
                         <label><?php _e('From Top', 'chp-adsblocker-detector'); ?> : </label>
                         <input type="number" value="<?php echo get_option( 'chp_adb_plugin_from_right' ); ?>"
                             style="width:20%; display:inline-block;margin-right:10px;"
@@ -140,20 +134,6 @@
                             class="chpabd_form_settings include" name="btn2_text" placeholder="<?php _e('Button Text', 'chp-adsblocker-detector'); ?>">
                     </td>
                 </tr>
-
-                <tr>
-                    <td>
-                        <?php _e('Hide on Mobile Device', 'chp-adsblocker-detector'); ?>
-                    </td>
-                    <td>
-                        <label class="checkbox_container">
-                            <input type="checkbox"
-                                <?php echo filter_var(get_option( 'chp_adb_plugin_hide_mobile' ), FILTER_VALIDATE_BOOLEAN) ? 'checked' : null; ?>
-                                name="hide_mobile" class="chpabd_form_settings include">
-                            <span class="checkmark"></span>
-                        </label>
-                    </td>
-                </tr>
             </tbody>
         </table>
 
@@ -190,6 +170,9 @@
                 </tr>
                 <tr>
                     <td><?php _e('Customize according to theme color', 'chp-adsblocker-detector'); ?></td>
+                </tr>
+                <tr>
+                    <td><?php _e('Automatically Blur Content If Detected', 'chp-adsblocker-detector'); ?></td>
                 </tr>
                 <tr>
                     <td><strong><?php _e('And Many More . . .', 'chp-adsblocker-detector'); ?></strong></td>
