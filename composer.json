@@ -1,20 +1,22 @@
 {
     "name": "sureshchand/chp-ads-block-detector",
     "description": "Block Ads Blocker Extensions and Increase your revenue by using Ads Blocker Detector Plugin",
+    "homepage": "https://wordpress.org/plugins/chp-ads-block-detector/",
+    "type": "project",
+    "license": "MIT",
     "authors": [
         {
             "name": "Suresh chand",
-            "email": "sureshchand12a@gmail.com"
+            "email": "sureshchand12a@gmail.com",
+            "homepage": "https://sureshchand12a.github.io/portfolio/",
+            "role": "Developer"
         }
     ],
-    "homepage": "https://wordpress.org/plugins/chp-ads-block-detector/",
     "support": {
         "email": "info@codehelppro.com",
         "forum": "https://wordpress.org/support/plugin/chp-ads-block-detector/",
         "docs": "https://codehelppro.com/doc/chp-ads-block-detector-pro/introduction/"
     },
-    "type": "project",
-    "license": "MIT",
     "autoload" : {
         "classmap": ["includes/"],
         "files": ["includes/functions.php"]

@@ -2,8 +2,8 @@
 Contributors: sureshchand12a,lom666
 Tags: detect ads blocker, ads blocker, blocker, increase revinue
 Requires at least: 5.2
-Tested up to: 5.8.3
-Stable tag: 3.4.1
+Tested up to: 5.9.2
+Stable tag: 3.5
 Requires PHP: 7.2
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -54,6 +54,7 @@ This plugin will also works for opera built-in ads block extension.
 *   ☞ Change style of the popup
 *   ☞ Customize own title or message
 *   ☞ Custom Buttons
+*   ☞ Random Class Generator
 
 **PRO Features:**
 
@@ -66,6 +67,8 @@ This plugin will also works for opera built-in ads block extension.
 *   ☞  Disable for individual posts or pages
 *   ☞  Adjust to theme color
 *   ☞  Ability to add custom modal
+*   ☞  Completly Random Class Generator Control
+*   ☞  Content Wrapper
 *   ☞  And much much more …
 
 For more information regarding adblock detecting and revenue recovery, please visit [CodeHelpPro](https://codehelppro.com/product/wordpress/plugin/chp-ads-block-detector-pro/)
@@ -82,6 +85,11 @@ This section describes how to install the plugin and get it working.
 *   ☞  (Make your instructions match the desired user flow for activating and installing your plugin. Include any steps that might be needed for explanatory purposes)
 
 == Frequently Asked Questions ==
+
+=  WHAT IS CONTENT WRAPPER SETTINGS? =
+
+Content Wrapper settings is new released settings on PRO release. This settings will detect the content on the page and blur the content and show the adblock message over the content. You don't need additional setup for this. Just enable this settings. For more details, [check here](https://codehelppro.com/doc/chp-ads-block-detector-pro/content-wrapper/).
+
 
 = IS IT WORKING FOR OPERA BUILT-IN ADS BLOCKER EXTENSION? =
 
@@ -107,6 +115,8 @@ Please create a forum in [https://codehelppro.com/community/ads-blocker-plugin/]
 
 Yes, For this you have to purchase the premium version of Ads Block Detector. And also [check the documentation](https://codehelppro.com/doc/chp-ads-block-detector-pro/custom-modal/).
 
+
+
 == Screenshots ==
 1. Customizable settings on admin dashboard
 2. Disable Ad Block by individual page
@@ -116,6 +126,13 @@ Yes, For this you have to purchase the premium version of Ads Block Detector. An
 6. Instruction to Disable the Adblock
 
 == Changelog ==
+
+= 3.5 =
+*  ☞ Random Class Generator [On every refresh, the classes and ids are changed.]
+*  ☞ Remove Hide on Mobile
+*  ☞ Remove Interval Check
+*  ☞ Minify css and js code automatically while rendering
+*  ☞ Can control google,image and class ads request
 
 = 3.4.1 =
 *  ☞ Make stable with wordpress
