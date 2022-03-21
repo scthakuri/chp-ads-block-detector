@@ -128,6 +128,7 @@ Yes, For this you have to purchase the premium version of Ads Block Detector. An
 == Changelog ==
 
 = 3.5 =
+*  ☞ Sine our plugin is whitelist autmatically by adblock extension, We have added random class generator to free version also. We request you to update your plugin immediately.
 *  ☞ Random Class Generator [On every refresh, the classes and ids are changed.]
 *  ☞ Remove Hide on Mobile
 *  ☞ Remove Interval Check
