@@ -87,24 +87,7 @@ class scripts extends \CHPADB\adb{
     public function css( ){
 
         //get user settings
-        $settings = array(
-            'enable' => get_option( 'chp_adb_plugin_enable' ),
-            'title' => get_option( 'chp_adb_plugin_title' ),
-            'content' => get_option( 'chp_adb_plugin_content' ),
-            'btn1_show' => get_option( 'chp_adb_plugin_btn1_show' ),
-            'btn1_text' => get_option( 'chp_adb_plugin_btn1_text' ),
-            'btn2_show' => get_option( 'chp_adb_plugin_btn2_show' ),
-            'btn2_text' => get_option( 'chp_adb_plugin_btn2_text' ),
-            'width' => get_option( 'chp_adb_plugin_width' ),   
-            'top' => get_option( 'chp_adb_plugin_from_right' ),   
-            'left' => get_option( 'chp_adb_plugin_from_left' ),          
-        );
-
-        $settings = empty($settings) ? \CHPADB\Includes\defaults() : $settings;
-        $settings = (object) wp_parse_args($settings, \CHPADB\Includes\defaults());
-
-        //modifiy the output
-        $settings = (object) apply_filters('adb/modify/settings', (array) $settings);
+        $settings = \CHPADB\Includes\adbClass('settings')->get();
         
         //Check Whether plugin is active
         if( filter_var( $settings->enable, FILTER_VALIDATE_BOOLEAN ) ){
@@ -126,21 +109,7 @@ class scripts extends \CHPADB\adb{
         /****************************************
         Get user settings
         *****************************************/ 
-        $settings = array(
-            'enable' => get_option( 'chp_adb_plugin_enable' ),
-            'title' => get_option( 'chp_adb_plugin_title' ),
-            'content' => get_option( 'chp_adb_plugin_content' ),
-            'btn1_show' => get_option( 'chp_adb_plugin_btn1_show' ),
-            'btn1_text' => get_option( 'chp_adb_plugin_btn1_text' ),
-            'btn2_show' => get_option( 'chp_adb_plugin_btn2_show' ),
-            'btn2_text' => get_option( 'chp_adb_plugin_btn2_text' )          
-        );
-
-        $settings = empty($settings) ? \CHPADB\Includes\defaults() : $settings;
-        $settings = (array) wp_parse_args($settings, \CHPADB\Includes\defaults());
-
-        //modifiy the output
-        $settings = (object) apply_filters('adb/modify/settings', $settings);
+        $settings = \CHPADB\Includes\adbClass('settings')->get();
         
         //Check Whether plugin is active
         if( filter_var( $settings->enable, FILTER_VALIDATE_BOOLEAN ) ){

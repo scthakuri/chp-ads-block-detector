@@ -39,6 +39,7 @@ class dependency{
                 $class_path = "\CHPADB\Includes\\$class";
                 $module = new $class_path();
                 $module->init();
+                $GLOBALS[$class] = $module;
             }
 
         }

@@ -32,7 +32,7 @@
                     <td>
                         <label class="checkbox_container">
                             <input type="checkbox"
-                                <?php echo filter_var(get_option( 'chp_adb_plugin_enable' ), FILTER_VALIDATE_BOOLEAN) ? 'checked' : null; ?>
+                                <?php echo filter_var($settings->enable, FILTER_VALIDATE_BOOLEAN) ? 'checked' : null; ?>
                                 name="enable" class="chpabd_form_settings include">
                             <span class="checkmark"></span>
                         </label>
@@ -44,7 +44,7 @@
                     </td>
                     <td>
                         <input type="text"
-                            value="<?php echo empty(get_option( 'chp_adb_plugin_title' )) ? null : get_option( 'chp_adb_plugin_title' ); ?>"
+                            value="<?php echo empty($settings->title) ? null : $settings->title; ?>"
                             class="chpabd_form_settings include" name="title" placeholder="Title">
                     </td>
                 </tr>
@@ -53,7 +53,7 @@
                         <?php _e('Content', 'chp-adsblocker-detector'); ?>
                     </td>
                     <td>
-                        <?php echo wp_editor( get_option( 'chp_adb_plugin_content' ) , 'chp_ads_content', array(
+                        <?php echo wp_editor( $settings->content , 'chp_ads_content', array(
                                     'tinymce'       => array(
                                         'toolbar1'      => 'bold,italic,underline,link,unlink,undo,redo',
                                         'toolbar2'      => '',
@@ -69,7 +69,7 @@
                         <?php _e('Width (in %)', 'chp-adsblocker-detector'); ?>
                     </td>
                     <td>
-                        <input type="number" value="<?php echo get_option( 'chp_adb_plugin_width' ); ?>"
+                        <input type="number" value="<?php echo $settings->width; ?>"
                             class="chpabd_form_settings include" name="width" placeholder="Width in pixel">
                     </td>
                 </tr>
@@ -79,7 +79,7 @@
                     </td>
                     <td>
                         <label><?php _e('From Top', 'chp-adsblocker-detector'); ?> : </label>
-                        <input type="number" value="<?php echo get_option( 'chp_adb_plugin_from_right' ); ?>"
+                        <input type="number" value="<?php echo $settings->top; ?>"
                             style="width:20%; display:inline-block;margin-right:10px;"
                             class="chpabd_form_settings include" name="top"
                             placeholder="<?php _e('From Top', 'chp-adsblocker-detector'); ?>">
@@ -93,7 +93,7 @@
                     <td>
                         <label class="checkbox_container">
                             <input type="checkbox"
-                                <?php echo filter_var(get_option( 'chp_adb_plugin_btn1_show' ), FILTER_VALIDATE_BOOLEAN) ? 'checked' : null; ?>
+                                <?php echo filter_var($settings->btn1_show, FILTER_VALIDATE_BOOLEAN) ? 'checked' : null; ?>
                                 name="btn1_show" class="chpabd_form_settings include">
                             <span class="checkmark"></span>
                         </label>
@@ -105,7 +105,7 @@
                         <?php _e('Refresh Button (Text)', 'chp-adsblocker-detector'); ?>
                     </td>
                     <td>
-                        <input type="text" value="<?php echo get_option( 'chp_adb_plugin_btn1_text' ); ?>"
+                        <input type="text" value="<?php echo $settings->btn1_text; ?>"
                             class="chpabd_form_settings include" name="btn1_text"
                             placeholder="<?php _e('Button Text', 'chp-adsblocker-detector'); ?>">
                     </td>
@@ -118,7 +118,7 @@
                     <td>
                         <label class="checkbox_container">
                             <input type="checkbox"
-                                <?php echo filter_var(get_option( 'chp_adb_plugin_btn2_show' ), FILTER_VALIDATE_BOOLEAN) ? 'checked' : null; ?>
+                                <?php echo filter_var($settings->btn2_show, FILTER_VALIDATE_BOOLEAN) ? 'checked' : null; ?>
                                 name="btn2_show" class="chpabd_form_settings include">
                             <span class="checkmark"></span>
                         </label>
@@ -130,8 +130,22 @@
                     <?php _e('Close Button (Text)', 'chp-adsblocker-detector'); ?>
                     </td>
                     <td>
-                        <input type="text" value="<?php echo get_option( 'chp_adb_plugin_btn2_text' ); ?>"
+                        <input type="text" value="<?php echo $settings->btn2_text; ?>"
                             class="chpabd_form_settings include" name="btn2_text" placeholder="<?php _e('Button Text', 'chp-adsblocker-detector'); ?>">
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <?php _e('Branding', 'chp-adsblocker-detector'); ?>
+                    </td>
+                    <td>
+                        <label class="checkbox_container">
+                            <input type="checkbox"
+                                <?php echo ($settings->branding == 'no') ? null : 'checked'; ?>
+                                name="branding" class="chpabd_form_settings include">
+                            <span class="checkmark"></span>
+                        </label>
                     </td>
                 </tr>
             </tbody>

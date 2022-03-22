@@ -117,6 +117,38 @@ class settings{
         );
     }
 
+    /**
+     * Get all settings
+     * 
+     */
+    public function get(){
+
+        $defaults = \CHPADB\Includes\defaults();
+        $settings = array(
+            'enable' => get_option( 'chp_adb_plugin_enable' ),
+            'title' => get_option( 'chp_adb_plugin_title' ),
+            'content' => get_option( 'chp_adb_plugin_content' ),
+            'btn1_show' => get_option( 'chp_adb_plugin_btn1_show' ),
+            'btn1_text' => get_option( 'chp_adb_plugin_btn1_text' ),
+            'btn2_show' => get_option( 'chp_adb_plugin_btn2_show' ),
+            'btn2_text' => get_option( 'chp_adb_plugin_btn2_text' ),
+            'width' => get_option( 'chp_adb_plugin_width' ),   
+            'top' => get_option( 'chp_adb_plugin_from_top' ),
+            'branding' => get_option( 'chp_adb_plugin_branding' )
+        );
+
+        // if( empty($settings['branding']) ){
+        //     $settings['branding'] = 'yes';
+        // }
+
+        if( empty( $settings['top'] ) ){
+            $settings['top'] = "5";
+        }
+
+        $settings = wp_parse_args($settings, $defaults);
+        return (object) apply_filters('adb/modify/settings', $settings);
+    }
+
 
     /**
      * Settings html page
@@ -126,6 +158,8 @@ class settings{
      * @return string null
      */
     public function setting_page( ){
+
+        $settings = $this->get();
 
         if( file_exists ( CHP_ADSB_DIR. 'view/settings.php' ) )
             require_once CHP_ADSB_DIR. 'view/settings.php';
@@ -190,7 +224,7 @@ class settings{
             );
 
             add_settings_field(
-                'chp_adb_plugin_from_right',
+                'chp_adb_plugin_from_top',
                 '',
                 [$this, 'ofs_null'],
                 'chp_abd_settings',
@@ -215,6 +249,14 @@ class settings{
 
             add_settings_field(
                 'chp_adb_plugin_btn2_text',
+                '',
+                [$this, 'ofs_null'],
+                'chp_abd_settings',
+                'chp_abd_settings_section'
+            );
+
+            add_settings_field(
+                'chp_adb_plugin_branding',
                 '',
                 [$this, 'ofs_null'],
                 'chp_abd_settings',

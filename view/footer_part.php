@@ -9,12 +9,10 @@
     $imageAds = apply_filters('adb/checkby/imageads', true);
     $debug = apply_filters('adb/debug/js', false);
     $checkinterval = apply_filters('adb/check/interval', 0);
-    $branding = apply_filters('adb/branding', true);
+    $branding = apply_filters('adb/branding', ($settings->branding == 'yes'));
     $onPageFullyLoaded = apply_filters('adb/onpageload', true);
 
-
-
-    $brandingcode = sprintf('<div class="chp_branding%s"></div>', $this->randnum, $this->randnum);
+    $brandingcode = '';
     if( $branding ){
         $brandingURLArray = array("https://codehelppro.com/product/wordpress/plugin/chp-ads-block-detector-pro/", "https://hamrocsit.com");
         $brandingURL = $brandingURLArray[array_rand($brandingURLArray)];

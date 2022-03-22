@@ -53,6 +53,7 @@ class ajax{
                 update settings of plugin
                 *****************************************/
                 $enable = sanitize_text_field($settings['enable']);
+                $branding = sanitize_text_field($settings['branding']);
                 $title = sanitize_text_field($settings['title']);
                 $btn1_show = sanitize_text_field($settings['btn1_show']);
                 $btn1_text = sanitize_text_field($settings['btn1_text']);
@@ -62,7 +63,6 @@ class ajax{
 
                 $content = wp_kses_post($settings['content']);
 
-                $fromLeft = sanitize_text_field($settings['left']);
                 $fromTop = sanitize_text_field($settings['top']);
 
                 $width = sanitize_text_field($settings['width']);
@@ -89,14 +89,16 @@ class ajax{
                 if( ! empty( $content ) )
                     update_option( 'chp_adb_plugin_content', $content );
                 
-                if( ! is_bool( $fromLeft ) )
-                    update_option( 'chp_adb_plugin_from_left', $fromLeft );
-                
-                if( ! is_bool( $fromTop ) )
-                    update_option( 'chp_adb_plugin_from_right', $fromTop );
+                if( ! empty( $fromTop ) )
+                    update_option( 'chp_adb_plugin_from_top', $fromTop );
 
                 if( ! is_bool( $width ) )
                     update_option( 'chp_adb_plugin_width', $width );
+
+                if( ! is_bool( $branding ) ){
+                    $branding = filter_var($branding, FILTER_VALIDATE_BOOLEAN) ? "yes" : "no";
+                    update_option( 'chp_adb_plugin_branding', $branding );
+                }
                 
                 echo __('Settings save successfully', 'chp-adsblocker-detector');
             }else{

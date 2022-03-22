@@ -16,6 +16,16 @@ namespace CHPADB\Includes;
 if( ! defined( 'ABSPATH' ) ) exit(0);
 
 
+function adbClass($class){
+    if( isset($GLOBALS[$class]) ){
+        return $GLOBALS[$class];
+    }else{
+        $class_path = "\CHPADB\Includes\\$class";
+        return new $class_path();
+    }
+}
+
+
 function setDefaultValues(){
     $options = defaults();
     update_option( 'chp_adb_plugin_enable', $options->enable );
@@ -30,6 +40,7 @@ function setDefaultValues(){
 
     update_option( 'chp_adb_plugin_width', $options->width );
     update_option( 'chp_adb_plugin_from_right', $options->top );
+    update_option( 'chp_adb_plugin_branding', $options->branding );
 }
 
 
@@ -46,6 +57,7 @@ function defaults(){
         'width' => '40',
         'top' => '5',
         'left' => '0',
-        'hidemobile' => false
+        'hidemobile' => false,
+        'branding' => 'yes'
     );
 }
