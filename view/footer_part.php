@@ -6,9 +6,10 @@
      * @since 5.1.2
      */
     $googleAds = apply_filters('adb/checkby/googleads', true);
+    $adsrequest = apply_filters('adb/adrequest/url', "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js");
     $imageAds = apply_filters('adb/checkby/imageads', true);
+    $classAds = apply_filters('adb/checkby/classads', true);
     $debug = apply_filters('adb/debug/js', false);
-    $checkinterval = apply_filters('adb/check/interval', 0);
     $branding = apply_filters('adb/branding', ($settings->branding == 'yes'));
     $onPageFullyLoaded = apply_filters('adb/onpageload', true);
 

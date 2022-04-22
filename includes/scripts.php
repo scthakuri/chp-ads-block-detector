@@ -35,6 +35,7 @@ class scripts extends \CHPADB\adb{
         add_action( 'wp_head',  [$this, 'css'], 100);
 
         $this->randnum = $this->generateRandomString(30);
+        $GLOBALS['chpadbfree_class'] = $this->randnum;
     }
 
     /**

@@ -15,6 +15,18 @@ namespace CHPADB\Includes;
 ******************************************************/
 if( ! defined( 'ABSPATH' ) ) exit(0);
 
+function rclass(){
+    $settings = \CHPADB_PRO\Includes\adbpro('settings')->get();
+    if( filter_var($settings->randomClass, FILTER_VALIDATE_BOOLEAN) ){
+        if( isset( $GLOBALS['chpadbfree_class'] ) ){
+            return $GLOBALS['chpadbfree_class'];
+        }else{
+            return "hamrocsit";
+        }
+    }
+
+    return null;
+}
 
 function adbClass($class){
     if( isset($GLOBALS[$class]) ){

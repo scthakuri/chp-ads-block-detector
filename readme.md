@@ -59,6 +59,7 @@ This plugin will also works for opera built-in ads block extension.
 *   Ability to add custom modal
 *   Completly Random Class Generator Control
 *   Content Wrapper
+*   Multiple Ads Request Check
 *   And much much more …
 
 For more information regarding adblock detecting and revenue recovery, please visit [CodeHelpPro](https://codehelppro.com/product/wordpress/plugin/chp-ads-block-detector-pro/)
@@ -99,6 +100,11 @@ This section describes how to install the plugin and get it working.
 **A:** Yes, For this you have to purchase the premium version of Ads Block Detector. And also [check the documentation](https://codehelppro.com/doc/chp-ads-block-detector-pro/custom-modal/).
 
 **CHANGELOG**
+
+***3.6***
+*  ☞ Class Ads Request Issue Fixed
+*  ☞ Remove Check Request on fixed interval
+*  ☞ Minor Issue Fixed
 
 ***3.5***
 *  ☞ Sine our plugin is whitelist autmatically by adblock extension, We have added random class generator to free version also. We request you to update your plugin immediately.

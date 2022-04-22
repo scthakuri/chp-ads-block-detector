@@ -8,6 +8,7 @@ let googleAdsControl = <?php echo filter_var($googleAds, FILTER_VALIDATE_BOOLEAN
 let imageAdsControl = <?php echo filter_var($imageAds, FILTER_VALIDATE_BOOLEAN) ? "true" : "false"; ?>;
 let classAdsControl = <?php echo filter_var($classAds, FILTER_VALIDATE_BOOLEAN) ? "true" : "false"; ?>;
 let displayOnce = 0;
+let adsRequestURL = "<?php echo $adsrequest; ?>";
 
 
 /**
@@ -47,7 +48,7 @@ function is_connected() {
 function adsBlocked(callBackFunc) {
 
     if (googleAdsControl && is_connected()) {
-        let adsRequest = new Request("https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js", {
+        let adsRequest = new Request(adsRequestURL, {
             method: "HEAD",
             mode: "no-cors"
         });
