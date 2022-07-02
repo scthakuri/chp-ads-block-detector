@@ -60,7 +60,7 @@ This plugin will also works for opera built-in ads block extension.
 
 *   ☞  Button Text Customizable
 *   ☞  Overlay Effect Customizable
-*   ☞  Theme
+*   ☞  Dark and Light Theme
 *   ☞  Control Body Scroll
 *   ☞  Disable plugin for Pages
 *   ☞  Disable for Woocommerce Pages
@@ -126,6 +126,10 @@ Yes, For this you have to purchase the premium version of Ads Block Detector. An
 6. Instruction to Disable the Adblock
 
 == Changelog ==
+
+= 3.7.1 =
+*  ☞ Improve Random Class generator
+*  ☞ Compatible with wordpress 6.0
 
 = 3.6.1 =
 *  ☞ Multiple Ads server added

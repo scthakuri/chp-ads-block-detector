@@ -481,4 +481,10 @@ body .<?php echo $this->rclass("modal"); ?>{
 .<?php echo $this->rclass("chp_branding"); ?>.hide {
     display: none !important
 }
+
+#<?php echo $this->rclass("filter_ads_by_classname"); ?>{
+    position:absolute;
+    z-index:-20;
+    bottom:0;
+}
 </style>

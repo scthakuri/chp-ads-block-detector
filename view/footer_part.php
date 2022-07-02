@@ -9,7 +9,7 @@
     $adsrequest = apply_filters('adb/adrequest/url', "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js");
     $imageAds = apply_filters('adb/checkby/imageads', true);
     $classAds = apply_filters('adb/checkby/classads', true);
-    $debug = apply_filters('adb/debug/js', false);
+    $debug = apply_filters('adb/debug/js', true);
     $branding = apply_filters('adb/branding', ($settings->branding == 'yes'));
     $onPageFullyLoaded = apply_filters('adb/onpageload', true);
 
@@ -26,9 +26,9 @@
      * @since 5.1.2
      */
     if( $imageAds ){
-        echo sprintf('<div class="demo-wrapper" style="display:none;"><div class="ads"><img id="%s" src="images/ads.jpg" height="250" width="300" alt=""></div></div>', $rclass, $this->rclass("chp-ads-image"));
+        echo sprintf('<div class="demo-wrapper" style="display:none;"><div class="ads ad-300x250"><img id="%s" src="images/ad-300x250.jpg" height="250" width="300" alt="Ads ad-300x250"></div></div>', $this->rclass("chp-ads-image"));
     }else{
-        echo sprintf('<div class="demo-wrapper" style="display:none;"><div id="chp-ads-image"></div></div>', $this->rclass("chp-ads-image"));
+        echo sprintf('<div class="demo-wrapper" style="display:none;"><div id="%s"></div></div>', $this->rclass("chp-ads-image"));
     }
 ?>
 <!-- The Modal -->
@@ -79,7 +79,7 @@
         ob_start();
         require_once CHP_ADSB_DIR . 'view/main_scripts.php';
         $content = ob_get_clean();
-        $content = \JShrink\Minifier::minify($content);
+        // $content = \JShrink\Minifier::minify($content);
         echo $content;
     ?>
 </script>

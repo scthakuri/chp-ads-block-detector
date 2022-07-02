@@ -8,7 +8,7 @@ let googleAdsControl = <?php echo filter_var($googleAds, FILTER_VALIDATE_BOOLEAN
 let imageAdsControl = <?php echo filter_var($imageAds, FILTER_VALIDATE_BOOLEAN) ? "true" : "false"; ?>;
 let classAdsControl = <?php echo filter_var($classAds, FILTER_VALIDATE_BOOLEAN) ? "true" : "false"; ?>;
 let displayOnce = 0;
-let adsRequestURL = "<?php echo $adsrequest; ?>";
+const reqServers = [<?php echo $this->request_servers(); ?>];
 
 
 /**
@@ -45,32 +45,43 @@ function is_connected() {
  *
  * @param One Callback function
  */
+let serverReqCount = 0;
+let adreqfound = false;
 function adsBlocked(callBackFunc) {
 
-    if (googleAdsControl && is_connected()) {
-        let adsRequest = new Request(adsRequestURL, {
+    if( adreqfound ) return true;
+    if( serverReqCount >= reqServers.length ){
+        callBackFunc(adreqfound);
+        return true;
+    }
+
+    if( reqServers.length > 0 && is_connected() ){
+        const reqURL = reqServers[serverReqCount];
+        const adsRequest = new Request(reqURL, {
             method: "HEAD",
             mode: "no-cors"
         });
+
         fetch(adsRequest).then(function(res) {
             if (debug) {
-                console.warn("[ADB DEBUG] Google Ads Request Passed!!!");
+                console.warn(`[ADB DEBUG] Ads Request [${reqURL}] Passed!!!`);
             }
-            callBackFunc(false);
+            serverReqCount++;
+            adreqfound = false;
+            adsBlocked(callBackFunc);
         }).catch(function(res) {
             if (debug) {
-                console.warn("[ADB DEBUG] Google Ads Request Failed!!!");
-                console.warn(`[ADB DEBUG] ${res}`)
+                console.error(`[ADB DEBUG] Ads Request [${reqURL}] Failed!!!`);
+                console.error(`[ADB DEBUG] ${res}`)
             }
             callBackFunc(true);
+            adreqfound = true;
         })
     } else {
         if (debug) {
-            console.warn("[ADB DEBUG] Google Ads Request Blocked by Filter Hook or Offline!!!");
+            console.warn("[ADB DEBUG] Ads Request Failed. Reason: Blocked by Filter Hook or Offline!!!");
         }
     }
-
-    callBackFunc(false);
 }
 
 
@@ -164,11 +175,11 @@ function checkMultiple() {
     if (classAdsControl) {
         let divEle = document.createElement("div");
         divEle.innerHTML = "&nbsp;";
-        divEle.className = "ad ads doubleclick ad-placement ad-placeholder adbadge BannerAd adsbox";
-        divEle.id = "filter_ads_by_classname";
+        divEle.className = "ad ads doubleclick ad-placement ad-placeholder adbadge BannerAd adsbox ad-large ad-large ad-left ad-limits ad-link ad-live ad-loading ad-map ad-marker ad-master ad-pixel ad-random ad-refresh ad-300x250";
+        divEle.id = "<?php echo $this->rclass("filter_ads_by_classname"); ?>";
 
         try {
-            if (!document.body.contains(document.getElementById('filter_ads_by_classname'))) {
+            if (!document.body.contains(document.getElementById('<?php echo $this->rclass("filter_ads_by_classname"); ?>'))) {
                 document.body.appendChild(divEle);
                 let adBoxEle = document.querySelector(".adsbox");
                 enable = !adBoxEle || adBoxEle.offsetHeight == 0;
@@ -181,7 +192,7 @@ function checkMultiple() {
                     }
                 }
             } else {
-                let adBoxEleId = document.getElementById("filter_ads_by_classname");
+                let adBoxEleId = document.getElementById("<?php echo $this->rclass("filter_ads_by_classname"); ?>");
                 removeClass(adBoxEleId, ` ads_${prevCount}`);
                 removeClass(adBoxEleId, `ads_${prevCount}`);
                 prevCount++;
@@ -199,7 +210,12 @@ function checkMultiple() {
 }
 
 function isHidden(e) {
-    return "none" === window.getComputedStyle(e).display
+    try{
+        return "none" === window.getComputedStyle(e).display;
+    }catch(error){
+        
+    }
+    return false;
 }
 
 function init() {
@@ -208,7 +224,7 @@ function init() {
             chp_ads_blocker_detector(true);
         } else {
             if (imageAdsControl) {
-                enable = isHidden(document.getElementById("chp-ads-image"));
+                enable = isHidden(document.getElementById("<?php echo $this->rclass("chp-ads-image"); ?>"));
                 if (debug) {
                     if (enable) {
                         console.warn("[ADB DEBUG] Image Ads Request Failed!!!");

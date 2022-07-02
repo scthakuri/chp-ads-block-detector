@@ -29,8 +29,6 @@ class scripts extends \CHPADB\adb{
     public function init(){
 
         add_action( 'admin_enqueue_scripts',  [$this, 'admin_scripts']);
-
-        
         add_action( 'wp_footer',  [$this, 'js'], 100);
         add_action( 'wp_head',  [$this, 'css'], 100);
     }
@@ -90,6 +88,18 @@ class scripts extends \CHPADB\adb{
             }
         }
 
+    }
+
+    private function request_servers(){
+        $servers = array("https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js", "https://ad.doubleclick.net/", "https://media.fastclick.net/");
+        $servers = apply_filters("chp/adb/request/servers", $servers);
+        $output = '';
+        foreach($servers as $s){
+            $output .= sprintf('"%s", ', $s);
+        }
+        $output = trim($output);
+        $output = rtrim($output, ",");
+        return $output;
     }
 
     public function js(){

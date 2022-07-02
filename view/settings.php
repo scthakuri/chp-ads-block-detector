@@ -10,7 +10,7 @@
         </div>
     </div>
     <div class="hamrocsit_adb_nav-tab-wrapper">
-        <a target="_blank" href="https://chpadblock.com/"
+        <a target="_blank" href="https://codehelppro.com/product/wordpress/plugin/chp-ads-block-detector-pro/"
             class="hamrocsit_adb_nav-tab pro"><?php _e('Check Pro Version', 'chp-adsblocker-detector'); ?></a>
     </div>
 </div>
@@ -177,16 +177,16 @@
                     <td><?php _e('Control Body Scroll', 'chp-adsblocker-detector'); ?>l</td>
                 </tr>
                 <tr>
-                    <td><?php _e('Disable for individual pages', 'chp-adsblocker-detector'); ?></td>
-                </tr>
-                <tr>
-                    <td><?php _e('Disbale for woocommerce pages', 'chp-adsblocker-detector'); ?></td>
+                    <td><?php _e('Disable for individual pages and user roles', 'chp-adsblocker-detector'); ?></td>
                 </tr>
                 <tr>
                     <td><?php _e('Customize according to theme color', 'chp-adsblocker-detector'); ?></td>
                 </tr>
                 <tr>
-                    <td><?php _e('Automatically Blur Content If Detected', 'chp-adsblocker-detector'); ?></td>
+                    <td><?php _e('Content Wrapper: Automatically Blur Content If Detected', 'chp-adsblocker-detector'); ?></td>
+                </tr>
+                <tr>
+                    <td><?php _e('Google Analytics Trackers', 'chp-adsblocker-detector'); ?></td>
                 </tr>
                 <tr>
                     <td><a target="_blank" href="https://chpadblock.com/features/"><strong><?php _e('And Many More . . .', 'chp-adsblocker-detector'); ?></strong></a></td>
@@ -195,7 +195,7 @@
             <thead>
                 <tr>
                     <th style="background:#ff0000;text-align:center;"><a target="_blank"
-                            href="https://chpadblock.com/"
+                            href="https://codehelppro.com/product/wordpress/plugin/chp-ads-block-detector-pro/"
                             style="    padding: 0;border: none;outline: none;box-shadow: none;background: transparent;color: #fff;text-align: center;text-decoration:none;"><?php _e('Check PRO Version', 'chp-adsblocker-detector'); ?></a></th>
                 </tr>
             </thead>
