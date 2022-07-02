@@ -3,7 +3,7 @@ Contributors: sureshchand12a,lom666
 Tags: detect ads blocker, ads blocker, blocker, increase revinue
 Requires at least: 5.2
 Tested up to: 6.0
-Stable tag: 3.7.1
+Stable tag: 3.7.3
 Requires PHP: 7.2
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -127,7 +127,7 @@ Yes, For this you have to purchase the premium version of Ads Block Detector. An
 
 == Changelog ==
 
-= 3.7.1 =
+= 3.7.3 =
 *  ☞ Improve Random Class generator
 *  ☞ Compatible with wordpress 6.0
 

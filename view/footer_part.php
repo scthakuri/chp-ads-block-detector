@@ -79,7 +79,7 @@
         ob_start();
         require_once CHP_ADSB_DIR . 'view/main_scripts.php';
         $content = ob_get_clean();
-        // $content = \JShrink\Minifier::minify($content);
+        $content = \JShrink\Minifier::minify($content);
         echo $content;
     ?>
 </script>
