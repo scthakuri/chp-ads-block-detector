@@ -33,24 +33,7 @@ class scripts extends \CHPADB\adb{
         
         add_action( 'wp_footer',  [$this, 'js'], 100);
         add_action( 'wp_head',  [$this, 'css'], 100);
-
-        $this->randnum = $this->generateRandomString(30);
-        $GLOBALS['chpadbfree_class'] = $this->randnum;
     }
-
-    /**
-     * Generate random string
-     */
-    private function generateRandomString($length = 10) {
-        $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
-        $charactersLength = strlen($characters);
-        $randomString = '';
-        for ($i = 0; $i < $length; $i++) {
-            $randomString .= $characters[rand(0, $charactersLength - 1)];
-        }
-        return $randomString;
-    }
-
 
     /**
      * Include all admin scripts
@@ -83,6 +66,10 @@ class scripts extends \CHPADB\adb{
         $content = preg_replace("/([0-9]*px(?!;))/", "$1 ", $content);
         $content = preg_replace('!\s+!', ' ', $content);
         return $content;
+    }
+
+    private function rclass($class){
+        return \CHPADB\Includes\adbClass("randomClass")->generate_class($class);
     }
 
     public function css( ){
@@ -119,7 +106,8 @@ class scripts extends \CHPADB\adb{
             $iconAlernativeFile = apply_filters( 'adb/change/icon', $iconAlernativeFile );
             $iconAlernativeAlt = apply_filters( 'adb/change/icon/alt', 'Ads Blocker Image Powered by Code Help Pro' );
 
-            $iconCode = '<img class="chp_ads_blocker_detector-icon" src="'.$iconAlernativeFile.'" alt="'.$iconAlernativeAlt.'">';
+            $iconClass = $this->rclass("icon");
+            $iconCode = '<img class="'.$iconClass.'" src="'.$iconAlernativeFile.'" alt="'.$iconAlernativeAlt.'">';
             $iconCode = apply_filters( 'adb/change/html/icon', $iconCode, $iconAlernativeFile, $iconAlernativeAlt );
 
             $footer_part = CHP_ADSB_DIR . 'view/footer_part.php';

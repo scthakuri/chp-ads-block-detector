@@ -8,14 +8,14 @@
         {
             "name": "Suresh chand",
             "email": "sureshchand12a@gmail.com",
-            "homepage": "https://sureshchand12a.github.io/portfolio/",
+            "homepage": "https://sureshchand.com.np",
             "role": "Developer"
         }
     ],
     "support": {
         "email": "info@codehelppro.com",
         "forum": "https://wordpress.org/support/plugin/chp-ads-block-detector/",
-        "docs": "https://codehelppro.com/doc/chp-ads-block-detector-pro/introduction/"
+        "docs": "https://chpadblock.com/docs/documentation/"
     },
     "autoload" : {
         "classmap": ["includes/"],

@@ -62,7 +62,7 @@ This plugin will also works for opera built-in ads block extension.
 *   Multiple Ads Request Check
 *   And much much more …
 
-For more information regarding adblock detecting and revenue recovery, please visit [CodeHelpPro](https://codehelppro.com/product/wordpress/plugin/chp-ads-block-detector-pro/)
+For more information regarding adblock detecting and revenue recovery, please visit [CodeHelpPro](https://chpadblock.com/pricing/)
 
 **INSTALLATION**
 
@@ -78,7 +78,7 @@ This section describes how to install the plugin and get it working.
 **FREQUENTLY ASKED QUESTIONS**
 
 **Q:** WHAT IS CONTENT WRAPPER SETTINGS?
-**A:** Content Wrapper settings is new released settings on PRO release. This settings will detect the content on the page and blur the content and show the adblock message over the content. You don't need additional setup for this. Just enable this settings. For more details, [check here](https://codehelppro.com/doc/chp-ads-block-detector-pro/content-wrapper/).
+**A:** Content Wrapper settings is new released settings on PRO release. This settings will detect the content on the page and blur the content and show the adblock message over the content. You don't need additional setup for this. Just enable this settings. For more details, [check here](https://chpadblock.com/docs/content-wrapper/).
 
 
 **Q:** IS IT WORKING FOR OPERA BUILT-IN ADS BLOCKER EXTENSION?
@@ -94,12 +94,16 @@ This section describes how to install the plugin and get it working.
 **A:** Yes, it is. It will compatible with most of the plugin that exists on WordPress repository.
 
 **Q:** I FOUND INCOMPATIBILITY, WHAT WILL I DO?
-**A:** Please create a forum in [https://codehelppro.com/community/ads-blocker-plugin/](https://codehelppro.com/community/ads-blocker-plugin/) or WordPress support inside the CHP Ads Block Detector section. We will contact you as soon as possible.
+**A:** Please create a forum in [https://chpadblock.com/support/](https://chpadblock.com/support/) or WordPress support inside the CHP Ads Block Detector section. We will contact you as soon as possible.
 
 **Q:** CAN I IMPLEMENT CUSTOM MODAL?
-**A:** Yes, For this you have to purchase the premium version of Ads Block Detector. And also [check the documentation](https://codehelppro.com/doc/chp-ads-block-detector-pro/custom-modal/).
+**A:** Yes, For this you have to purchase the premium version of Ads Block Detector. And also [check the documentation](https://chpadblock.com/docs/custom-modal/).
 
 **CHANGELOG**
+
+***3.6.1***
+*  ☞ Multiple Ads server added
+*  ☞ Supported to wordpress 6.0 Version
 
 ***3.6***
 *  ☞ Class Ads Request Issue Fixed
@@ -121,7 +125,7 @@ This section describes how to install the plugin and get it working.
 ***2.5.5***
 *  ☞ Fixed: Error shown if adblock is disabled also
 *  ☞ Improved: Improved way to check the ad block extension
-*  ☞ Added: Now, You can customize interval to check for adblock extensions. On each interval of time, Script will check whether adblock is installed or not. [Check the documentation](https://codehelppro.com/doc/chp-ads-block-detector-pro/filters/) for more details.
+*  ☞ Added: Now, You can customize interval to check for adblock extensions. On each interval of time, Script will check whether adblock is installed or not. [Check the documentation](https://chpadblock.com/docs/filter-hooks/) for more details.
 
 ***2.5.3***
 *  ☞ Added: Ability to control the multiple request

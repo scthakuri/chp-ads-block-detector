@@ -1,24 +1,24 @@
-<div class="chp_ads_blocker_detector_admin chp_ads_blocker_detector-about-wrap">
-    <div class="chp_ads_blocker_detector-top-section">
-        <img class="chp_ads_blocker_detector-logo" src="<?php echo CHP_ADSB_URL . 'assets/img/icon.png'; ?>">
-        <div class="chp_ads_blocker_detector-content">
+<div class="hamrocsit_adb_admin hamrocsit_adb_about-wrap">
+    <div class="hamrocsit_adb_top-section">
+        <img class="hamrocsit_adb_logo" src="<?php echo CHP_ADSB_URL . 'assets/img/icon.png'; ?>">
+        <div class="hamrocsit_adb_content">
             <h1><?php _e('CHP ADS Block Detector!', 'chp-adsblocker-detector'); ?></h1>
             <span>#<?php _e('The Best ads block detector wordpress plugin', 'chp-adsblocker-detector'); ?></span>
         </div>
-        <div class="chp_ads_blocker_detector-version"><?php _e('Version', 'chp-adsblocker-detector'); ?>:
+        <div class="hamrocsit_adb_version"><?php _e('Version', 'chp-adsblocker-detector'); ?>:
             <b><?php echo CHP_ADSB_VERSION; ?></b>
         </div>
     </div>
-    <div class="chp_ads_blocker_detector-nav-tab-wrapper">
-        <a target="_blank" href="https://codehelppro.com/product/wordpress/plugin/chp-ads-block-detector-pro/"
-            class="chp_ads_blocker_detector-nav-tab pro"><?php _e('Check Pro Version', 'chp-adsblocker-detector'); ?></a>
+    <div class="hamrocsit_adb_nav-tab-wrapper">
+        <a target="_blank" href="https://chpadblock.com/"
+            class="hamrocsit_adb_nav-tab pro"><?php _e('Check Pro Version', 'chp-adsblocker-detector'); ?></a>
     </div>
 </div>
 
-<div class=" chp_ads_blocker_detector-content-setion">
+<div class="hamrocsit_adb_content-setion">
 
     <div style="display: flex;">
-        <table class="table" id="chp_ads_block_table">
+        <table class="table" id="hamrocsit_adb_table">
             <thead>
                 <tr>
                     <th colspan="2"><?php _e('Settings', 'chp-adsblocker-detector'); ?></th>
@@ -151,7 +151,7 @@
             </tbody>
         </table>
 
-        <table class="table" id="chp_ads_block_table" style="width:23%;margin-left:2%;">
+        <table class="table" id="hamrocsit_adb_table" style="width:23%;margin-left:2%;">
             <thead>
                 <tr>
                     <th><?php _e('PRO Version Capability', 'chp-adsblocker-detector'); ?></th>
@@ -171,7 +171,7 @@
                     <td><?php _e('Overlay Effect Customizable', 'chp-adsblocker-detector'); ?></td>
                 </tr>
                 <tr>
-                    <td><?php _e('Theme', 'chp-adsblocker-detector'); ?></td>
+                    <td><?php _e('Dark and Light Theme', 'chp-adsblocker-detector'); ?></td>
                 </tr>
                 <tr>
                     <td><?php _e('Control Body Scroll', 'chp-adsblocker-detector'); ?>l</td>
@@ -189,13 +189,13 @@
                     <td><?php _e('Automatically Blur Content If Detected', 'chp-adsblocker-detector'); ?></td>
                 </tr>
                 <tr>
-                    <td><strong><?php _e('And Many More . . .', 'chp-adsblocker-detector'); ?></strong></td>
+                    <td><a target="_blank" href="https://chpadblock.com/features/"><strong><?php _e('And Many More . . .', 'chp-adsblocker-detector'); ?></strong></a></td>
                 </tr>
             </tbody>
             <thead>
                 <tr>
                     <th style="background:#ff0000;text-align:center;"><a target="_blank"
-                            href="https://codehelppro.com/product/wordpress/plugin/chp-ads-block-detector-pro/"
+                            href="https://chpadblock.com/"
                             style="    padding: 0;border: none;outline: none;box-shadow: none;background: transparent;color: #fff;text-align: center;text-decoration:none;"><?php _e('Check PRO Version', 'chp-adsblocker-detector'); ?></a></th>
                 </tr>
             </thead>

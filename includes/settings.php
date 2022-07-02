@@ -52,7 +52,7 @@ class settings{
         Insert Settings link
         *****************************************/
         $links[] = '<a style="color:#009688;font-weight:bold;" href="admin.php?page=chp-adsblocker-detector">'.__('Settings','chp-adsblocker-detector').'</a>';
-        $links[] = '<a style="color:red;font-weight:bold;" target="_blank" href="https://codehelppro.com/product/wordpress/plugin/chp-ads-block-detector-pro/">'.__('BUY PRO!!','chp-adsblocker-detector').'</a>';
+        $links[] = '<a style="color:red;font-weight:bold;" target="_blank" href="https://chpadblock.com/pricing/">'.__('BUY PRO!!','chp-adsblocker-detector').'</a>';
         return $links;
 
     }
@@ -60,8 +60,8 @@ class settings{
     public function manage_external_links(){
         try {
             global $submenu;
-            $url = 'https://codehelppro.com/product/wordpress/plugin/chp-ads-block-detector-pro/';
-            $supurl = 'https://codehelppro.com/community/ads-blocker-plugin/';
+            $url = 'https://chpadblock.com/';
+            $supurl = 'https://chpadblock.com/docs/support/';
             $submenu['chp-adsblocker-detector'][1] = array( 'Support', 'manage_options', $supurl, 'Support' );
             $submenu['chp-adsblocker-detector'][2] = array( 'Buy Pro', 'manage_options', $url, 'Buy Pro' );
         } catch (\Throwable $th) {

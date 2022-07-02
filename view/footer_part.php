@@ -15,9 +15,9 @@
 
     $brandingcode = '';
     if( $branding ){
-        $brandingURLArray = array("https://codehelppro.com/product/wordpress/plugin/chp-ads-block-detector-pro/", "https://hamrocsit.com");
+        $brandingURLArray = array("https://hamrocsit.com", "https://chpadblock.com/");
         $brandingURL = $brandingURLArray[array_rand($brandingURLArray)];
-        $brandingcode = sprintf('<div class="chp_branding%s"><a id="chp_branding%s" href="%s" target="_blank" rel="noopener noreferrer"><span class="chp_brading_powered_by" style="color: rgb(9, 13, 22);">Powered By</span> <div class="chp_brading_svg"><img src="%sassets/img/branding.svg" alt="CHP Adblock Detector Plugin | Codehelppro" /></div></a></div>', $this->randnum, $this->randnum, $brandingURL, CHP_ADSB_URL);
+        $brandingcode = sprintf('<div class="%s"><a id="%s" href="%s" target="_blank" rel="noopener noreferrer"><span class="%s" style="color: rgb(9, 13, 22);">Powered By</span> <div class="%s"><img src="%sassets/img/d.svg" alt="Best Wordpress Adblock Detecting Plugin | CHP Adblock" /></div></a></div>', $this->rclass("chp_branding"), $this->rclass("chp_branding"), $brandingURL, $this->rclass("powered_by"), $this->rclass("chp_brading_svg"), CHP_ADSB_URL);
     }
 
     /**
@@ -26,19 +26,19 @@
      * @since 5.1.2
      */
     if( $imageAds ){
-        echo '<div class="demo-wrapper" style="display:none;"><div class="ads"><img id="chp-ads-image" src="images/ads.jpg" height="250" width="300" alt=""></div></div>';
+        echo sprintf('<div class="demo-wrapper" style="display:none;"><div class="ads"><img id="%s" src="images/ads.jpg" height="250" width="300" alt=""></div></div>', $rclass, $this->rclass("chp-ads-image"));
     }else{
-        echo '<div class="demo-wrapper" style="display:none;"><div id="chp-ads-image"></div></div>';
+        echo sprintf('<div class="demo-wrapper" style="display:none;"><div id="chp-ads-image"></div></div>', $this->rclass("chp-ads-image"));
     }
 ?>
 <!-- The Modal -->
-<div id="chp_ads_block_modal_new<?php echo $this->randnum; ?>" class="chp_ads_block_modal<?php echo $this->randnum; ?> fadeInDown">
-    <div class="chp_ads_block_modal_content" id="chp_ads_block_modal_content">
-        <div class="chp_ads_block_pro_body" id="chp_ads_block_pro_body">
-            <div class="chp_ads_block_detector_theme theme1">
-                <div class="chp_ads_block_pro_body">
+<div id="<?php echo $this->rclass("modal"); ?>" class="<?php echo $this->rclass("modal"); ?> fadeInDown">
+    <div class="<?php echo $this->rclass("content"); ?>" id="<?php echo $this->rclass("content"); ?>">
+        <div class="<?php echo $this->rclass("body"); ?>" id="<?php echo $this->rclass("body"); ?>">
+            <div class="<?php echo $this->rclass("theme"); ?> theme1">
+                <div class="<?php echo $this->rclass("body"); ?>">
 
-                    <div class="chp_ads_blocker_wrapper">
+                    <div class="<?php echo $this->rclass("wrapper"); ?>">
                         <?php  
                             /**
                              * Get icon html
@@ -53,11 +53,11 @@
                     <div class="adblock_subtitle"><?php echo $settings->content; ?></div>
 
 
-                    <div class="chp_ads_blocker_detector-action">
+                    <div class="<?php $this->rclass("action"); ?>">
                         <?php if( filter_var( $settings->btn2_show, FILTER_VALIDATE_BOOLEAN ) ): ?> <a
-                            class="chp_ads_blocker_detector-action-btn-close<?php echo $this->randnum; ?>" id="close_btn_adblock<?php echo $this->randnum; ?>"><?php echo $settings->btn2_text; ?></a> <?php endif; ?>
+                            class="<?php echo $this->rclass("action-btn-close"); ?>" id="<?php echo $this->rclass("close_btn_adblock"); ?>"><?php echo $settings->btn2_text; ?></a> <?php endif; ?>
                         <?php if( filter_var( $settings->btn1_show, FILTER_VALIDATE_BOOLEAN ) ): ?> <a
-                            class="chp_ads_blocker_detector-action-btn-ok"
+                            class="<?php echo $this->rclass("action-btn-ok"); ?>"
                             onclick="reload()"><?php echo $settings->btn1_text; ?></a>
                         <?php endif; ?>
                     </div>

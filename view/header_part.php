@@ -1,17 +1,17 @@
 <style>
-.chp_ads_blocker_detector-show<?php echo $this->randnum; ?> {
+.<?php echo $this->rclass("show"); ?> {
     -webkit-animation: bounceIn .35s ease;
     -o-animation: bounceIn .35s ease;
     animation: bounceIn .35s ease;
 }
 
-.chp_ads_blocker_detector-hide {
+.<?php echo $this->rclass("hide"); ?>{
     -webkit-animation: bounceOut .35s ease;
     -o-animation: bounceOut .35s ease;
     animation: bounceOut .35s ease;
 }
 
-.chp_ads_blocker_detector-message {
+.<?php echo $this->rclass("message"); ?>{
     margin: 0;
     padding: 0;
     color: #000;
@@ -19,13 +19,14 @@
     line-height: 1.5;
 }
 
-.chp_ads_blocker_detector-action {
+.<?php echo $this->rclass("action"); ?>{
     padding: 8px;
     text-align: right;
 }
 
-.chp_ads_blocker_detector-action-btn-ok,
-.chp_ads_blocker_detector-action-btn-close<?php echo $this->randnum; ?> {
+
+.<?php echo $this->rclass("action-button-ok"); ?>,
+.<?php echo $this->rclass("action-button-close"); ?>{
     cursor: pointer;
     text-align: center;
     outline: none !important;
@@ -36,40 +37,48 @@
     transition: all 0.45s cubic-bezier(0.23, 1, 0.32, 1);
 }
 
-.chp_ads_blocker_detector-action-btn-ok {
+.<?php echo $this->rclass("action-button-ok"); ?>{
     color: #000;
     width: 100%;
 }
 
-.chp_ads_blocker_detector-action-btn-close {
+
+.<?php echo $this->rclass("action-button-close"); ?>{
     color: #1e8cbe;
 }
 
-.chp_ads_blocker_detector-icon.svg {
+
+.<?php echo $this->rclass("icon"); ?>.svg{
     padding-top: 1rem;
 }
 
-img.chp_ads_blocker_detector-icon {
+
+img.<?php echo $this->rclass("icon"); ?>{
     width: 100px;
-    padding: 1rem;
+    padding: 0;
+    margin-bottom:10px;
 }
 
-.chp_ads_blocker_detector {
+
+.<?php echo $this->rclass(""); ?>{
     padding: 5px;
 }
 
-.chp_ads_blocker_detector-footer {
+
+.<?php echo $this->rclass("footer"); ?>{
     padding: 10px;
     padding-top: 0;
 }
 
-.chp_ads_blocker_detector-footer a {
+
+.<?php echo $this->rclass("footer"); ?> a{
     font-size: 14px;
 }
 
-.theme2_close_btn,
-.theme2_close_btn:active,
-.theme2_close_btn:focus {
+
+.<?php echo $this->rclass("theme2_close_btn"); ?>,
+.<?php echo $this->rclass("theme2_close_btn"); ?>:active,
+.<?php echo $this->rclass("theme2_close_btn"); ?>:focus{
     background: #fff;
     border-radius: 50%;
     height: 35px;
@@ -87,7 +96,8 @@ img.chp_ads_blocker_detector-icon {
     align-items: center;
 }
 
-.chp_ads_blocker_wrapper {
+
+.<?php echo $this->rclass("wrapper"); ?>{
     padding-top: 10px;
     margin-bottom: 10px;
     display: flex;
@@ -111,27 +121,32 @@ img.chp_ads_blocker_detector-icon {
     }
 }
 
-.chp_ads_block_pro<?php echo $this->randnum; ?>:not(.chp_ads_blocker_detector-show<?php echo $this->randnum; ?>),
-.chp_ads_block_modal<?php echo $this->randnum; ?>:not(.chp_ads_blocker_detector-show<?php echo $this->randnum; ?>) {
+
+.<?php echo $this->rclass("pro"); ?>:not(.<?php echo $this->rclass("show"); ?>),
+.<?php echo $this->rclass("modal"); ?>:not(.<?php echo $this->rclass("show"); ?>){
     display: none;
 }
 
-.chp_ads_block_modal .chp_ads_block_modal_content .chp_ads_block_image_wrapper {
+
+.<?php echo $this->rclass("modal"); ?> .<?php echo $this->rclass("content"); ?> .<?php echo $this->rclass("image_wrapper"); ?>{
     padding-top: 1rem;
     padding-bottom: 0;
 }
 
-.chp_ads_block_modal .chp_ads_block_modal_content .adblock_title,
+
+.<?php echo $this->rclass("modal"); ?> .<?php echo $this->rclass("content"); ?> .adblock_title,
 .chpadbpro_wrap_title {
     margin: 1.3rem 0;
 }
 
-.chp_ads_block_modal .chp_ads_block_modal_content .adblock_subtitle {
+
+.<?php echo $this->rclass("modal"); ?> .<?php echo $this->rclass("content"); ?> .adblock_subtitle{
     padding: 0 1rem;
     padding-bottom: 1rem;
 }
 
-.chp_ads_block_pro_buttons {
+
+.<?php echo $this->rclass("pro_buttons"); ?>{
     width: 100%;
     align-items: center;
     display: flex;
@@ -140,16 +155,19 @@ img.chp_ads_blocker_detector-icon {
     border-bottom: 1px solid #d6d6d6;
 }
 
-.chp_ads_block_pro_buttons_row+.chp_ads_block_pro_buttons_row {
+
+.<?php echo $this->rclass("pro_buttons_row"); ?>+.<?php echo $this->rclass("pro_buttons_row"); ?>{
     border-left: 1px solid #d6d6d6;
 }
 
-.chp_ads_block_pro_buttons .chp_ads_block_pro_buttons_row {
+
+.<?php echo $this->rclass("pro_buttons"); ?> .<?php echo $this->rclass("pro_buttons_row"); ?>{
     flex: 1 1 auto;
     padding: 1rem;
 }
 
-.chp_ads_block_pro_buttons_row p {
+
+.<?php echo $this->rclass("pro_buttons_row"); ?> p{
     margin: 0;
     font-size: 16px;
     font-weight: bold;
@@ -157,8 +175,9 @@ img.chp_ads_blocker_detector-icon {
     margin-bottom: 0.3rem;
 }
 
-.chp_ads_block_pro_buttons_row button,
-.chp_ads_block_pro_buttons_row a {
+
+.<?php echo $this->rclass("pro_buttons"); ?> button,
+.<?php echo $this->rclass("pro_buttons"); ?> a{
     background: #fff;
     border: 1px solid #fff;
     color: #000;
@@ -168,14 +187,16 @@ img.chp_ads_blocker_detector-icon {
     text-decoration: none;
 }
 
-.chp_ads_block_pro_footer {
+
+.<?php echo $this->rclass("pro_footer"); ?>{
     display: flex;
     justify-content: space-between;
     padding: 1rem;
 }
 
-.chp_ads_block_pro_footer a,
-.chp_ads_block_pro_footer a:focus {
+
+.<?php echo $this->rclass("pro_footer"); ?> a,
+.<?php echo $this->rclass("pro_footer"); ?> a:focus{
     text-decoration: none;
     color: #000;
     font-size: 12px;
@@ -197,7 +218,7 @@ body .ofs-admin-doc-box .chp_ad_block_pro_admin_preview #chp_ads_blocker-modal {
     border: 3px solid #ddd;
 }
 
-#chp_adb_instruction_close_btn {
+#<?php echo $this->rclass("instruction_close_btn") ?>{
     border: none;
     position: absolute;
     top: -3.5%;
@@ -216,12 +237,13 @@ body .ofs-admin-doc-box .chp_ad_block_pro_admin_preview #chp_ads_blocker-modal {
     text-decoration: none;
 }
 
-#chp_adb_instruction_close_btn svg {
+
+#<?php echo $this->rclass("instruction_close_btn") ?> svg{
     margin: 0 -1rem;
 }
 
 
-body #chp_ads_blocker-modal.active {
+body #<?php echo $this->rclass("modal"); ?>.active{
     width: 60%;
     left: 20%;
     top: 10%;
@@ -229,7 +251,7 @@ body #chp_ads_blocker-modal.active {
 }
 
 @media only screen and (max-width:800px) {
-    body #chp_ads_blocker-modal.active {
+    body #<?php echo $this->rclass("modal"); ?>.active{
         width: 80%;
         left: 10%;
         top: 5%;
@@ -238,14 +260,14 @@ body #chp_ads_blocker-modal.active {
 }
 
 @media only screen and (max-width:550px) {
-    body #chp_ads_blocker-modal.active {
+    body #<?php echo $this->rclass("modal"); ?>.active{
         width: 100%;
         left: 0%;
         top: 0%;
         height: 99vh;
     }
 
-    #chp_adb_instruction_close_btn {
+    #<?php echo $this->rclass("instruction_close_btn") ?>{
         top: 2%;
         right: 2%;
     }
@@ -255,8 +277,8 @@ body #chp_ads_blocker-modal.active {
     color: #fff !important;
 }
 
-.adblock_btn,
-.adblock_btn_secondary {
+.<?php echo $this->rclass("adblock_btn"); ?>,
+.<?php echo $this->rclass("adblock_btn_secondary"); ?>{
     border: none;
     border-radius: 5px;
     padding: 9px 20px !important;
@@ -267,34 +289,35 @@ body #chp_ads_blocker-modal.active {
     border: 2px solid;
 }
 
-.adblock_btn:hover,
-.adblock_btn_secondary:hover {
+.<?php echo $this->rclass("adblock_btn"); ?>:hover,
+.<?php echo $this->rclass("adblock_btn_secondary"); ?>:hover{
     background: none;
     box-shadow: none;
 }
 
-.adblock_btn:hover {
+.<?php echo $this->rclass("adblock_btn"); ?>:hover{
     color: #fff !important;
 }
 
-.adblock_btn_secondary:hover {
+.<?php echo $this->rclass("adblock_btn_secondary"); ?>:hover{
     color: #888 !important;
 }
 
-.adblock_btn {
+.<?php echo $this->rclass("adblock_btn"); ?>{
     background-color: #fff;
     box-shadow: 0px 6px 18px -5px #fff;
     border-color: #fff;
 }
 
-.adblock_btn_secondary {
+
+.<?php echo $this->rclass("adblock_btn_secondary"); ?>{
     background-color: #8a8a8a;
     box-shadow: 0px 6px 18px -5px #8a8a8a;
     border-color: #8a8a8a;
 }
 
 
-body .chp_ads_block_modal<?php echo $this->randnum; ?> {
+body .<?php echo $this->rclass("modal"); ?>{
     position: fixed;
     z-index: 9999999999;
     padding-top: <?php echo $settings->top;
@@ -308,12 +331,11 @@ body .chp_ads_block_modal<?php echo $this->randnum; ?> {
     background-color: rgba(0, 0, 0, 0.6);
 }
 
-.chp_ads_block_modal<?php echo $this->randnum; ?> .chp_ads_blocker_detector-show<?php echo $this->randnum; ?> {
+.<?php echo $this->rclass("modal"); ?> .<?php echo $this->rclass("show"); ?>{
     display: block;
 }
 
-
-.chp_ads_block_modal<?php echo $this->randnum; ?> .chp_ads_block_modal_content {
+.<?php echo $this->rclass("modal"); ?> .<?php echo $this->rclass("content"); ?>{
     background-color: #fff;
     margin: auto;
     padding: 20px;
@@ -325,34 +347,39 @@ body .chp_ads_block_modal<?php echo $this->randnum; ?> {
     position: relative;
 }
 
-.chp_ads_block_detector_theme.theme3 {
+.<?php echo $this->rclass("theme"); ?>.theme3{
     text-align: center;
 }
 
-.chp_ads_block_detector_theme * {
+
+.<?php echo $this->rclass("theme"); ?> *{
     color: #000;
     text-align: center;
 }
 
-.chp_ads_block_detector_theme.theme2 a {
+
+.<?php echo $this->rclass("theme"); ?>.theme2 a{
     text-decoration: none;
 }
 
-.chp_ads_block_detector_theme.theme2 a:first-child {
+
+.<?php echo $this->rclass("theme"); ?>.theme2 a:first-child{
     margin-bottom: 0.5rem !important;
 }
 
-.adblock_new_icon .image-container {
+
+.<?php echo $this->rclass("adblock_new_icon"); ?> .image-container{
     width: 100px;
     text-align: center;
     margin-bottom: -20px;
 }
 
-.adblock_new_icon .image-container .image {
+.<?php echo $this->rclass("adblock_new_icon"); ?> .image-container .image{
     position: relative;
 }
 
-.adblock_new_icon .image-container .image h3 {
+
+.<?php echo $this->rclass("adblock_new_icon"); ?> .image-container .image h3{
     font-size: 30px;
     font-weight: 700;
     background: transparent;
@@ -366,7 +393,7 @@ body .chp_ads_block_modal<?php echo $this->randnum; ?> {
     margin-bottom: 1em;
 }
 
-.adblock_new_icon .image-container .image i.exclametry_icon {
+.<?php echo $this->rclass("adblock_new_icon"); ?> .image-container .image i.exclametry_icon{
     position: absolute;
     right: 0;
     top: 8%;
@@ -384,34 +411,35 @@ body .chp_ads_block_modal<?php echo $this->randnum; ?> {
 }
 
 @media only screen and (max-width:1000px) {
-    .chp_ads_block_modal .chp_ads_block_modal_content {
+    .<?php echo $this->rclass("modal"); ?> .<?php echo $this->rclass("content"); ?>{
         width: calc(<?php echo $settings->width; ?>% + 15%);
     }
 }
 
 @media only screen and (max-width:800px) {
-    .chp_ads_block_modal .chp_ads_block_modal_content {
+    .<?php echo $this->rclass("modal"); ?> .<?php echo $this->rclass("content"); ?>{
         width: calc(<?php echo $settings->width; ?>% + 25%);
     }
 }
 
 @media only screen and (max-width:700px) {
-    .chp_ads_block_modal .chp_ads_block_modal_content {
+    .<?php echo $this->rclass("modal"); ?> .<?php echo $this->rclass("content"); ?>{
         width: calc(<?php echo $settings->width; ?>% + 35%);
     }
 }
 
 @media only screen and (max-width:500px) {
-    .chp_ads_block_modal .chp_ads_block_modal_content {
+    .<?php echo $this->rclass("modal"); ?> .<?php echo $this->rclass("content"); ?>{
         width: 95%;
     }
 }
 
-#chp_adb_instruction_close_btn {
+#<?php echo $this->rclass("instruction_close_btn"); ?>{
     color: #fff !important;
 }
 
-.chp_branding<?php echo $this->randnum; ?> {
+
+.<?php echo $this->rclass("chp_branding"); ?>{
     display: inline-block;
     height: 40px;
     padding: 10px 20px;
@@ -425,6 +453,7 @@ body .chp_ads_block_modal<?php echo $this->randnum; ?> {
     right: 2%;
 }
 
+.<?php echo $this->rclass("powered_by"); ?>,
 .chp_brading_powered_by {
     display: inline-block;
     height: 20px;
@@ -436,19 +465,20 @@ body .chp_ads_block_modal<?php echo $this->randnum; ?> {
     vertical-align: top;
 }
 
-.chp_brading_svg {
+
+.<?php echo $this->rclass("chp_brading_svg"); ?>{
     display: inline-block;
     height: 20px;
     vertical-align: top;
 }
 
-.chp_brading_svg img {
+.<?php echo $this->rclass("chp_brading_svg"); ?> img{
     display: block;
     height: 100%;
     width: auto;
 }
 
-.chp_branding<?php echo $this->randnum; ?>.hide {
+.<?php echo $this->rclass("chp_branding"); ?>.hide {
     display: none !important
 }
 </style>

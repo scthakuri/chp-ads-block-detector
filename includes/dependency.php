@@ -56,6 +56,7 @@ class dependency{
     public function get_modules(){
 
         return array(
+            'randomClass',
             'scripts',
             'settings',
             'ajax',

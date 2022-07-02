@@ -1,21 +1,21 @@
-.chp_ads_blocker_detector_admin {
+.hamrocsit_adb_admin {
   background-color: #fff;
   box-shadow: 0 2px 4px 0 rgb(0 0 0 / 12%);
   border-radius: 3px;
   overflow: hidden;
 }
-.chp_ads_blocker_detector-about-wrap {
+.hamrocsit_adb_about-wrap {
   position: relative;
   margin: 25px 40px 0 20px;
   max-width: 1050px;
   font-size: 15px;
 }
-.chp_ads_blocker_detector-top-section {
+.hamrocsit_adb_top-section {
   display: flex;
   align-items: center;
   position: relative;
 }
-.chp_ads_blocker_detector-top-section:before {
+.hamrocsit_adb_top-section:before {
   content: "";
   width: 100%;
   height: 1px;
@@ -23,7 +23,7 @@
   position: absolute;
   bottom: 0;
 }
-.chp_ads_blocker_detector-logo {
+.hamrocsit_adb_logo {
   width: 75px;
   z-index: 1;
   margin: 0;
@@ -32,25 +32,25 @@
   border: none;
   margin: 3px;
 }
-.chp_ads_blocker_detector-content {
+.hamrocsit_adb_content {
   padding: 0 20px;
 }
-.chp_ads_blocker_detector-content h1 {
+.hamrocsit_adb_content h1 {
   font-size: 24px;
   font-weight: 700;
   margin: 0;
   margin-bottom: 7px;
 }
-.chp_ads_blocker_detector-content span {
+.hamrocsit_adb_content span {
   font-size: 12px;
 }
-.chp_ads_blocker_detector-version {
+.hamrocsit_adb_version {
   padding-left: 20px;
   font-size: 14px;
   position: absolute;
   right: 20px;
 }
-.chp_ads_blocker_detector-nav-tab {
+.hamrocsit_adb_nav-tab {
   border: none;
   background: 0 0;
   font-size: 14px;
@@ -69,10 +69,10 @@
   text-decoration: none;
   white-space: nowrap;
 }
-.chp_ads_blocker_detector-nav-tab-wrapper {
+.hamrocsit_adb_nav-tab-wrapper {
   position: relative;
 }
-.chp_ads_blocker_detector-nav-tab-wrapper a {
+.hamrocsit_adb_nav-tab-wrapper a {
   float: right;
   float: right;
   color: #fff;
@@ -80,10 +80,10 @@
   font-size: 1.1rem;
   padding: 0.3rem 2rem;
 }
-.chp_ads_blocker_detector-nav-tab-wrapper a.pro {
+.hamrocsit_adb_nav-tab-wrapper a.pro {
   background-color: #ff0000;
 }
-.chp_ads_blocker_detector-nav-tab-wrapper a:not(.pro) {
+.hamrocsit_adb_nav-tab-wrapper a:not(.pro) {
   background: red;
 }
 .container {
@@ -111,14 +111,14 @@
     max-width: 1152px;
   }
 }
-.chp_ads_blocker_detector_admin h1.title {
+.hamrocsit_adb_admin h1.title {
   font-size: 1.3rem;
   font-weight: 700;
   text-transform: uppercase;
   padding-bottom: 0.6rem;
   margin-bottom: 3px;
 }
-.chp_ads_blocker_detector-content-setion {
+.hamrocsit_adb_content-setion {
   padding: 1rem;
 }
 .settings_form {
@@ -183,33 +183,33 @@
   -ms-transform: rotate(45deg);
   transform: rotate(45deg);
 }
-table#chp_ads_block_table {
+table#hamrocsit_adb_table {
   border-collapse: collapse;
   width: 73%;
   background-color: #fff;
   box-shadow: 0 2px 4px 0 rgb(0 0 0 / 12%);
   border-radius: 3px;
 }
-#chp_ads_block_table td,
-#chp_ads_block_table th {
+#hamrocsit_adb_table td,
+#hamrocsit_adb_table th {
   border: 1px solid #ddd;
   padding: 10px;
 }
-#chp_ads_block_table tr:nth-child(even) {
+#hamrocsit_adb_table tr:nth-child(even) {
   cursor: pointer;
 }
-#chp_ads_block_table tr:hover {
+#hamrocsit_adb_table tr:hover {
   cursor: pointer;
 }
-#chp_ads_block_table th {
+#hamrocsit_adb_table th {
   padding: 15px 10px;
   text-align: left;
   background-color: #ff0000;
   color: #fff;
   text-transform: uppercase;
 }
-table#chp_ads_block_table input.chpabd_form_settings,
-table#chp_ads_block_table textarea.chpabd_form_settings {
+table#hamrocsit_adb_table input.chpabd_form_settings,
+table#hamrocsit_adb_table textarea.chpabd_form_settings {
   width: 60%;
   resize: none;
 }
@@ -248,4 +248,13 @@ body .chp_ads_button_row .button {
   text-transform: uppercase;
   font-weight: bold;
   font-family: monospace;
+}
+
+.toplevel_page_chp-adsblocker-detector ul{
+  background: #ffe5e5;
+}
+
+.toplevel_page_chp-adsblocker-detector ul li:last-child a{
+  font-weight: bold;
+  color: #ff7070;
 }

@@ -1,4 +1,4 @@
-const adblockModal = document.getElementById("chp_ads_block_modal_new<?php echo $this->randnum; ?>");
+const adblockModal = document.getElementById("<?php echo $this->rclass("modal"); ?>");
 const adbEnableForPage = true;
 const debug = <?php echo $debug ? 'true' : 'false'; ?>;
 const adbVersion = "<?php echo CHP_ADSB_VERSION; ?>";
@@ -14,15 +14,15 @@ let adsRequestURL = "<?php echo $adsrequest; ?>";
 /**
  * Hide on click
  */
-const brandingBtn = document.getElementById("chp_branding<?php echo $this->randnum; ?>");
+const brandingBtn = document.getElementById("<?php echo $this->rclass("chp_branding"); ?>");
 if(brandingBtn){
     brandingBtn.addEventListener("click", function(event){
         event.preventDefault();
-        window.location.href = "https://codehelppro.com/product/wordpress/plugin/chp-ads-block-detector-pro/";
+        window.location.href = "https://chpadblock.com/pricing/";
         return false;
     });
 }
-const adblockCloseBtn = document.getElementById("close_btn_adblock<?php echo $this->randnum; ?>");
+const adblockCloseBtn = document.getElementById("<?php echo $this->rclass("close_btn_adblock"); ?>");
 if(adblockCloseBtn){
     adblockCloseBtn.onclick = function(){
         hide_model();
@@ -129,8 +129,8 @@ let count = 0;
 function hide_model() {
     try{
         if (typeof adblockModal == 'object') {
-            removeClass(adblockModal, "chp_ads_blocker_detector-show<?php echo $this->randnum; ?>");
-            removeClass(document.body, "chp_ads_blocker_detector_active<?php echo $this->randnum; ?>")
+            removeClass(adblockModal, "<?php echo $this->rclass("show"); ?>");
+            removeClass(document.body, "<?php echo $this->rclass("active"); ?>")
         }
     }catch(e){
         console.warn(e);
@@ -140,8 +140,8 @@ function hide_model() {
 function show_modal(modal) {
     if (modal != null && 0 == displayOnce) {
         displayOnce++;
-        addClass(modal, "chp_ads_blocker_detector-show<?php echo $this->randnum; ?>");
-        addClass(document.body, "chp_ads_blocker_detector_active<?php echo $this->randnum; ?>")
+        addClass(modal, "<?php echo $this->rclass("show"); ?>");
+        addClass(document.body, "<?php echo $this->rclass("active"); ?>")
     }
 }
 

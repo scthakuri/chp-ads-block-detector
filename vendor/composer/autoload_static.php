@@ -23,6 +23,7 @@ class ComposerStaticInitf838456e91ae97678e86032c6630686b
     public static $classMap = array (
         'CHPADB\\Includes\\ajax' => __DIR__ . '/../..' . '/includes/ajax.php',
         'CHPADB\\Includes\\dependency' => __DIR__ . '/../..' . '/includes/dependency.php',
+        'CHPADB\\Includes\\randomClass' => __DIR__ . '/../..' . '/includes/randomClass.php',
         'CHPADB\\Includes\\scripts' => __DIR__ . '/../..' . '/includes/scripts.php',
         'CHPADB\\Includes\\settings' => __DIR__ . '/../..' . '/includes/settings.php',
         'Composer\\InstalledVersions' => __DIR__ . '/..' . '/composer/InstalledVersions.php',

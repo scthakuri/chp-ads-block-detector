@@ -2,8 +2,8 @@
 Contributors: sureshchand12a,lom666
 Tags: detect ads blocker, ads blocker, blocker, increase revinue
 Requires at least: 5.2
-Tested up to: 5.9.2
-Stable tag: 3.5.1
+Tested up to: 6.0
+Stable tag: 3.7.1
 Requires PHP: 7.2
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -126,6 +126,10 @@ Yes, For this you have to purchase the premium version of Ads Block Detector. An
 6. Instruction to Disable the Adblock
 
 == Changelog ==
+
+= 3.6.1 =
+*  ☞ Multiple Ads server added
+*  ☞ Supported to wordpress 6.0 Version
 
 = 3.5 =
 *  ☞ Sine our plugin is whitelist autmatically by adblock extension, We have added random class generator to free version also. We request you to update your plugin immediately.
