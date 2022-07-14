@@ -355,10 +355,18 @@ body .<?php echo $this->rclass("modal"); ?>{
 .<?php echo $this->rclass("theme"); ?> *{
     color: #000;
     text-align: center;
+    text-decoration: none;
 }
 
+.<?php echo $this->rclass("theme"); ?> a{
+    cursor: pointer;
+}
 
-.<?php echo $this->rclass("theme"); ?>.theme2 a{
+.<?php echo $this->rclass("theme"); ?> a:first-child{
+    margin-right:1rem;
+}
+
+.<?php echo $this->rclass("theme"); ?> a{
     text-decoration: none;
 }
 

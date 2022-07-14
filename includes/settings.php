@@ -126,11 +126,13 @@ class settings{
         $defaults = (array) \CHPADB\Includes\defaults();
         $settings = get_option( 'chpadb_plugin_settings' );
 
-        if( !$settings || empty( $settings ) ){
+        if( $settings && !empty( $settings ) ){
+            $settings = json_decode($settings, true);
+        }else{
             $settings = array();
         }
+
         
-        $settings = json_decode($settings, true);
         if( !isset($settings['top']) || empty( $settings['top'] ) ){
             $settings['top'] = "5";
         }

@@ -91,7 +91,7 @@ class scripts extends \CHPADB\adb{
     }
 
     private function request_servers(){
-        $servers = array("https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js", "https://ad.doubleclick.net/", "https://media.fastclick.net/");
+        $servers = array("https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js", "https://ads.facebook.com", "https://advice-ads.s3.amazonaws.com");
         $servers = apply_filters("chp/adb/request/servers", $servers);
         $output = '';
         foreach($servers as $s){
