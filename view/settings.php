@@ -10,7 +10,7 @@
         </div>
     </div>
     <div class="hamrocsit_adb_nav-tab-wrapper">
-        <a target="_blank" href="https://codehelppro.com/product/wordpress/plugin/chp-ads-block-detector-pro/"
+        <a target="_blank" href="https://chpadblock.com/pricing/"
             class="hamrocsit_adb_nav-tab pro"><?php _e('Check Pro Version', 'chp-adsblocker-detector'); ?></a>
     </div>
 </div>
@@ -189,13 +189,13 @@
                     <td><?php _e('Google Analytics Trackers', 'chp-adsblocker-detector'); ?></td>
                 </tr>
                 <tr>
-                    <td><a target="_blank" href="https://chpadblock.com/features/"><strong><?php _e('And Many More . . .', 'chp-adsblocker-detector'); ?></strong></a></td>
+                    <td><a target="_blank" href="https://chpadblock.com/docs/features/"><strong><?php _e('And Many More . . .', 'chp-adsblocker-detector'); ?></strong></a></td>
                 </tr>
             </tbody>
             <thead>
                 <tr>
                     <th style="background:#ff0000;text-align:center;"><a target="_blank"
-                            href="https://codehelppro.com/product/wordpress/plugin/chp-ads-block-detector-pro/"
+                            href="https://chpadblock.com/pricing/"
                             style="    padding: 0;border: none;outline: none;box-shadow: none;background: transparent;color: #fff;text-align: center;text-decoration:none;"><?php _e('Check PRO Version', 'chp-adsblocker-detector'); ?></a></th>
                 </tr>
             </thead>

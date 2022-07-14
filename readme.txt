@@ -1,9 +1,9 @@
 === CHP Ads Block Detector ===
-Contributors: sureshchand12a,lom666
-Tags: detect ads blocker, ads blocker, blocker, increase revinue
+Contributors: sureshchand12a
+Tags: adsense, adblock, anti-adblock, chpadblock, chp, chp-adblock, adblock-plus, ublock-origin
 Requires at least: 5.2
 Tested up to: 6.0
-Stable tag: 3.7.3
+Stable tag: 3.8
 Requires PHP: 7.2
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -69,9 +69,10 @@ This plugin will also works for opera built-in ads block extension.
 *   ☞  Ability to add custom modal
 *   ☞  Completly Random Class Generator Control
 *   ☞  Content Wrapper
+*   ☞  Modal Animation
 *   ☞  And much much more …
 
-For more information regarding adblock detecting and revenue recovery, please visit [CodeHelpPro](https://codehelppro.com/product/wordpress/plugin/chp-ads-block-detector-pro/)
+For more information regarding adblock detecting and revenue recovery, please visit [CHP Adblock](https://chpadblock.com)
 
 == Installation ==
 
@@ -109,11 +110,11 @@ Yes, it is. It will compatible with most of the plugin that exists on WordPress 
 
 =  I FOUND INCOMPATIBILITY, WHAT WILL I DO? =
 
-Please create a forum in [https://codehelppro.com/community/ads-blocker-plugin/](https://codehelppro.com/community/ads-blocker-plugin/) or WordPress support inside the CHP Ads Block Detector section. We will contact you as soon as possible.
+Please create a forum in [https://chpadblock.com/docs/support/](https://chpadblock.com/docs/support/) or WordPress support inside the CHP Ad Block Detector section. We will contact you as soon as possible.
 
 =  CAN I IMPLEMENT CUSTOM MODAL? =
 
-Yes, For this you have to purchase the premium version of Ads Block Detector. And also [check the documentation](https://codehelppro.com/doc/chp-ads-block-detector-pro/custom-modal/).
+Yes, For this you have to purchase the premium version of Ads Block Detector. And also [check the documentation](https://chpadblock.com/docs/support/).
 
 
 
@@ -127,7 +128,7 @@ Yes, For this you have to purchase the premium version of Ads Block Detector. An
 
 == Changelog ==
 
-= 3.7.3 =
+= 3.8 =
 *  ☞ Improve Random Class generator
 *  ☞ Compatible with wordpress 6.0
 

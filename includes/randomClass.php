@@ -33,6 +33,7 @@ class randomClass{
 
     public function init(){
         $GLOBALS['chpadblock_rand_classes'] = $this->generateRandomString(5);
+        $GLOBALS['chpadblock_equal_rand_classes'] = $this->generateRandomString(5);
     }
 
     public function get_from_global(){
@@ -79,10 +80,17 @@ class randomClass{
         }
     }
 
+    public function get_equal_rnd(){
+        if( isset( $GLOBALS['chpadblock_equal_rand_classes'] ) )
+            return $GLOBALS['chpadblock_equal_rand_classes'];
+        return $this->encrypt_decrypt(home_url());
+    }
+
     public function generate_class($class){
         $rclass = $this->get();
         $output = $this->encrypt_decrypt("{$rclass}______{$class}______{$rclass}");
-        $output = str_replace("=", "____equal", $output);
+        $equalreplace = $this->get_equal_rnd();
+        $output = str_replace("=", $equalreplace, $output);
         return $output;
     }
 

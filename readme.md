@@ -62,7 +62,7 @@ This plugin will also works for opera built-in ads block extension.
 *   Multiple Ads Request Check
 *   And much much more …
 
-For more information regarding adblock detecting and revenue recovery, please visit [CodeHelpPro](https://chpadblock.com/pricing/)
+For more information regarding adblock detecting and revenue recovery, please visit [CHP Adblock](https://chpadblock.com/pricing/)
 
 **INSTALLATION**
 
@@ -94,12 +94,16 @@ This section describes how to install the plugin and get it working.
 **A:** Yes, it is. It will compatible with most of the plugin that exists on WordPress repository.
 
 **Q:** I FOUND INCOMPATIBILITY, WHAT WILL I DO?
-**A:** Please create a forum in [https://chpadblock.com/support/](https://chpadblock.com/support/) or WordPress support inside the CHP Ads Block Detector section. We will contact you as soon as possible.
+**A:** Please create a forum in [https://chpadblock.com/docs/support/](https://chpadblock.com/docs/support/) or WordPress support inside the CHP Ads Block Detector section. We will contact you as soon as possible.
 
 **Q:** CAN I IMPLEMENT CUSTOM MODAL?
 **A:** Yes, For this you have to purchase the premium version of Ads Block Detector. And also [check the documentation](https://chpadblock.com/docs/custom-modal/).
 
 **CHANGELOG**
+
+= 3.8 =
+*  ☞ Improve Random Class generator
+*  ☞ Compatible with wordpress 6.0
 
 ***3.6.1***
 *  ☞ Multiple Ads server added

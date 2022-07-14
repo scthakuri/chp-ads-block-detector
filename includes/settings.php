@@ -60,7 +60,7 @@ class settings{
     public function manage_external_links(){
         try {
             global $submenu;
-            $url = 'https://chpadblock.com/';
+            $url = 'https://chpadblock.com/pricing/';
             $supurl = 'https://chpadblock.com/docs/support/';
             $submenu['chp-adsblocker-detector'][1] = array( 'Support', 'manage_options', $supurl, 'Support' );
             $submenu['chp-adsblocker-detector'][2] = array( 'Buy Pro', 'manage_options', $url, 'Buy Pro' );
