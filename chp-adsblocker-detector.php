@@ -4,7 +4,7 @@
  * Plugin Name:       CHP Ads Block Detector
  * Plugin URI:        https://chpadblock.com
  * Description:       <code>CHP Ads Block Detector</code> plugin is developed in order to  detect most of the AdBlock extensions installed on the browser and show a popup to disable the extension. This plugin restricts the user to access the page unless the user will disable the extension for your website.
- * Version:           3.8
+ * Version:           3.8.1
  * Requires at least: 5.2
  * Requires PHP:      7.2
  * Tested up to:      6.0
@@ -43,6 +43,7 @@ if( ! class_exists( 'adb' ) ){
 
              //load all the constants
             $this->constants();
+            add_action( 'upgrader_process_complete', [$this, 'update_settings'], 10, 2 );
 
             //load all require library
             require_once CHP_ADSB_DIR . 'vendor/autoload.php';
@@ -50,6 +51,56 @@ if( ! class_exists( 'adb' ) ){
             //load all dependency
             $dependency = new \CHPADB\Includes\dependency;
             $dependency->init();
+        }
+
+        /**
+         * Restore Old Settings
+         */
+        private function restore_old_settings(){
+            if( ! empty( get_option( 'chp_adb_plugin_title' ) ) ){
+                $defaults = \CHPADB\Includes\defaults();
+                $settings = array(
+                    'enable' => get_option( 'chp_adb_plugin_enable' ),
+                    'title' => get_option( 'chp_adb_plugin_title' ),
+                    'content' => get_option( 'chp_adb_plugin_content' ),
+                    'btn1_show' => get_option( 'chp_adb_plugin_btn1_show' ),
+                    'btn1_text' => get_option( 'chp_adb_plugin_btn1_text' ),
+                    'btn2_show' => get_option( 'chp_adb_plugin_btn2_show' ),
+                    'btn2_text' => get_option( 'chp_adb_plugin_btn2_text' ),
+                    'width' => get_option( 'chp_adb_plugin_width' ),   
+                    'top' => get_option( 'chp_adb_plugin_from_top' ),
+                    'branding' => get_option( 'chp_adb_plugin_branding' )
+                );
+                $settings = wp_parse_args($settings, $defaults);
+                update_option( "chpadb_plugin_settings", json_encode($settings) );
+
+                //delete old options from database
+                delete_option( 'chp_adb_plugin_enable' );
+                delete_option( 'chp_adb_plugin_title' );
+                delete_option( 'chp_adb_plugin_content' );
+                delete_option( 'chp_adb_plugin_btn1_show' );
+                delete_option( 'chp_adb_plugin_btn1_text' );
+                delete_option( 'chp_adb_plugin_btn2_show' );
+                delete_option( 'chp_adb_plugin_btn2_text' );
+                delete_option( 'chp_adb_plugin_width' );
+                delete_option( 'chp_adb_plugin_from_top' );
+                delete_option( 'chp_adb_plugin_branding' );
+            }
+        }
+
+        /**
+         * Update Settings
+         */
+        public function update_settings($upgrader_object, $options){
+            $basename = defined("CHP_ADSB_PLUGIN_NAME") ? CHP_ADSB_PLUGIN_NAME : plugin_basename( __FILE__ );
+            if( $options['action'] == 'update' && $options['type'] == 'plugin' && isset( $options['plugins'] ) ) {
+                foreach( $options['plugins'] as $plugin ) {
+                    if( $plugin == $basename ) {
+                        //restore old settings
+                        $this->restore_old_settings();
+                    }
+                }
+            }
         }
 
         /**
@@ -113,7 +164,7 @@ if( ! class_exists( 'adb' ) ){
 
             //load all the constants
             $consts = array(
-                'CHP_ADSB_VERSION' => '3.8',
+                'CHP_ADSB_VERSION' => '3.8.1',
                 'CHP_ADSB_DIR' => plugin_dir_path( __FILE__ ),
                 'CHP_ADSB_URL' => plugin_dir_url( __FILE__ ),
                 'CHP_ADSB_PLUGIN_NAME' => plugin_basename(__FILE__)

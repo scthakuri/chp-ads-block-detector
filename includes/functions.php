@@ -40,19 +40,7 @@ function adbClass($class){
 
 function setDefaultValues(){
     $options = defaults();
-    update_option( 'chp_adb_plugin_enable', $options->enable );
-    update_option( 'chp_adb_plugin_title', $options->title );
-    update_option( 'chp_adb_plugin_content', $options->content );
-
-    update_option( 'chp_adb_plugin_btn1_show', $options->btn1_show );
-    update_option( 'chp_adb_plugin_btn1_text', $options->btn1_text );
-
-    update_option( 'chp_adb_plugin_btn2_show', $options->btn2_show );
-    update_option( 'chp_adb_plugin_btn2_text', $options->btn2_text );
-
-    update_option( 'chp_adb_plugin_width', $options->width );
-    update_option( 'chp_adb_plugin_from_right', $options->top );
-    update_option( 'chp_adb_plugin_branding', $options->branding );
+    update_option( 'chpadb_plugin_settings', json_encode($options) );
 }
 
 

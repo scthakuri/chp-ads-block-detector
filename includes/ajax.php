@@ -48,57 +48,27 @@ class ajax{
         *****************************************/ 
         if( isset( $_POST['settings'] ) ){
             $settings = $_POST['settings'];
+            $defaults = (array) \CHPADB\Includes\defaults();
             if(is_array($settings) && !empty($settings)){
-                /****************************************
-                update settings of plugin
-                *****************************************/
-                $enable = sanitize_text_field($settings['enable']);
-                $branding = sanitize_text_field($settings['branding']);
-                $title = sanitize_text_field($settings['title']);
-                $btn1_show = sanitize_text_field($settings['btn1_show']);
-                $btn1_text = sanitize_text_field($settings['btn1_text']);
 
-                $btn2_show = sanitize_text_field($settings['btn2_show']);
-                $btn2_text = sanitize_text_field($settings['btn2_text']);
-
-                $content = wp_kses_post($settings['content']);
-
-                $fromTop = sanitize_text_field($settings['top']);
-
-                $width = sanitize_text_field($settings['width']);
-                
-
-                if( ! is_bool( $enable ) )
-                    update_option( 'chp_adb_plugin_enable', $enable );
-
-                if( ! empty( $title ) )
-                    update_option( 'chp_adb_plugin_title', $title );
-
-                if( ! is_bool( $btn1_show ) )
-                    update_option( 'chp_adb_plugin_btn1_show', $btn1_show );
-
-                if( ! empty( $btn1_text ) )
-                    update_option( 'chp_adb_plugin_btn1_text', $btn1_text );
-
-                if( ! is_bool( $btn2_show ) )
-                    update_option( 'chp_adb_plugin_btn2_show', $btn2_show );
-
-                if( ! empty( $btn2_text ) )
-                    update_option( 'chp_adb_plugin_btn2_text', $btn2_text );
-
-                if( ! empty( $content ) )
-                    update_option( 'chp_adb_plugin_content', $content );
-                
-                if( ! empty( $fromTop ) )
-                    update_option( 'chp_adb_plugin_from_top', $fromTop );
-
-                if( ! is_bool( $width ) )
-                    update_option( 'chp_adb_plugin_width', $width );
-
-                if( ! is_bool( $branding ) ){
-                    $branding = filter_var($branding, FILTER_VALIDATE_BOOLEAN) ? "yes" : "no";
-                    update_option( 'chp_adb_plugin_branding', $branding );
+                //sanitize post message
+                $newSettings = array();
+                foreach($settings as $k => $v){
+                    if( isset( $settings[$k] ) ){
+                        if( $k == 'content' ){
+                            $newSettings[$k] = wp_kses_post($settings[$k]);
+                        }else if( $k == 'branding' ){
+                            $branding = sanitize_text_field($settings['branding']);
+                            $branding = filter_var($branding, FILTER_VALIDATE_BOOLEAN) ? "yes" : "no";
+                            $newSettings[$k] = $branding;
+                        }else{
+                            $newSettings[$k] = sanitize_text_field($settings[$k]);
+                        }
+                    }else{
+                        $newSettings[$k] = $defaults[$k];
+                    }
                 }
+                update_option( "chpadb_plugin_settings", json_encode($newSettings) );
                 
                 echo __('Settings save successfully', 'chp-adsblocker-detector');
             }else{

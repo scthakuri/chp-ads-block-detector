@@ -101,7 +101,7 @@ This section describes how to install the plugin and get it working.
 
 **CHANGELOG**
 
-= 3.8 =
+= 3.8.1 =
 *  ☞ Improve Random Class generator
 *  ☞ Compatible with wordpress 6.0
 

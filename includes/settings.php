@@ -123,25 +123,15 @@ class settings{
      */
     public function get(){
 
-        $defaults = \CHPADB\Includes\defaults();
-        $settings = array(
-            'enable' => get_option( 'chp_adb_plugin_enable' ),
-            'title' => get_option( 'chp_adb_plugin_title' ),
-            'content' => get_option( 'chp_adb_plugin_content' ),
-            'btn1_show' => get_option( 'chp_adb_plugin_btn1_show' ),
-            'btn1_text' => get_option( 'chp_adb_plugin_btn1_text' ),
-            'btn2_show' => get_option( 'chp_adb_plugin_btn2_show' ),
-            'btn2_text' => get_option( 'chp_adb_plugin_btn2_text' ),
-            'width' => get_option( 'chp_adb_plugin_width' ),   
-            'top' => get_option( 'chp_adb_plugin_from_top' ),
-            'branding' => get_option( 'chp_adb_plugin_branding' )
-        );
+        $defaults = (array) \CHPADB\Includes\defaults();
+        $settings = get_option( 'chpadb_plugin_settings' );
 
-        // if( empty($settings['branding']) ){
-        //     $settings['branding'] = 'yes';
-        // }
-
-        if( empty( $settings['top'] ) ){
+        if( !$settings || empty( $settings ) ){
+            $settings = array();
+        }
+        
+        $settings = json_decode($settings, true);
+        if( !isset($settings['top']) || empty( $settings['top'] ) ){
             $settings['top'] = "5";
         }
 
@@ -184,79 +174,7 @@ class settings{
             );
 
             add_settings_field(
-                'chp_adb_plugin_enable',
-                '',
-                [$this, 'ofs_null'],
-                'chp_abd_settings',
-                'chp_abd_settings_section'
-            );
-
-            add_settings_field(
-                'chp_adb_plugin_title',
-                '',
-                [$this, 'ofs_null'],
-                'chp_abd_settings',
-                'chp_abd_settings_section'
-            );
-
-            add_settings_field(
-                'chp_adb_plugin_content',
-                '',
-                [$this, 'ofs_null'],
-                'chp_abd_settings',
-                'chp_abd_settings_section'
-            );
-
-            add_settings_field(
-                'chp_adb_plugin_btn1_show',
-                '',
-                [$this, 'ofs_null'],
-                'chp_abd_settings',
-                'chp_abd_settings_section'
-            );
-            
-            add_settings_field(
-                'chp_adb_plugin_width',
-                '',
-                [$this, 'ofs_null'],
-                'chp_abd_settings',
-                'chp_abd_settings_section'
-            );
-
-            add_settings_field(
-                'chp_adb_plugin_from_top',
-                '',
-                [$this, 'ofs_null'],
-                'chp_abd_settings',
-                'chp_abd_settings_section'
-            );
-
-            add_settings_field(
-                'chp_adb_plugin_btn2_show',
-                '',
-                [$this, 'ofs_null'],
-                'chp_abd_settings',
-                'chp_abd_settings_section'
-            );
-
-            add_settings_field(
-                'chp_adb_plugin_btn1_text',
-                '',
-                [$this, 'ofs_null'],
-                'chp_abd_settings',
-                'chp_abd_settings_section'
-            );
-
-            add_settings_field(
-                'chp_adb_plugin_btn2_text',
-                '',
-                [$this, 'ofs_null'],
-                'chp_abd_settings',
-                'chp_abd_settings_section'
-            );
-
-            add_settings_field(
-                'chp_adb_plugin_branding',
+                'chpadb_plugin_settings',
                 '',
                 [$this, 'ofs_null'],
                 'chp_abd_settings',
