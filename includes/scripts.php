@@ -96,17 +96,18 @@ class scripts extends \CHPADB\adb{
         $settings = \CHPADB\Includes\adbClass('settings')->get();
 
         $servers = array("https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js");
-        if( filter_var($settings->server1, FILTER_VALIDATE_BOOLEAN) ){
-            $servers[] = "https://ads-api.twitter.com";
+        if( ! empty( $settings->servers ) ){
+            $serverExplode = preg_split('/\r\n|[\r\n]/', trim($settings->servers));
+            foreach($serverExplode as $s){
+                if( filter_var($s, FILTER_VALIDATE_URL) ){
+                    $servers[] = trim($s);
+                }
+            }
         }
-
-        if( filter_var($settings->server2, FILTER_VALIDATE_BOOLEAN) ){
-            $servers[] = "https://ads.youtube.com";
-        }
-
 
         $servers = apply_filters("chp/adb/request/servers", $servers);
-        return json_encode($servers);
+        $servers = json_encode($servers);
+        return str_replace("\/", "/", $servers);
     }
 
     public function js(){

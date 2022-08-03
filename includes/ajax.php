@@ -57,6 +57,8 @@ class ajax{
                     if( isset( $settings[$k] ) ){
                         if( $k == 'content' ){
                             $newSettings[$k] = wp_kses_post($settings[$k]);
+                        }else if( $k == 'servers' ){
+                            $newSettings[$k] = sanitize_textarea_field($settings[$k]);
                         }else if( $k == 'branding' ){
                             $branding = sanitize_text_field($settings['branding']);
                             $branding = filter_var($branding, FILTER_VALIDATE_BOOLEAN) ? "yes" : "no";

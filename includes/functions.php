@@ -59,7 +59,6 @@ function defaults(){
         'left' => '0',
         'hidemobile' => false,
         'branding' => 'yes',
-        'server1' => 'no',
-        'server2' => 'no'
+        'servers' => 'https://ads.youtube.com'
     );
 }
