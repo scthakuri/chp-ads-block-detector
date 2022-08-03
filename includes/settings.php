@@ -80,8 +80,8 @@ class settings{
      */
     public function admin_menu( ){
         add_menu_page(
-            __( 'ADS BLOCK', 'chp-adsblocker-detector' ),
-            __( 'ADS BLOCK', 'chp-adsblocker-detector' ),
+            __( 'Adblock', 'chp-adsblocker-detector' ),
+            __( 'Adblock', 'chp-adsblocker-detector' ),
             'manage_options',
             'chp-adsblocker-detector',
             [$this, 'setting_page'],

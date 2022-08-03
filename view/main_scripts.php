@@ -8,7 +8,7 @@ let googleAdsControl = <?php echo filter_var($googleAds, FILTER_VALIDATE_BOOLEAN
 let imageAdsControl = <?php echo filter_var($imageAds, FILTER_VALIDATE_BOOLEAN) ? "true" : "false"; ?>;
 let classAdsControl = <?php echo filter_var($classAds, FILTER_VALIDATE_BOOLEAN) ? "true" : "false"; ?>;
 let displayOnce = 0;
-const reqServers = [<?php echo $this->request_servers(); ?>];
+const reqServers = <?php echo $this->request_servers(); ?>;
 
 
 /**

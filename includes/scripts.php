@@ -91,15 +91,22 @@ class scripts extends \CHPADB\adb{
     }
 
     private function request_servers(){
-        $servers = array("https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js", "https://ads.facebook.com", "https://advice-ads.s3.amazonaws.com");
-        $servers = apply_filters("chp/adb/request/servers", $servers);
-        $output = '';
-        foreach($servers as $s){
-            $output .= sprintf('"%s", ', $s);
+
+        //get user settings
+        $settings = \CHPADB\Includes\adbClass('settings')->get();
+
+        $servers = array("https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js");
+        if( filter_var($settings->server1, FILTER_VALIDATE_BOOLEAN) ){
+            $servers[] = "https://ads-api.twitter.com";
         }
-        $output = trim($output);
-        $output = rtrim($output, ",");
-        return $output;
+
+        if( filter_var($settings->server2, FILTER_VALIDATE_BOOLEAN) ){
+            $servers[] = "https://ads.youtube.com";
+        }
+
+
+        $servers = apply_filters("chp/adb/request/servers", $servers);
+        return json_encode($servers);
     }
 
     public function js(){

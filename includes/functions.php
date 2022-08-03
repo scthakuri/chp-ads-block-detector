@@ -58,6 +58,8 @@ function defaults(){
         'top' => '5',
         'left' => '0',
         'hidemobile' => false,
-        'branding' => 'yes'
+        'branding' => 'yes',
+        'server1' => 'no',
+        'server2' => 'no'
     );
 }

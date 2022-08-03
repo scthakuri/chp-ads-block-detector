@@ -137,6 +137,34 @@
 
                 <tr>
                     <td>
+                        <?php _e('AdBlock Server 1 (For uBlock Origin)', 'chp-adsblocker-detector'); ?>
+                    </td>
+                    <td>
+                        <label class="checkbox_container">
+                            <input type="checkbox"
+                                <?php echo ($settings->server1 == 'no') ? null : 'checked'; ?>
+                                name="server1" class="chpabd_form_settings include">
+                            <span class="checkmark"></span>
+                        </label>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <?php _e('AdBlock Server 2 (For uBlock Origin)', 'chp-adsblocker-detector'); ?>
+                    </td>
+                    <td>
+                        <label class="checkbox_container">
+                            <input type="checkbox"
+                                <?php echo ($settings->server2 == 'no') ? null : 'checked'; ?>
+                                name="server2" class="chpabd_form_settings include">
+                            <span class="checkmark"></span>
+                        </label>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
                         <?php _e('Branding', 'chp-adsblocker-detector'); ?>
                     </td>
                     <td>
