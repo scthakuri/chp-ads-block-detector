@@ -339,10 +339,8 @@ body .<?php echo $this->rclass("modal"); ?>{
     background-color: #fff;
     margin: auto;
     padding: 20px;
-    border: 1px solid <?php echo $settings->back_color;
-    ?>;
-    width: <?php echo $settings->width;
-    ?>%;
+    border: none;
+    width: <?php echo $settings->width; ?>%;
     border-radius: 5%;
     position: relative;
 }

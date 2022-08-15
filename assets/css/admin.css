@@ -81,10 +81,14 @@
   padding: 0.3rem 2rem;
 }
 .hamrocsit_adb_nav-tab-wrapper a.pro {
-  background-color: #ff0000;
+  background: #ee0909;
+  background: -webkit-linear-gradient(to right, #ff6a00, #ee0979);
+  background: linear-gradient(to right, #ff6a00, #ee0979);
 }
 .hamrocsit_adb_nav-tab-wrapper a:not(.pro) {
-  background: red;
+  background: #ee0909;
+  background: -webkit-linear-gradient(to right, #ff6a00, #ee0979);
+  background: linear-gradient(to right, #ff6a00, #ee0979);
 }
 .container {
   width: 100%;
@@ -204,7 +208,9 @@ table#hamrocsit_adb_table {
 #hamrocsit_adb_table th {
   padding: 15px 10px;
   text-align: left;
-  background-color: #ff0000;
+  background: #ee0909;
+  background: -webkit-linear-gradient(to right, #ff6a00, #ee0979);
+  background: linear-gradient(to right, #ff6a00, #ee0979);
   color: #fff;
   text-transform: uppercase;
 }

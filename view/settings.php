@@ -205,7 +205,7 @@
             </tbody>
             <thead>
                 <tr>
-                    <th style="background:#ff0000;text-align:center;"><a target="_blank"
+                    <th style="text-align:center;"><a target="_blank"
                             href="https://chpadblock.com/pricing/"
                             style="    padding: 0;border: none;outline: none;box-shadow: none;background: transparent;color: #fff;text-align: center;text-decoration:none;"><?php _e('Check PRO Version', 'chp-adsblocker-detector'); ?></a></th>
                 </tr>
