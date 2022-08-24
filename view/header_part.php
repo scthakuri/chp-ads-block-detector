@@ -1,16 +1,4 @@
 <style>
-.<?php echo $this->rclass("show"); ?> {
-    -webkit-animation: bounceIn .35s ease;
-    -o-animation: bounceIn .35s ease;
-    animation: bounceIn .35s ease;
-}
-
-.<?php echo $this->rclass("hide"); ?>{
-    -webkit-animation: bounceOut .35s ease;
-    -o-animation: bounceOut .35s ease;
-    animation: bounceOut .35s ease;
-}
-
 .<?php echo $this->rclass("message"); ?>{
     margin: 0;
     padding: 0;
@@ -104,9 +92,13 @@ img.<?php echo $this->rclass("icon"); ?>{
     justify-content: center;
 }
 
-.fadeInDown {
+.<?php echo $this->rclass("fadeInDown"); ?>{
     -webkit-animation-name: fadeInDown;
     animation-name: fadeInDown;
+    -webkit-animation-duration: 0.3s;
+    animation-duration: 0.3s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
 }
 
 @keyframes fadeInDown {
@@ -320,15 +312,16 @@ body #<?php echo $this->rclass("modal"); ?>.active{
 body .<?php echo $this->rclass("modal"); ?>{
     position: fixed;
     z-index: 9999999999;
-    padding-top: <?php echo $settings->top;
-    ?>%;
     left: 0;
     top: 0;
     width: 100%;
     height: 100%;
     overflow: auto;
     background-color: #000;
-    background-color: rgba(0, 0, 0, 0.6);
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .<?php echo $this->rclass("modal"); ?> .<?php echo $this->rclass("show"); ?>{

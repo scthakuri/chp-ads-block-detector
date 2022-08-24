@@ -73,18 +73,6 @@
                             class="chpabd_form_settings include" name="width" placeholder="Width in pixel">
                     </td>
                 </tr>
-                <tr>
-                    <td>
-                        <?php _e('Position (in %)', 'chp-adsblocker-detector'); ?>
-                    </td>
-                    <td>
-                        <label><?php _e('From Top', 'chp-adsblocker-detector'); ?> : </label>
-                        <input type="number" value="<?php echo $settings->top; ?>"
-                            style="width:20%; display:inline-block;margin-right:10px;"
-                            class="chpabd_form_settings include" name="top"
-                            placeholder="<?php _e('From Top', 'chp-adsblocker-detector'); ?>">
-                    </td>
-                </tr>
 
                 <tr>
                     <td>

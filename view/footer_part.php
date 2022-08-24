@@ -32,8 +32,8 @@
     }
 ?>
 <!-- The Modal -->
-<div id="<?php echo $this->rclass("modal"); ?>" class="<?php echo $this->rclass("modal"); ?> fadeInDown">
-    <div class="<?php echo $this->rclass("content"); ?>" id="<?php echo $this->rclass("content"); ?>">
+<div id="<?php echo $this->rclass("modal"); ?>" class="<?php echo $this->rclass("modal"); ?>">
+    <div class="<?php echo $this->rclass("content"); ?> <?php echo $this->rclass('fadeInDown'); ?>" id="<?php echo $this->rclass("content"); ?>">
         <div class="<?php echo $this->rclass("body"); ?>" id="<?php echo $this->rclass("body"); ?>">
             <div class="<?php echo $this->rclass("theme"); ?> theme1">
                 <div class="<?php echo $this->rclass("body"); ?>">
@@ -79,7 +79,7 @@
         ob_start();
         require_once CHP_ADSB_DIR . 'view/main_scripts.php';
         $content = ob_get_clean();
-        //$content = \JShrink\Minifier::minify($content);
+        $content = \JShrink\Minifier::minify($content);
         echo $content;
     ?>
 </script>
