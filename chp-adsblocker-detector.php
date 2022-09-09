@@ -7,7 +7,7 @@
  * Version:           3.8.5
  * Requires at least: 5.2
  * Requires PHP:      7.2
- * Tested up to:      6.0
+ * Tested up to:      6.0.2
  * Author:            Suresh Chand
  * Author URI:        https://sureshchand.com.np
  * License:           GPL v2 or later

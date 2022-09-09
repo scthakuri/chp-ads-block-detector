@@ -1,4 +1,4 @@
-const adblockModal = document.getElementById("<?php echo $this->rclass("modal"); ?>");
+const <?php echo $this->rclass("adblockModal"); ?> = document.getElementById("<?php echo $this->rclass("modal"); ?>");
 const adbEnableForPage = true;
 const debug = <?php echo $debug ? 'true' : 'false'; ?>;
 const adbVersion = "<?php echo CHP_ADSB_VERSION; ?>";
@@ -8,7 +8,7 @@ let googleAdsControl = <?php echo filter_var($googleAds, FILTER_VALIDATE_BOOLEAN
 let imageAdsControl = <?php echo filter_var($imageAds, FILTER_VALIDATE_BOOLEAN) ? "true" : "false"; ?>;
 let classAdsControl = <?php echo filter_var($classAds, FILTER_VALIDATE_BOOLEAN) ? "true" : "false"; ?>;
 let displayOnce = 0;
-const reqServers = <?php echo $this->request_servers(); ?>;
+const <?php echo $this->rclass("reqServers"); ?> = <?php echo $this->request_servers(); ?>;
 
 
 /**
@@ -25,14 +25,14 @@ if(brandingBtn){
 const adblockCloseBtn = document.getElementById("<?php echo $this->rclass("close_btn_adblock"); ?>");
 if(adblockCloseBtn){
     adblockCloseBtn.onclick = function(){
-        hide_model();
+        <?php echo $this->rclass("hide_model"); ?>();
     }
 }
 
 /**
  * Check internet connection
  */
-function is_connected() {
+function <?php echo $this->rclass("is_connected"); ?>() {
     try {
         return window.navigator.onLine;
     } catch (error) {
@@ -50,13 +50,13 @@ let adreqfound = false;
 function adsBlocked(callBackFunc) {
 
     if( adreqfound ) return true;
-    if( serverReqCount >= reqServers.length ){
+    if( serverReqCount >= <?php echo $this->rclass("reqServers"); ?>.length ){
         callBackFunc(adreqfound);
         return true;
     }
 
-    if( reqServers.length > 0 && is_connected() ){
-        const reqURL = reqServers[serverReqCount];
+    if( <?php echo $this->rclass("reqServers"); ?>.length > 0 && <?php echo $this->rclass("is_connected"); ?>() ){
+        const reqURL = <?php echo $this->rclass("reqServers"); ?>[serverReqCount];
         const adsRequest = new Request(reqURL, {
             method: "HEAD",
             mode: "no-cors"
@@ -137,10 +137,10 @@ function removeClass(e, t) {
 let count = 0;
 
 
-function hide_model() {
+function <?php echo $this->rclass("hide_model"); ?>() {
     try{
-        if (typeof adblockModal == 'object') {
-            removeClass(adblockModal, "<?php echo $this->rclass("show"); ?>");
+        if (typeof <?php echo $this->rclass("adblockModal"); ?> == 'object') {
+            removeClass(<?php echo $this->rclass("adblockModal"); ?>, "<?php echo $this->rclass("show"); ?>");
             removeClass(document.body, "<?php echo $this->rclass("active"); ?>")
         }
     }catch(e){
@@ -148,7 +148,7 @@ function hide_model() {
     }
 }
 
-function show_modal(modal) {
+function <?php echo $this->rclass("show_modal"); ?>(modal) {
     if (modal != null && 0 == displayOnce) {
         displayOnce++;
         addClass(modal, "<?php echo $this->rclass("show"); ?>");
@@ -165,9 +165,35 @@ function chp_adblock_browser() {
 
 function chp_ads_blocker_detector(enable) {
     if (enable) {
-        show_modal(adblockModal);
+        <?php echo $this->rclass("show_modal"); ?>(<?php echo $this->rclass("adblockModal"); ?>);
     }
 }
+
+function doesElementIsBlocked(elem){
+        if (
+            elem.offsetParent === null ||
+            elem.offsetHeight == 0 ||
+            elem.offsetLeft == 0 ||
+            elem.offsetTop == 0 ||
+            elem.offsetWidth == 0 ||
+            elem.clientHeight == 0 ||
+            elem.clientWidth == 0
+        ) {
+            return true;
+        } else if (window.getComputedStyle !== undefined) {
+            let elemCS = window.getComputedStyle(elem, null);
+            if (
+                elemCS &&
+                (
+                    elemCS.getPropertyValue('display') == 'none' ||
+                    elemCS.getPropertyValue('visibility') == 'hidden'
+                )
+            ) {
+                return true;
+            }
+        }
+        return false;
+    }
 
 let prevCount = 0;
 function checkMultiple() {
@@ -175,14 +201,16 @@ function checkMultiple() {
     if (classAdsControl) {
         let divEle = document.createElement("div");
         divEle.innerHTML = "&nbsp;";
-        divEle.className = "ad ads doubleclick ad-placement ad-placeholder adbadge BannerAd adsbox ad-large ad-large ad-left ad-limits ad-link ad-live ad-loading ad-map ad-marker ad-master ad-pixel ad-random ad-refresh ad-300x250";
+        divEle.className = "ad ads doubleclick ad-placement ad-placeholder adbadge BannerAd adsbox ad-large ad-large ad-left ad-limits ad-link ad-live ad-loading ad-map ad-marker ad-master ad-pixel ad-random ad-refresh ad-300x250 ad ads doubleclick ad-placement ad-placeholder adbadge BannerAd adsbox pub_300x250 pub_300x250m pub_728x90 text-ad textAd text_ad text_ads text-ads text-ad-links";
         divEle.id = "<?php echo $this->rclass("filter_ads_by_classname"); ?>";
+        divEle.style = "width: 1px !important; height: 1px !important; position: absolute !important; left: -10000px !important; top: -1000px !important;";
 
         try {
             if (!document.body.contains(document.getElementById('<?php echo $this->rclass("filter_ads_by_classname"); ?>'))) {
                 document.body.appendChild(divEle);
                 let adBoxEle = document.querySelector(".adsbox");
-                enable = !adBoxEle || adBoxEle.offsetHeight == 0;
+                enable = doesElementIsBlocked(adBoxEle);
+                console.log("Enable", enable);
 
                 if (debug) {
                     if (enable) {

@@ -59,6 +59,6 @@ function defaults(){
         'left' => '0',
         'hidemobile' => false,
         'branding' => 'yes',
-        'servers' => 'https://ads.youtube.com'
+        'servers' => 'https://ads-api.twitter.com'
     );
 }

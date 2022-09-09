@@ -2,8 +2,8 @@
 Contributors: sureshchand12a
 Tags: adsense, adblock, anti-adblock, chpadblock, chp, chp-adblock, adblock-plus, ublock-origin
 Requires at least: 5.2
-Tested up to: 6.0
-Stable tag: 3.8.5
+Tested up to: 6.0.2
+Stable tag: 3.8.6
 Requires PHP: 7.2
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -74,6 +74,10 @@ This plugin will also works for opera built-in ads block extension.
 
 For more information regarding adblock detecting and revenue recovery, please visit [CHP Adblock](https://chpadblock.com)
 
+** CUSTOM WEBSITE**
+
+If you have custom website and want to add Adblock Detector on your website then please visit [CHP Adblock Script for Custom Website](https://chpadblock.com/adblock-detector-for-static-website/)
+
 == Installation ==
 
 This section describes how to install the plugin and get it working.
@@ -128,7 +132,7 @@ Yes, For this you have to purchase the premium version of Ads Block Detector. An
 
 == Changelog ==
 
-= 3.8.5 =
+= 3.8.6 =
 *  ☞ Popup Vertical Alignment
 *  ☞ Adguard popup fixed
 
