@@ -3,7 +3,7 @@ Contributors: sureshchand12a
 Tags: adsense, adblock, anti-adblock, chpadblock, chp, chp-adblock, adblock-plus, ublock-origin
 Requires at least: 5.2
 Tested up to: 6.0
-Stable tag: 3.8.4
+Stable tag: 3.8.5
 Requires PHP: 7.2
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -102,7 +102,7 @@ Yes, and probably with all kinds of content hidden by AdBlocker software.
 
 = IS IT COMBABILITY WITH CACHING SYSTEM? =
 
-Yes, it is. It may depend on the parameter also.
+Yes, it is. It may depend on the parameter also. But clear the settings after changing the plugin settings.
 
 = IS THIS COMPATIBLE WITH WOOCOMMERCE? =
 
@@ -128,7 +128,7 @@ Yes, For this you have to purchase the premium version of Ads Block Detector. An
 
 == Changelog ==
 
-= 3.8.4 =
+= 3.8.5 =
 *  ☞ Popup Vertical Alignment
 *  ☞ Adguard popup fixed
 

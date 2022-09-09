@@ -30,7 +30,27 @@ class scripts extends \CHPADB\adb{
 
         add_action( 'admin_enqueue_scripts',  [$this, 'admin_scripts']);
         add_action( 'wp_footer',  [$this, 'js'], 100);
+        add_action( 'wp_head', [$this, 'image_tag'] );
         add_action( 'wp_head',  [$this, 'css'], 100);
+    }
+
+    /**
+     * Include Image Request
+     * 
+     * @since 3.8.7
+     */
+    public function image_tag(){
+        $imageAds = apply_filters('adb/checkby/imageads', true);
+         /**
+         * Enable or Disable Image Ads Request
+         * 
+         * @since 5.1.2
+         */
+        if( $imageAds ){
+            echo sprintf('<div class="%s" style="display:none;"><div class="ads ad-300x250"><img id="%s" src="images/ad-300x250.jpg" height="250" width="300" alt="Ads ad-300x250"></div></div>', $this->rclass("demo-wrapper"), $this->rclass("chp-ads-image"));
+        }else{
+            echo sprintf('<div class="%s" style="display:none;"><div id="%s"></div></div>', $this->rclass("demo-wrapper"), $this->rclass("chp-ads-image"));
+        }
     }
 
     /**

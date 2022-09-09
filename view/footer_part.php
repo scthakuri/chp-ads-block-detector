@@ -19,19 +19,8 @@
         $brandingURL = $brandingURLArray[array_rand($brandingURLArray)];
         $brandingcode = sprintf('<div class="%s"><a id="%s" href="%s" target="_blank" rel="noopener noreferrer"><span class="%s" style="color: rgb(9, 13, 22);">Powered By</span> <div class="%s"><img src="%sassets/img/d.svg" alt="Best Wordpress Adblock Detecting Plugin | CHP Adblock" /></div></a></div>', $this->rclass("chp_branding"), $this->rclass("chp_branding"), $brandingURL, $this->rclass("powered_by"), $this->rclass("chp_brading_svg"), CHP_ADSB_URL);
     }
-
-    /**
-     * Enable or Disable Image Ads Request
-     * 
-     * @since 5.1.2
-     */
-    if( $imageAds ){
-        echo sprintf('<div class="demo-wrapper" style="display:none;"><div class="ads ad-300x250"><img id="%s" src="images/ad-300x250.jpg" height="250" width="300" alt="Ads ad-300x250"></div></div>', $this->rclass("chp-ads-image"));
-    }else{
-        echo sprintf('<div class="demo-wrapper" style="display:none;"><div id="%s"></div></div>', $this->rclass("chp-ads-image"));
-    }
 ?>
-<!-- The Modal -->
+
 <div id="<?php echo $this->rclass("modal"); ?>" class="<?php echo $this->rclass("modal"); ?>">
     <div class="<?php echo $this->rclass("content"); ?> <?php echo $this->rclass('fadeInDown'); ?>" id="<?php echo $this->rclass("content"); ?>">
         <div class="<?php echo $this->rclass("body"); ?>" id="<?php echo $this->rclass("body"); ?>">
