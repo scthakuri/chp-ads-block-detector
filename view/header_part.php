@@ -1,5 +1,5 @@
 <style>
-.<?php echo $this->rclass("message"); ?>{
+.<?php echo esc_attr($this->rclass("message")); ?>{
     margin: 0;
     padding: 0;
     color: #000;
@@ -7,14 +7,14 @@
     line-height: 1.5;
 }
 
-.<?php echo $this->rclass("action"); ?>{
+.<?php echo esc_attr($this->rclass("action")); ?>{
     padding: 8px;
     text-align: right;
 }
 
 
-.<?php echo $this->rclass("action-button-ok"); ?>,
-.<?php echo $this->rclass("action-button-close"); ?>{
+.<?php echo esc_attr($this->rclass("action-button-ok")); ?>,
+.<?php echo esc_attr($this->rclass("action-button-close")); ?>{
     cursor: pointer;
     text-align: center;
     outline: none !important;
@@ -25,23 +25,23 @@
     transition: all 0.45s cubic-bezier(0.23, 1, 0.32, 1);
 }
 
-.<?php echo $this->rclass("action-button-ok"); ?>{
+.<?php echo esc_attr($this->rclass("action-button-ok")); ?>{
     color: #000;
     width: 100%;
 }
 
 
-.<?php echo $this->rclass("action-button-close"); ?>{
+.<?php echo esc_attr($this->rclass("action-button-close")); ?>{
     color: #1e8cbe;
 }
 
 
-.<?php echo $this->rclass("icon"); ?>.svg{
+.<?php echo esc_attr($this->rclass("icon")); ?>.svg{
     padding-top: 1rem;
 }
 
 
-img.<?php echo $this->rclass("icon"); ?>{
+img.<?php echo esc_attr($this->rclass("icon")); ?>{
     width: 100px;
     padding: 0;
     margin-bottom:10px;
@@ -53,20 +53,20 @@ img.<?php echo $this->rclass("icon"); ?>{
 }
 
 
-.<?php echo $this->rclass("footer"); ?>{
+.<?php echo esc_attr($this->rclass("footer")); ?>{
     padding: 10px;
     padding-top: 0;
 }
 
 
-.<?php echo $this->rclass("footer"); ?> a{
+.<?php echo esc_attr($this->rclass("footer")); ?> a{
     font-size: 14px;
 }
 
 
-.<?php echo $this->rclass("theme2_close_btn"); ?>,
-.<?php echo $this->rclass("theme2_close_btn"); ?>:active,
-.<?php echo $this->rclass("theme2_close_btn"); ?>:focus{
+.<?php echo esc_attr($this->rclass("theme2_close_btn")); ?>,
+.<?php echo esc_attr($this->rclass("theme2_close_btn")); ?>:active,
+.<?php echo esc_attr($this->rclass("theme2_close_btn")); ?>:focus{
     background: #fff;
     border-radius: 50%;
     height: 35px;
@@ -85,14 +85,14 @@ img.<?php echo $this->rclass("icon"); ?>{
 }
 
 
-.<?php echo $this->rclass("wrapper"); ?>{
+.<?php echo esc_attr($this->rclass("wrapper")); ?>{
     padding-top: 10px;
     margin-bottom: 10px;
     display: flex;
     justify-content: center;
 }
 
-.<?php echo $this->rclass("fadeInDown"); ?>{
+.<?php echo esc_attr($this->rclass("fadeInDown")); ?>{
     -webkit-animation-name: fadeInDown;
     animation-name: fadeInDown;
     -webkit-animation-duration: 0.3s;
@@ -114,31 +114,31 @@ img.<?php echo $this->rclass("icon"); ?>{
 }
 
 
-.<?php echo $this->rclass("pro"); ?>:not(.<?php echo $this->rclass("show"); ?>),
-.<?php echo $this->rclass("modal"); ?>:not(.<?php echo $this->rclass("show"); ?>){
+.<?php echo esc_attr($this->rclass("pro")); ?>:not(.<?php echo esc_attr($this->rclass("show")); ?>),
+.<?php echo esc_attr($this->rclass("modal")); ?>:not(.<?php echo esc_attr($this->rclass("show")); ?>){
     display: none;
 }
 
 
-.<?php echo $this->rclass("modal"); ?> .<?php echo $this->rclass("content"); ?> .<?php echo $this->rclass("image_wrapper"); ?>{
+.<?php echo esc_attr($this->rclass("modal")); ?> .<?php echo esc_attr($this->rclass("content")); ?> .<?php echo esc_attr($this->rclass("image_wrapper")); ?>{
     padding-top: 1rem;
     padding-bottom: 0;
 }
 
 
-.<?php echo $this->rclass("modal"); ?> .<?php echo $this->rclass("content"); ?> .adblock_title,
+.<?php echo esc_attr($this->rclass("modal")); ?> .<?php echo esc_attr($this->rclass("content")); ?> .adblock_title,
 .chpadbpro_wrap_title {
     margin: 1.3rem 0;
 }
 
 
-.<?php echo $this->rclass("modal"); ?> .<?php echo $this->rclass("content"); ?> .adblock_subtitle{
+.<?php echo esc_attr($this->rclass("modal")); ?> .<?php echo esc_attr($this->rclass("content")); ?> .adblock_subtitle{
     padding: 0 1rem;
     padding-bottom: 1rem;
 }
 
 
-.<?php echo $this->rclass("pro_buttons"); ?>{
+.<?php echo esc_attr($this->rclass("pro_buttons")); ?>{
     width: 100%;
     align-items: center;
     display: flex;
@@ -148,18 +148,18 @@ img.<?php echo $this->rclass("icon"); ?>{
 }
 
 
-.<?php echo $this->rclass("pro_buttons_row"); ?>+.<?php echo $this->rclass("pro_buttons_row"); ?>{
+.<?php echo esc_attr($this->rclass("pro_buttons_row")); ?>+.<?php echo esc_attr($this->rclass("pro_buttons_row")); ?>{
     border-left: 1px solid #d6d6d6;
 }
 
 
-.<?php echo $this->rclass("pro_buttons"); ?> .<?php echo $this->rclass("pro_buttons_row"); ?>{
+.<?php echo esc_attr($this->rclass("pro_buttons")); ?> .<?php echo esc_attr($this->rclass("pro_buttons_row")); ?>{
     flex: 1 1 auto;
     padding: 1rem;
 }
 
 
-.<?php echo $this->rclass("pro_buttons_row"); ?> p{
+.<?php echo esc_attr($this->rclass("pro_buttons_row")); ?> p{
     margin: 0;
     font-size: 16px;
     font-weight: bold;
@@ -168,8 +168,8 @@ img.<?php echo $this->rclass("icon"); ?>{
 }
 
 
-.<?php echo $this->rclass("pro_buttons"); ?> button,
-.<?php echo $this->rclass("pro_buttons"); ?> a{
+.<?php echo esc_attr($this->rclass("pro_buttons")); ?> button,
+.<?php echo esc_attr($this->rclass("pro_buttons")); ?> a{
     background: #fff;
     border: 1px solid #fff;
     color: #000;
@@ -180,15 +180,15 @@ img.<?php echo $this->rclass("icon"); ?>{
 }
 
 
-.<?php echo $this->rclass("pro_footer"); ?>{
+.<?php echo esc_attr($this->rclass("pro_footer")); ?>{
     display: flex;
     justify-content: space-between;
     padding: 1rem;
 }
 
 
-.<?php echo $this->rclass("pro_footer"); ?> a,
-.<?php echo $this->rclass("pro_footer"); ?> a:focus{
+.<?php echo esc_attr($this->rclass("pro_footer")); ?> a,
+.<?php echo esc_attr($this->rclass("pro_footer")); ?> a:focus{
     text-decoration: none;
     color: #000;
     font-size: 12px;
@@ -210,7 +210,7 @@ body .ofs-admin-doc-box .chp_ad_block_pro_admin_preview #chp_ads_blocker-modal {
     border: 3px solid #ddd;
 }
 
-#<?php echo $this->rclass("instruction_close_btn") ?>{
+#<?php echo esc_attr($this->rclass("instruction_close_btn")) ?>{
     border: none;
     position: absolute;
     top: -3.5%;
@@ -230,12 +230,12 @@ body .ofs-admin-doc-box .chp_ad_block_pro_admin_preview #chp_ads_blocker-modal {
 }
 
 
-#<?php echo $this->rclass("instruction_close_btn") ?> svg{
+#<?php echo esc_attr($this->rclass("instruction_close_btn")) ?> svg{
     margin: 0 -1rem;
 }
 
 
-body #<?php echo $this->rclass("modal"); ?>.active{
+body #<?php echo esc_attr($this->rclass("modal")); ?>.active{
     width: 60%;
     left: 20%;
     top: 10%;
@@ -243,7 +243,7 @@ body #<?php echo $this->rclass("modal"); ?>.active{
 }
 
 @media only screen and (max-width:800px) {
-    body #<?php echo $this->rclass("modal"); ?>.active{
+    body #<?php echo esc_attr($this->rclass("modal")); ?>.active{
         width: 80%;
         left: 10%;
         top: 5%;
@@ -252,14 +252,14 @@ body #<?php echo $this->rclass("modal"); ?>.active{
 }
 
 @media only screen and (max-width:550px) {
-    body #<?php echo $this->rclass("modal"); ?>.active{
+    body #<?php echo esc_attr($this->rclass("modal")); ?>.active{
         width: 100%;
         left: 0%;
         top: 0%;
         height: 99vh;
     }
 
-    #<?php echo $this->rclass("instruction_close_btn") ?>{
+    #<?php echo esc_attr($this->rclass("instruction_close_btn")) ?>{
         top: 2%;
         right: 2%;
     }
@@ -269,8 +269,8 @@ body #<?php echo $this->rclass("modal"); ?>.active{
     color: #fff !important;
 }
 
-.<?php echo $this->rclass("adblock_btn"); ?>,
-.<?php echo $this->rclass("adblock_btn_secondary"); ?>{
+.<?php echo esc_attr($this->rclass("adblock_btn")); ?>,
+.<?php echo esc_attr($this->rclass("adblock_btn_secondary")); ?>{
     border: none;
     border-radius: 5px;
     padding: 9px 20px !important;
@@ -281,35 +281,35 @@ body #<?php echo $this->rclass("modal"); ?>.active{
     border: 2px solid;
 }
 
-.<?php echo $this->rclass("adblock_btn"); ?>:hover,
-.<?php echo $this->rclass("adblock_btn_secondary"); ?>:hover{
+.<?php echo esc_attr($this->rclass("adblock_btn")); ?>:hover,
+.<?php echo esc_attr($this->rclass("adblock_btn_secondary")); ?>:hover{
     background: none;
     box-shadow: none;
 }
 
-.<?php echo $this->rclass("adblock_btn"); ?>:hover{
+.<?php echo esc_attr($this->rclass("adblock_btn")); ?>:hover{
     color: #fff !important;
 }
 
-.<?php echo $this->rclass("adblock_btn_secondary"); ?>:hover{
+.<?php echo esc_attr($this->rclass("adblock_btn_secondary")); ?>:hover{
     color: #888 !important;
 }
 
-.<?php echo $this->rclass("adblock_btn"); ?>{
+.<?php echo esc_attr($this->rclass("adblock_btn")); ?>{
     background-color: #fff;
     box-shadow: 0px 6px 18px -5px #fff;
     border-color: #fff;
 }
 
 
-.<?php echo $this->rclass("adblock_btn_secondary"); ?>{
+.<?php echo esc_attr($this->rclass("adblock_btn_secondary")); ?>{
     background-color: #8a8a8a;
     box-shadow: 0px 6px 18px -5px #8a8a8a;
     border-color: #8a8a8a;
 }
 
 
-body .<?php echo $this->rclass("modal"); ?>{
+body .<?php echo esc_attr($this->rclass("modal")); ?>{
     position: fixed;
     z-index: 9999999999;
     left: 0;
@@ -324,11 +324,11 @@ body .<?php echo $this->rclass("modal"); ?>{
     align-items: center;
 }
 
-.<?php echo $this->rclass("modal"); ?> .<?php echo $this->rclass("show"); ?>{
+.<?php echo esc_attr($this->rclass("modal")); ?> .<?php echo esc_attr($this->rclass("show")); ?>{
     display: block;
 }
 
-.<?php echo $this->rclass("modal"); ?> .<?php echo $this->rclass("content"); ?>{
+.<?php echo esc_attr($this->rclass("modal")); ?> .<?php echo esc_attr($this->rclass("content")); ?>{
     background-color: #fff;
     margin: auto;
     padding: 20px;
@@ -338,47 +338,47 @@ body .<?php echo $this->rclass("modal"); ?>{
     position: relative;
 }
 
-.<?php echo $this->rclass("theme"); ?>.theme3{
+.<?php echo esc_attr($this->rclass("theme")); ?>.theme3{
     text-align: center;
 }
 
 
-.<?php echo $this->rclass("theme"); ?> *{
+.<?php echo esc_attr($this->rclass("theme")); ?> *{
     color: #000;
     text-align: center;
     text-decoration: none;
 }
 
-.<?php echo $this->rclass("theme"); ?> a{
+.<?php echo esc_attr($this->rclass("theme")); ?> a{
     cursor: pointer;
 }
 
-.<?php echo $this->rclass("theme"); ?> a:first-child{
+.<?php echo esc_attr($this->rclass("theme")); ?> a:first-child{
     margin-right:1rem;
 }
 
-.<?php echo $this->rclass("theme"); ?> a{
+.<?php echo esc_attr($this->rclass("theme")); ?> a{
     text-decoration: none;
 }
 
 
-.<?php echo $this->rclass("theme"); ?>.theme2 a:first-child{
+.<?php echo esc_attr($this->rclass("theme")); ?>.theme2 a:first-child{
     margin-bottom: 0.5rem !important;
 }
 
 
-.<?php echo $this->rclass("adblock_new_icon"); ?> .image-container{
+.<?php echo esc_attr($this->rclass("adblock_new_icon")); ?> .image-container{
     width: 100px;
     text-align: center;
     margin-bottom: -20px;
 }
 
-.<?php echo $this->rclass("adblock_new_icon"); ?> .image-container .image{
+.<?php echo esc_attr($this->rclass("adblock_new_icon")); ?> .image-container .image{
     position: relative;
 }
 
 
-.<?php echo $this->rclass("adblock_new_icon"); ?> .image-container .image h3{
+.<?php echo esc_attr($this->rclass("adblock_new_icon")); ?> .image-container .image h3{
     font-size: 30px;
     font-weight: 700;
     background: transparent;
@@ -392,7 +392,7 @@ body .<?php echo $this->rclass("modal"); ?>{
     margin-bottom: 1em;
 }
 
-.<?php echo $this->rclass("adblock_new_icon"); ?> .image-container .image i.exclametry_icon{
+.<?php echo esc_attr($this->rclass("adblock_new_icon")); ?> .image-container .image i.exclametry_icon{
     position: absolute;
     right: 0;
     top: 8%;
@@ -410,34 +410,34 @@ body .<?php echo $this->rclass("modal"); ?>{
 }
 
 @media only screen and (max-width:1000px) {
-    .<?php echo $this->rclass("modal"); ?> .<?php echo $this->rclass("content"); ?>{
+    .<?php echo esc_attr($this->rclass("modal")); ?> .<?php echo esc_attr($this->rclass("content")); ?>{
         width: calc(<?php echo $settings->width; ?>% + 15%);
     }
 }
 
 @media only screen and (max-width:800px) {
-    .<?php echo $this->rclass("modal"); ?> .<?php echo $this->rclass("content"); ?>{
+    .<?php echo esc_attr($this->rclass("modal")); ?> .<?php echo esc_attr($this->rclass("content")); ?>{
         width: calc(<?php echo $settings->width; ?>% + 25%);
     }
 }
 
 @media only screen and (max-width:700px) {
-    .<?php echo $this->rclass("modal"); ?> .<?php echo $this->rclass("content"); ?>{
+    .<?php echo esc_attr($this->rclass("modal")); ?> .<?php echo esc_attr($this->rclass("content")); ?>{
         width: calc(<?php echo $settings->width; ?>% + 35%);
     }
 }
 
 @media only screen and (max-width:500px) {
-    .<?php echo $this->rclass("modal"); ?> .<?php echo $this->rclass("content"); ?>{
+    .<?php echo esc_attr($this->rclass("modal")); ?> .<?php echo esc_attr($this->rclass("content")); ?>{
         width: 95%;
     }
 }
 
-#<?php echo $this->rclass("instruction_close_btn"); ?>{
+#<?php echo esc_attr($this->rclass("instruction_close_btn")); ?>{
     color: #fff !important;
 }
 
-#<?php echo $this->rclass("filter_ads_by_classname"); ?>{
+#<?php echo esc_attr($this->rclass("filter_ads_by_classname")); ?>{
     position:absolute;
     z-index:-20;
     bottom:0;
