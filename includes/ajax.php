@@ -33,6 +33,42 @@ class ajax{
         
     }
 
+    /**
+     * Sanitize Different Values
+     */
+    function sanitize_array_values( $k, $value ){
+        if( $k == 'enable' || $k == 'btn1_show' || $k == 'btn2_show'){
+            return rest_sanitize_boolean($value);
+        }else if( $k == 'width' ){
+            return intval($value);
+        }else if( $k == 'content' ){
+            return wp_kses_post($value);
+        }else if( $k == 'servers' ){
+            return sanitize_textarea_field($value);
+        }else{
+            return sanitize_text_field($value);
+        }
+    }
+
+    /**
+     * Recursive sanitation for an array
+     * 
+     * @param $array
+     *
+     * @return mixed
+     */
+    function recursive_sanitize_array_field($array) {
+        foreach ( $array as $key => &$value ) {
+            if ( is_array( $value ) ) {
+                $value = $this->recursive_sanitize_text_field($value);
+            }else {
+                $value = $this->sanitize_array_values( $key, $value );
+            }
+        }
+
+        return $array;
+    }
+
 
     /**
      * Handling ajax
@@ -47,7 +83,7 @@ class ajax{
         Save All the settings
         *****************************************/ 
         if( isset( $_POST['settings'] ) ){
-            $settings = $_POST['settings'];
+            $settings = $this->recursive_sanitize_array_field($_POST['settings']);
             $defaults = (array) \CHPADB\Includes\defaults();
             if(is_array($settings) && !empty($settings)){
 
@@ -59,10 +95,6 @@ class ajax{
                             $newSettings[$k] = wp_kses_post($settings[$k]);
                         }else if( $k == 'servers' ){
                             $newSettings[$k] = sanitize_textarea_field($settings[$k]);
-                        }else if( $k == 'branding' ){
-                            $branding = sanitize_text_field($settings['branding']);
-                            $branding = filter_var($branding, FILTER_VALIDATE_BOOLEAN) ? "yes" : "no";
-                            $newSettings[$k] = $branding;
                         }else{
                             $newSettings[$k] = sanitize_text_field($settings[$k]);
                         }

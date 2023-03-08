@@ -33,7 +33,6 @@ class settings{
 
         //adding admin menu
         add_action( 'admin_menu', [$this, 'admin_menu'] );
-        add_action( 'admin_menu', [$this, 'manage_external_links'] );
 
         //register settings
         add_action('admin_init', [$this, 'settings']);
@@ -57,20 +56,6 @@ class settings{
 
     }
 
-    public function manage_external_links(){
-        try {
-            global $submenu;
-            $url = 'https://chpadblock.com/pricing/';
-            $supurl = 'https://chpadblock.com/docs/support/';
-            $submenu['chp-adsblocker-detector'][1] = array( 'Support', 'manage_options', $supurl, 'Support' );
-            $submenu['chp-adsblocker-detector'][2] = array( 'Buy Pro', 'manage_options', $url, 'Buy Pro' );
-        } catch (\Throwable $th) {
-            //throw $th;
-        } catch (\Exception $th) {
-            //throw $th;
-        }
-    }
-
     /**
      * Adding admin menu
      *
@@ -87,33 +72,6 @@ class settings{
             [$this, 'setting_page'],
             'dashicons-nametag',
             20
-        );
-
-        add_submenu_page(
-            'chp-adsblocker-detector',
-            __( 'Settings', 'chp-adsblocker-detector' ),
-            __( 'Settings', 'chp-adsblocker-detector' ),
-            'manage_options',
-            'chp-adsblocker-detector',
-            [$this, 'setting_page']
-        );
-
-        add_submenu_page(
-            'chp-adsblocker-detector',
-            __( 'Support', 'chp-adsblocker-detector' ),
-            __( 'Support', 'chp-adsblocker-detector' ),
-            'manage_options',
-            'chpads-support',
-            null
-        );
-
-        add_submenu_page(
-            'chp-adsblocker-detector',
-            __( 'Buy Pro', 'chp-adsblocker-detector' ),
-            __( 'Buy Pro', 'chp-adsblocker-detector' ),
-            'manage_options',
-            'chpads-pro',
-            null
         );
     }
 

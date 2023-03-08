@@ -1,5 +1,6 @@
 {
     "name": "sureshchand/chp-ads-block-detector",
+    "version": "3.9.0",
     "description": "Block Ads Blocker Extensions and Increase your revenue by using Ads Blocker Detector Plugin",
     "homepage": "https://wordpress.org/plugins/chp-ads-block-detector/",
     "type": "project",
@@ -20,8 +21,5 @@
     "autoload" : {
         "classmap": ["includes/"],
         "files": ["includes/functions.php"]
-    },
-    "require": {
-        "tedivm/jshrink": "^1.4"
     }
 }

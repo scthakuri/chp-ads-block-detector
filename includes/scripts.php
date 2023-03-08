@@ -18,6 +18,8 @@ if( ! defined( 'ABSPATH' ) ) exit(0);
 
 class scripts extends \CHPADB\adb{
 
+    private $minify = true;
+
 
     /**
      * Inilialize scripts class
@@ -27,30 +29,10 @@ class scripts extends \CHPADB\adb{
      * @return string null
      */
     public function init(){
-
+        $this->minify = apply_filters( "adb/minify/enable", true );
         add_action( 'admin_enqueue_scripts',  [$this, 'admin_scripts']);
-        add_action( 'wp_footer',  [$this, 'js'], 100);
-        add_action( 'wp_head', [$this, 'image_tag'] );
-        add_action( 'wp_head',  [$this, 'css'], 100);
-    }
-
-    /**
-     * Include Image Request
-     * 
-     * @since 3.8.7
-     */
-    public function image_tag(){
-        $imageAds = apply_filters('adb/checkby/imageads', true);
-         /**
-         * Enable or Disable Image Ads Request
-         * 
-         * @since 5.1.2
-         */
-        if( $imageAds ){
-            echo sprintf('<div class="%s" style="display:none;"><div class="ads ad-300x250"><img id="%s" src="images/ad-300x250.jpg" height="250" width="300" alt="Ads ad-300x250"></div></div>', $this->rclass("demo-wrapper"), $this->rclass("chp-ads-image"));
-        }else{
-            echo sprintf('<div class="%s" style="display:none;"><div id="%s"></div></div>', $this->rclass("demo-wrapper"), $this->rclass("chp-ads-image"));
-        }
+        add_action( 'wp_head',  [$this, 'css'], 1);
+        add_action( 'wp_footer',  [$this, 'js'], 1);
     }
 
     /**
@@ -103,8 +85,12 @@ class scripts extends \CHPADB\adb{
                 ob_start();
                 require_once $header_part;
                 $content = ob_get_clean();
-                $content = $this->minify($content);
-                echo $content;
+                if( wp_validate_boolean( $this->minify ) ){
+                    $content = $this->minify($content);
+                }
+                echo wp_kses($content, array(
+                    "style" => array()
+                ));
             }
         }
 
@@ -145,14 +131,12 @@ class scripts extends \CHPADB\adb{
             $iconAlernativeAlt = apply_filters( 'adb/change/icon/alt', 'Ads Blocker Image Powered by Code Help Pro' );
 
             $iconClass = $this->rclass("icon");
-            $iconCode = '<img class="'.$iconClass.'" src="'.$iconAlernativeFile.'" alt="'.$iconAlernativeAlt.'">';
+            $iconCode = '<img class="'. esc_attr( $iconClass ) .'" src="'. esc_url($iconAlernativeFile) .'" alt="'. esc_attr( $iconAlernativeAlt ) .'">';
             $iconCode = apply_filters( 'adb/change/html/icon', $iconCode, $iconAlernativeFile, $iconAlernativeAlt );
 
             $footer_part = CHP_ADSB_DIR . 'view/footer_part.php';
             if( file_exists( $footer_part ) ){
-
                 require_once $footer_part;
-
             }
         }
     }

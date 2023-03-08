@@ -91,7 +91,10 @@ class randomClass{
         $output = $this->encrypt_decrypt("{$rclass}______{$class}______{$rclass}");
         $equalreplace = $this->get_equal_rnd();
         $output = str_replace("=", $equalreplace, $output);
-        return $output;
+        $output = preg_replace('!\s+!', ' ', $output);
+        $output = preg_replace('/\s+/', '_', $output);
+        $output = preg_replace('/[0-9]+/', '', $output);
+        return trim(strtolower($output));
     }
 
 }

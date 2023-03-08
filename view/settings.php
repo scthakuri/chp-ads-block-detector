@@ -17,6 +17,8 @@
 
 <div class="hamrocsit_adb_content-setion">
 
+    <div style="color: #000;background-color: #f8d7da;border-color: #f5c6cb;padding: 15px;border-radius: 5px;margin-bottom: 10px;max-width: 95%;text-align: center;font-weight: bold;">If not working with any extension then please check <a target="_blank" style="color:red; text-decoration:underline;" href="https://chpadblock.com/docs/support/not-working-with-ublock-extension/">Documentation</a>.</div>
+
     <div style="display: flex;">
         <table class="table" id="hamrocsit_adb_table">
             <thead>
@@ -131,20 +133,6 @@
                         <textarea type="text" style="width:100%;" rows="5"
                             class="chpabd_form_settings include" name="servers"
                             placeholder="<?php _e('Button Text', 'chp-adsblocker-detector'); ?>"><?php echo $settings->servers; ?></textarea>
-                    </td>
-                </tr>
-
-                <tr>
-                    <td>
-                        <?php _e('Branding', 'chp-adsblocker-detector'); ?>
-                    </td>
-                    <td>
-                        <label class="checkbox_container">
-                            <input type="checkbox"
-                                <?php echo ($settings->branding == 'no') ? null : 'checked'; ?>
-                                name="branding" class="chpabd_form_settings include">
-                            <span class="checkmark"></span>
-                        </label>
                     </td>
                 </tr>
             </tbody>

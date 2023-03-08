@@ -101,6 +101,24 @@ This section describes how to install the plugin and get it working.
 
 **CHANGELOG**
 
+= 3.9.0 =
+*  ☞ Remove Branding Settings
+*  ☞ Updated Server List
+*  ☞ Minor issues fixed
+
+= 3.8.9 =
+*  ☞ Optimize plugin images
+*  ☞ Removed Image Request Method
+*  ☞ Minor issues fixed
+
+= 3.8.8 =
+*  ☞ Fix for uBlock Extension
+*  ☞ Favicon not showing on activation [Oceanwp theme]
+
+= 3.8.7 =
+*  ☞ Popup Vertical Alignment
+*  ☞ Adguard popup fixed
+
 = 3.8.4 =
 *  ☞ Popup Vertical Alignment
 *  ☞ Adguard popup fixed

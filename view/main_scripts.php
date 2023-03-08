@@ -1,11 +1,9 @@
 const <?php echo $this->rclass("adblockModal"); ?> = document.getElementById("<?php echo $this->rclass("modal"); ?>");
 const adbEnableForPage = true;
-const debug = <?php echo $debug ? 'true' : 'false'; ?>;
+const adbdebug = <?php echo $debug ? 'true' : 'false'; ?>;
 const adbVersion = "<?php echo CHP_ADSB_VERSION; ?>";
-const ajaxurl = "<?php echo admin_url( 'admin-ajax.php' ); ?>";
 let onPageLoad = <?php echo filter_var($onPageFullyLoaded, FILTER_VALIDATE_BOOLEAN) ? "true" : "false"; ?>;
 let googleAdsControl = <?php echo filter_var($googleAds, FILTER_VALIDATE_BOOLEAN) ? "true" : "false"; ?>;
-let imageAdsControl = <?php echo filter_var($imageAds, FILTER_VALIDATE_BOOLEAN) ? "true" : "false"; ?>;
 let classAdsControl = <?php echo filter_var($classAds, FILTER_VALIDATE_BOOLEAN) ? "true" : "false"; ?>;
 let displayOnce = 0;
 const <?php echo $this->rclass("reqServers"); ?> = <?php echo $this->request_servers(); ?>;
@@ -63,14 +61,14 @@ function adsBlocked(callBackFunc) {
         });
 
         fetch(adsRequest).then(function(res) {
-            if (debug) {
+            if (adbdebug) {
                 console.warn(`[ADB DEBUG] Ads Request [${reqURL}] Passed!!!`);
             }
             serverReqCount++;
             adreqfound = false;
             adsBlocked(callBackFunc);
         }).catch(function(res) {
-            if (debug) {
+            if (adbdebug) {
                 console.error(`[ADB DEBUG] Ads Request [${reqURL}] Failed!!!`);
                 console.error(`[ADB DEBUG] ${res}`)
             }
@@ -78,7 +76,7 @@ function adsBlocked(callBackFunc) {
             adreqfound = true;
         })
     } else {
-        if (debug) {
+        if (adbdebug) {
             console.warn("[ADB DEBUG] Ads Request Failed. Reason: Blocked by Filter Hook or Offline!!!");
         }
     }
@@ -212,7 +210,7 @@ function checkMultiple() {
                 enable = doesElementIsBlocked(adBoxEle);
                 console.log("Enable", enable);
 
-                if (debug) {
+                if (adbdebug) {
                     if (enable) {
                         console.warn("[ADB DEBUG] Class Add Request Failed!!!");
                     } else {
@@ -230,7 +228,7 @@ function checkMultiple() {
             divEle.parentNode.removeChild(divEle);
         }
     }else{
-        if(debug){
+        if(adbdebug){
             console.warn("[ADS PRO DEBUG] Check Multiple Request Blocked by Filter Hook or Offline");
         }
     }
@@ -251,20 +249,9 @@ function init() {
         if (enable) {
             chp_ads_blocker_detector(true);
         } else {
-            if (imageAdsControl) {
-                enable = isHidden(document.getElementById("<?php echo $this->rclass("chp-ads-image"); ?>"));
-                if (debug) {
-                    if (enable) {
-                        console.warn("[ADB DEBUG] Image Ads Request Failed!!!");
-                    } else {
-                        console.log("[ADB DEBUG] Image Ads Request Passed!!!");
-                    }
-                }
-            }
-
             if (!enable) {
                 enable = checkMultiple();
-                if (debug) {
+                if (adbdebug) {
                     if (enable) {
                         console.warn("[ADB DEBUG] Check Multiple Request Failed!!!");
                     } else {

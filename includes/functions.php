@@ -59,6 +59,7 @@ function defaults(){
         'left' => '0',
         'hidemobile' => false,
         'branding' => 'yes',
-        'servers' => 'https://ads-api.twitter.com'
+        'servers' => 'https://sovrn.com/',
+        "imageads" => true
     );
 }

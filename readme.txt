@@ -2,8 +2,8 @@
 Contributors: sureshchand12a
 Tags: adsense, adblock, anti-adblock, chpadblock, chp, chp-adblock, adblock-plus, ublock-origin
 Requires at least: 5.2
-Tested up to: 6.0.2
-Stable tag: 3.8.6
+Tested up to: 6.1
+Stable tag: 3.9.0
 Requires PHP: 7.2
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -20,6 +20,10 @@ This will work for most of the ads block extension such as Adblock, AdBlock Plus
 
 This plugin will also works for opera built-in ads block extension.
 
+> <strong>IMPORTANT</strong><br />
+> We have remove the Image Request from the plugin. So, Some of the extension may not be detected. If you found any extension that is not detecting then create a ticket on our website.
+> In case of any issue with the plugin, Please visit the [Documentation](https://chpadblock.com/docs/support/) page.
+> Most of the users faced issue with the uBlock extension. To fix this issue, Please visit [Documentation page to fix for uBlock Extension](https://chpadblock.com/docs/support/not-working-with-ublock-extension/).
 
 **TESTED FOR:**
 
@@ -74,7 +78,7 @@ This plugin will also works for opera built-in ads block extension.
 
 For more information regarding adblock detecting and revenue recovery, please visit [CHP Adblock](https://chpadblock.com)
 
-** CUSTOM WEBSITE**
+**CUSTOM WEBSITE**
 
 If you have custom website and want to add Adblock Detector on your website then please visit [CHP Adblock Script for Custom Website](https://chpadblock.com/adblock-detector-for-static-website/)
 
@@ -132,7 +136,21 @@ Yes, For this you have to purchase the premium version of Ads Block Detector. An
 
 == Changelog ==
 
-= 3.8.6 =
+= 3.9.0 =
+*  ☞ Remove Branding Settings
+*  ☞ Updated Server List
+*  ☞ Minor issues fixed
+
+= 3.8.9 =
+*  ☞ Optimize plugin images
+*  ☞ Removed Image Request Method
+*  ☞ Minor issues fixed
+
+= 3.8.8 =
+*  ☞ Fix for uBlock Extension
+*  ☞ Favicon not showing on activation [Oceanwp theme]
+
+= 3.8.7 =
 *  ☞ Popup Vertical Alignment
 *  ☞ Adguard popup fixed
 
