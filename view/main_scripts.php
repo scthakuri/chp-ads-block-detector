@@ -198,17 +198,21 @@ function checkMultiple() {
     let enable = false;
     if (classAdsControl) {
         let divEle = document.createElement("div");
-        divEle.innerHTML = "&nbsp;";
-        divEle.className = "ad ads doubleclick ad-placement ad-placeholder adbadge BannerAd adsbox ad-large ad-large ad-left ad-limits ad-link ad-live ad-loading ad-map ad-marker ad-master ad-pixel ad-random ad-refresh ad-300x250 ad ads doubleclick ad-placement ad-placeholder adbadge BannerAd adsbox pub_300x250 pub_300x250m pub_728x90 text-ad textAd text_ad text_ads text-ads text-ad-links";
+        divEle.className = "adsbygoogle Ad-Container sidebar-ad ad-slot ad ads doubleclick ad-placement ad-placeholder adbadge BannerAd adsbox ad-large ad-large ad-left ad-limits ad-link ad-live ad-loading ad-map ad-marker ad-master ad-pixel ad-random ad-refresh ad-300x250 ad ads doubleclick ad-placement ad-placeholder adbadge BannerAd adsbox pub_300x250 pub_300x250m pub_728x90 text-ad textAd text_ad text_ads text-ads text-ad-links";
         divEle.id = "<?php echo $this->rclass("filter_ads_by_classname"); ?>";
         divEle.style = "width: 1px !important; height: 1px !important; position: absolute !important; left: -10000px !important; top: -1000px !important;";
+        divEle.setAttribute("data-ad-manager-id", "1");
+        divEle.setAttribute("data-ad-module", "1");
+        divEle.setAttribute("data-ad-width", "100");
+        divEle.setAttribute("data-adblockkey", "200");
+        divEle.setAttribute("data-advadstrackid", "1");
+        divEle.innerHTML = '<div style="z-index:-1; height:0; width:1px; visibility: hidden; bottom: -1px; left: 0;"></div>';
 
         try {
             if (!document.body.contains(document.getElementById('<?php echo $this->rclass("filter_ads_by_classname"); ?>'))) {
                 document.body.appendChild(divEle);
-                let adBoxEle = document.querySelector(".adsbox");
-                enable = doesElementIsBlocked(adBoxEle);
-                console.log("Enable", enable);
+                let adBoxEle = document.querySelector(".Ad-Container");
+                enable = !adBoxEle || adBoxEle.offsetHeight == 0;
 
                 if (adbdebug) {
                     if (enable) {

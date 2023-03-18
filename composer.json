@@ -1,6 +1,6 @@
 {
-    "name": "sureshchand/chp-ads-block-detector",
-    "version": "3.9.0",
+    "name": "scthakuri12a/chp-ads-block-detector",
+    "version": "3.9.3",
     "description": "Block Ads Blocker Extensions and Increase your revenue by using Ads Blocker Detector Plugin",
     "homepage": "https://wordpress.org/plugins/chp-ads-block-detector/",
     "type": "project",
@@ -8,7 +8,7 @@
     "authors": [
         {
             "name": "Suresh chand",
-            "email": "sureshchand12a@gmail.com",
+            "email": "scthakuri12a@gmail.com",
             "homepage": "https://sureshchand.com.np",
             "role": "Developer"
         }

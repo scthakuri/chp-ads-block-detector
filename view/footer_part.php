@@ -7,8 +7,8 @@
      */
     $googleAds = apply_filters('adb/checkby/googleads', false);
     $adsrequest = apply_filters('adb/adrequest/url', "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js");
-    $classAds = apply_filters('adb/checkby/classads', false);
-    $debug = apply_filters('adb/debug/js', false);
+    $classAds = apply_filters('adb/checkby/classads', true);
+    $debug = apply_filters('adb/debug/js', true);
     $onPageFullyLoaded = apply_filters('adb/onpageload', true);
 ?>
 
@@ -59,5 +59,10 @@
      * 
      * @since 3.3.2
      */
-    require_once CHP_ADSB_DIR . sprintf('view/main_scripts%s.php', wp_validate_boolean( $this->minify ) ? "_min" : "");
+    $includeFile = CHP_ADSB_DIR . sprintf('view/main_scripts%s.php', wp_validate_boolean( $this->minify ) ? "_min" : "");
+    if( file_exists( $includeFile ) && !$debug ){
+        require_once $includeFile;
+    }else{
+        require_once CHP_ADSB_DIR . 'view/main_scripts.php';
+    }
 ?></script>

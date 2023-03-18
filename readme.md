@@ -101,7 +101,7 @@ This section describes how to install the plugin and get it working.
 
 **CHANGELOG**
 
-= 3.9.0 =
+= 3.9.2 =
 *  ☞ Remove Branding Settings
 *  ☞ Updated Server List
 *  ☞ Minor issues fixed

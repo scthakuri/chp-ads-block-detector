@@ -3,7 +3,7 @@ Contributors: sureshchand12a
 Tags: adsense, adblock, anti-adblock, chpadblock, chp, chp-adblock, adblock-plus, ublock-origin
 Requires at least: 5.2
 Tested up to: 6.1
-Stable tag: 3.9.0
+Stable tag: 3.9.3
 Requires PHP: 7.2
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -136,7 +136,12 @@ Yes, For this you have to purchase the premium version of Ads Block Detector. An
 
 == Changelog ==
 
-= 3.9.0 =
+= 3.9.2 =
+*  ☞ Fixed for Brave Browser Adblock
+*  ☞ Updated Server List
+*  ☞ Minor issues fixed
+
+= 3.9.2 =
 *  ☞ Remove Branding Settings
 *  ☞ Updated Server List
 *  ☞ Minor issues fixed

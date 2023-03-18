@@ -15,7 +15,6 @@ namespace CHPADB\Includes;
 ******************************************************/
 if( ! defined( 'ABSPATH' ) ) exit(0);
 
-
 class scripts extends \CHPADB\adb{
 
     private $minify = true;
