@@ -8,7 +8,7 @@
     $googleAds = apply_filters('adb/checkby/googleads', false);
     $adsrequest = apply_filters('adb/adrequest/url', "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js");
     $classAds = apply_filters('adb/checkby/classads', true);
-    $debug = apply_filters('adb/debug/js', true);
+    $debug = apply_filters('adb/debug/js', false);
     $onPageFullyLoaded = apply_filters('adb/onpageload', true);
 ?>
 
