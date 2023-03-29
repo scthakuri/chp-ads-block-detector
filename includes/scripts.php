@@ -95,26 +95,6 @@ class scripts extends \CHPADB\adb{
 
     }
 
-    private function request_servers(){
-
-        //get user settings
-        $settings = \CHPADB\Includes\adbClass('settings')->get();
-
-        $servers = array("https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js");
-        if( ! empty( $settings->servers ) ){
-            $serverExplode = preg_split('/\r\n|[\r\n]/', trim($settings->servers));
-            foreach($serverExplode as $s){
-                if( filter_var($s, FILTER_VALIDATE_URL) ){
-                    $servers[] = trim($s);
-                }
-            }
-        }
-
-        $servers = apply_filters("chp/adb/request/servers", $servers);
-        $servers = json_encode($servers);
-        return str_replace("\/", "/", $servers);
-    }
-
     public function js(){
 
         /****************************************
@@ -135,7 +115,10 @@ class scripts extends \CHPADB\adb{
 
             $footer_part = CHP_ADSB_DIR . 'view/footer_part.php';
             if( file_exists( $footer_part ) ){
+                ob_start();
                 require_once $footer_part;
+                $content = ob_get_clean();
+                echo \CHPADB\Includes\minify_html_code($content);
             }
         }
     }

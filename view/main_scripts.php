@@ -3,11 +3,7 @@ const adbEnableForPage = true;
 const adbdebug = <?php echo $debug ? 'true' : 'false'; ?>;
 const adbVersion = "<?php echo CHP_ADSB_VERSION; ?>";
 let onPageLoad = <?php echo filter_var($onPageFullyLoaded, FILTER_VALIDATE_BOOLEAN) ? "true" : "false"; ?>;
-let googleAdsControl = <?php echo filter_var($googleAds, FILTER_VALIDATE_BOOLEAN) ? "true" : "false"; ?>;
-let classAdsControl = <?php echo filter_var($classAds, FILTER_VALIDATE_BOOLEAN) ? "true" : "false"; ?>;
 let displayOnce = 0;
-const <?php echo $this->rclass("reqServers"); ?> = <?php echo $this->request_servers(); ?>;
-
 
 /**
  * Hide on click
@@ -39,80 +35,6 @@ function <?php echo $this->rclass("is_connected"); ?>() {
 }
 
 /**
- * Send google Ads Request
- *
- * @param One Callback function
- */
-let serverReqCount = 0;
-let adreqfound = false;
-function adsBlocked(callBackFunc) {
-
-    if( adreqfound ) return true;
-    if( serverReqCount >= <?php echo $this->rclass("reqServers"); ?>.length ){
-        callBackFunc(adreqfound);
-        return true;
-    }
-
-    if( <?php echo $this->rclass("reqServers"); ?>.length > 0 && <?php echo $this->rclass("is_connected"); ?>() ){
-        const reqURL = <?php echo $this->rclass("reqServers"); ?>[serverReqCount];
-        const adsRequest = new Request(reqURL, {
-            method: "HEAD",
-            mode: "no-cors"
-        });
-
-        fetch(adsRequest).then(function(res) {
-            if (adbdebug) {
-                console.warn(`[ADB DEBUG] Ads Request [${reqURL}] Passed!!!`);
-            }
-            serverReqCount++;
-            adreqfound = false;
-            adsBlocked(callBackFunc);
-        }).catch(function(res) {
-            if (adbdebug) {
-                console.error(`[ADB DEBUG] Ads Request [${reqURL}] Failed!!!`);
-                console.error(`[ADB DEBUG] ${res}`)
-            }
-            callBackFunc(true);
-            adreqfound = true;
-        })
-    } else {
-        if (adbdebug) {
-            console.warn("[ADB DEBUG] Ads Request Failed. Reason: Blocked by Filter Hook or Offline!!!");
-        }
-    }
-}
-
-
-/**
- * Default callback function
- *
- * @param e as data
- */
-function chpadb_default_callback(e) {
-    console.log(e)
-}
-
-
-/**
- * Reload page
- *
- */
-function reload() {
-    window.location.href = window.location.href
-}
-
-
-/**
- * Redirect to certain page
- *
- * @param e as url
- */
-function redirect(e) {
-    window.location.href = e
-}
-
-
-/**
  * 
  *
  * @param e as data
@@ -133,20 +55,19 @@ function removeClass(e, t) {
 }
 
 let count = 0;
-
-
 function <?php echo $this->rclass("hide_model"); ?>() {
     try{
-        if (typeof <?php echo $this->rclass("adblockModal"); ?> == 'object') {
+        if (<?php echo $this->rclass("adblockModal"); ?>) {
             removeClass(<?php echo $this->rclass("adblockModal"); ?>, "<?php echo $this->rclass("show"); ?>");
             removeClass(document.body, "<?php echo $this->rclass("active"); ?>")
         }
     }catch(e){
-        console.warn(e);
+
     }
 }
 
-function <?php echo $this->rclass("show_modal"); ?>(modal) {
+function <?php echo $this->rclass("show_modal"); ?>() {
+    const modal = <?php echo $this->rclass("adblockModal"); ?>;
     if (modal != null && 0 == displayOnce) {
         displayOnce++;
         addClass(modal, "<?php echo $this->rclass("show"); ?>");
@@ -154,131 +75,140 @@ function <?php echo $this->rclass("show_modal"); ?>(modal) {
     }
 }
 
-function chp_adblock_browser() {
-    return /Opera[\/\s](\d+\.\d+)/.test(navigator.userAgent) ? "Opera" : /MSIE (\d+\.\d+);/.test(navigator.userAgent) ?
-        "MSIE" : /Navigator[\/\s](\d+\.\d+)/.test(navigator.userAgent) ? "Netscape" : /Chrome[\/\s](\d+\.\d+)/.test(
-            navigator.userAgent) ? "Chrome" : /Safari[\/\s](\d+\.\d+)/.test(navigator.userAgent) ? "Safari" :
-        /Firefox[\/\s](\d+\.\d+)/.test(navigator.userAgent) ? "Firefox" : "Unknown"
-}
-
 function chp_ads_blocker_detector(enable) {
     if (enable) {
-        <?php echo $this->rclass("show_modal"); ?>(<?php echo $this->rclass("adblockModal"); ?>);
+        <?php echo $this->rclass("show_modal"); ?>();
     }
 }
 
-function doesElementIsBlocked(elem){
-        if (
-            elem.offsetParent === null ||
-            elem.offsetHeight == 0 ||
-            elem.offsetLeft == 0 ||
-            elem.offsetTop == 0 ||
-            elem.offsetWidth == 0 ||
-            elem.clientHeight == 0 ||
-            elem.clientWidth == 0
-        ) {
-            return true;
-        } else if (window.getComputedStyle !== undefined) {
-            let elemCS = window.getComputedStyle(elem, null);
-            if (
-                elemCS &&
-                (
-                    elemCS.getPropertyValue('display') == 'none' ||
-                    elemCS.getPropertyValue('visibility') == 'hidden'
-                )
-            ) {
-                return true;
-            }
-        }
+function fairAdblock() {
+    let stndzStyle = document.getElementById('stndz-style');
+    return null !== stndzStyle;
+}
+
+/**
+* Check by adding servers
+* */
+function adsBlocked( callback ){
+    let head = document.getElementsByTagName('head')[0];
+    let script = document.createElement('script');
+    let done = false;
+
+    if( ! <?php echo $this->rclass('is_connected'); ?>() ){
+        callback(false);
         return false;
     }
+    
+    const reqURL = "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js";
+    script.setAttribute( "src", reqURL );
+    script.setAttribute( "type", "text/javascript" );
+    script.setAttribute( "charset", "utf-8" );
+
+    script.onload = script.onreadstatechange = function() {
+        if ( ! done && ( ! this.readyState || this.readyState === 'loaded' || this.readyState === 'complete') ) {
+            done = true;
+            script.onload = script.onreadystatechange = null;
+                    
+            if ( 'undefined' === typeof window.adsbygoogle ) {
+                callback( true, 2 );
+            } else {
+                callback( false );
+            }
+
+            script.parentNode.removeChild( script );
+        }
+    };
+
+    /** On Error. */
+    script.onerror = function() {
+        callback( true, 2 );
+    };
+            
+    /** Async */
+    let callbacked = false;            
+    const request = new XMLHttpRequest();  
+    request.open( 'GET', reqURL, true );            
+    request.onreadystatechange = function(){
+        if (this.status === 0 || (this.status >= 200 && this.status < 400)) {
+            if(
+                this.responseText.toLowerCase().indexOf("ublock") > -1
+                || this.responseText.toLowerCase().indexOf("height:1px") > -1
+            ){
+                if( callbacked ){
+                    callback(true, 2);
+                }
+                callbacked = true;
+            }
+        }
+
+        if ( ! callbacked ) {
+            callback( request.responseURL !== reqURL, request.readyState );
+            callbacked = true;
+        }        
+    };         
+    
+    request.send();
+    head.insertBefore( script, head.firstChild );
+}
 
 let prevCount = 0;
-function checkMultiple() {
+function checkMultiple(callback) {
     let enable = false;
-    if (classAdsControl) {
+    try{
         let divEle = document.createElement("div");
-        divEle.className = "adsbygoogle Ad-Container sidebar-ad ad-slot ad ads doubleclick ad-placement ad-placeholder adbadge BannerAd adsbox ad-large ad-large ad-left ad-limits ad-link ad-live ad-loading ad-map ad-marker ad-master ad-pixel ad-random ad-refresh ad-300x250 ad ads doubleclick ad-placement ad-placeholder adbadge BannerAd adsbox pub_300x250 pub_300x250m pub_728x90 text-ad textAd text_ad text_ads text-ads text-ad-links";
-        divEle.id = "<?php echo $this->rclass("filter_ads_by_classname"); ?>";
+        divEle.className = "adsbygoogle Ad-Container sidebar-ad ad-slot ad ads doubleclick ad-placement ad-placeholder adbadge BannerAd adsbox";
         divEle.style = "width: 1px !important; height: 1px !important; position: absolute !important; left: -10000px !important; top: -1000px !important;";
         divEle.setAttribute("data-ad-manager-id", "1");
         divEle.setAttribute("data-ad-module", "1");
         divEle.setAttribute("data-ad-width", "100");
         divEle.setAttribute("data-adblockkey", "200");
         divEle.setAttribute("data-advadstrackid", "1");
+        divEle.id = "<?php echo $this->rclass('filter_ads_by_classname'); ?>";
         divEle.innerHTML = '<div style="z-index:-1; height:0; width:1px; visibility: hidden; bottom: -1px; left: 0;"></div>';
 
         try {
-            if (!document.body.contains(document.getElementById('<?php echo $this->rclass("filter_ads_by_classname"); ?>'))) {
+            if (!document.body.contains(document.getElementById('<?php echo $this->rclass('filter_ads_by_classname'); ?>'))) {
                 document.body.appendChild(divEle);
-                let adBoxEle = document.querySelector(".Ad-Container");
+                const adBoxEle = document.querySelector(".Ad-Container");
                 enable = !adBoxEle || adBoxEle.offsetHeight == 0;
-
-                if (adbdebug) {
-                    if (enable) {
-                        console.warn("[ADB DEBUG] Class Add Request Failed!!!");
-                    } else {
-                        console.log("[ADB DEBUG] Class Add Request Passed!!!");
-                    }
-                }
             } else {
-                let adBoxEleId = document.getElementById("<?php echo $this->rclass("filter_ads_by_classname"); ?>");
-                removeClass(adBoxEleId, ` ads_${prevCount}`);
-                removeClass(adBoxEleId, `ads_${prevCount}`);
+                let adBoxEleId = document.getElementById("<?php echo $this->rclass('filter_ads_by_classname'); ?>");
+                <?php echo $this->rclass("removeClass"); ?>(adBoxEleId, 'ads_' + prevCount);
+                <?php echo $this->rclass("removeClass"); ?>(adBoxEleId, 'ads_' + prevCount);
                 prevCount++;
-                addClass(adBoxEleId, `ads_${prevCount}`);
+                <?php echo $this->rclass("addClass"); ?>(adBoxEleId, 'ads_' + prevCount);
             }
         } catch (error) {
-            divEle.parentNode.removeChild(divEle);
+            divEle?.parentNode?.removeChild(divEle);
         }
-    }else{
-        if(adbdebug){
-            console.warn("[ADS PRO DEBUG] Check Multiple Request Blocked by Filter Hook or Offline");
-        }
-    }
-    return enable;
-}
-
-function isHidden(e) {
-    try{
-        return "none" === window.getComputedStyle(e).display;
-    }catch(error){
+    }catch(e){
         
     }
-    return false;
+    return callback(enable);
 }
 
 function init() {
-    adsBlocked(function(enable) {
-        if (enable) {
-            chp_ads_blocker_detector(true);
-        } else {
-            if (!enable) {
-                enable = checkMultiple();
-                if (adbdebug) {
-                    if (enable) {
-                        console.warn("[ADB DEBUG] Check Multiple Request Failed!!!");
-                    } else {
-                        console.log("[ADB DEBUG] Check Multiple Request Passed!!!");
-                    }
-                }
+    if( fairAdblock() ){
+        chp_ads_blocker_detector(true);
+    }else{
+        adsBlocked(function(blocked){
+            if ( blocked ) {
+                chp_ads_blocker_detector(true);
+            }else{
+                checkMultiple(function(classenable){
+                    chp_ads_blocker_detector(classenable);
+                });
             }
-            chp_ads_blocker_detector(enable)
-        }
-    })
-}
-
-
-function startCheckingAdblock() {
-    init();
+        });
+    }
 }
 
 if (adbEnableForPage) {
     if (onPageLoad) {
         document.addEventListener("DOMContentLoaded", function(e) {
-            startCheckingAdblock();
+            init();
         }, false);
     } else {
-        startCheckingAdblock();
+        init();
     }
 }

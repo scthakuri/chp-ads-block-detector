@@ -11,6 +11,7 @@ class ComposerStaticInitf838456e91ae97678e86032c6630686b
     );
 
     public static $classMap = array (
+        'CHPADB\\Includes\\Obfuscator' => __DIR__ . '/../..' . '/includes/Obfuscator.php',
         'CHPADB\\Includes\\ajax' => __DIR__ . '/../..' . '/includes/ajax.php',
         'CHPADB\\Includes\\dependency' => __DIR__ . '/../..' . '/includes/dependency.php',
         'CHPADB\\Includes\\randomClass' => __DIR__ . '/../..' . '/includes/randomClass.php',

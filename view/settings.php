@@ -17,7 +17,11 @@
 
 <div class="hamrocsit_adb_content-setion">
 
-    <div style="color: #000;background-color: #f8d7da;border-color: #f5c6cb;padding: 15px;border-radius: 5px;margin-bottom: 10px;max-width: 95%;text-align: center;font-weight: bold;">If not working with any extension then please check <a target="_blank" style="color:red; text-decoration:underline;" href="https://chpadblock.com/docs/support/not-working-with-ublock-extension/">Documentation</a>.</div>
+    <div
+        style="color: #000;background-color: #f8d7da;border-color: #f5c6cb;padding: 15px;border-radius: 5px;margin-bottom: 10px;max-width: 95%;text-align: center;font-weight: bold;">
+        If not working with any extension then please check <a target="_blank"
+            style="color:red; text-decoration:underline;"
+            href="https://chpadblock.com/docs/support/not-working-with-ublock-extension/">Documentation</a>.</div>
 
     <div style="display: flex;">
         <table class="table" id="hamrocsit_adb_table">
@@ -45,8 +49,7 @@
                         <?php _e('Title', 'chp-adsblocker-detector'); ?>
                     </td>
                     <td>
-                        <input type="text"
-                            value="<?php echo empty($settings->title) ? null : $settings->title; ?>"
+                        <input type="text" value="<?php echo empty($settings->title) ? null : $settings->title; ?>"
                             class="chpabd_form_settings include" name="title" placeholder="Title">
                     </td>
                 </tr>
@@ -103,7 +106,7 @@
 
                 <tr>
                     <td>
-                    <?php _e('Show Close Button', 'chp-adsblocker-detector'); ?>
+                        <?php _e('Show Close Button', 'chp-adsblocker-detector'); ?>
                     </td>
                     <td>
                         <label class="checkbox_container">
@@ -117,22 +120,32 @@
 
                 <tr>
                     <td>
-                    <?php _e('Close Button (Text)', 'chp-adsblocker-detector'); ?>
+                        <?php _e('Close Button (Text)', 'chp-adsblocker-detector'); ?>
                     </td>
                     <td>
                         <input type="text" value="<?php echo $settings->btn2_text; ?>"
-                            class="chpabd_form_settings include" name="btn2_text" placeholder="<?php _e('Button Text', 'chp-adsblocker-detector'); ?>">
+                            class="chpabd_form_settings include" name="btn2_text"
+                            placeholder="<?php _e('Button Text', 'chp-adsblocker-detector'); ?>">
                     </td>
                 </tr>
 
                 <tr>
                     <td>
-                        <?php _e('AdBlock Server <br/>(Separate by New Line)', 'chp-adsblocker-detector'); ?>
+                        <?php _e('Branding', 'chp-adsblocker-detector'); ?>
                     </td>
                     <td>
-                        <textarea type="text" style="width:100%;" rows="5"
-                            class="chpabd_form_settings include" name="servers"
-                            placeholder="<?php _e('Button Text', 'chp-adsblocker-detector'); ?>"><?php echo $settings->servers; ?></textarea>
+                        <div style="display:block;margin-bottom:10px;min-height: 25px;">
+                            <label class="checkbox_container">
+                                <input type="checkbox" <?php echo filter_var($settings->branding, FILTER_VALIDATE_BOOLEAN) ? 'checked' : null; ?>
+                                    name="branding" class="chpabd_form_settings include">
+                                <span class="checkmark"></span>
+                            </label>
+                        </div>
+
+                        <div class="notice notice-info" style="margin-left:0;">
+                            <div><strong>Help CHP Adblock to grow allowing people to recognize which comment plugin you use.</strong></div>
+                            <em>Please check this option on to help CHP Adblock get more popularity as your thank to the hard work we do for you. This option add Adblock icon and text on the adblock popup [Corner Fixed] which allow your site visitors recognize the name of the Adblock Plugin you use. <strong>This only show when popup open.</strong></em>
+                        </div>
                     </td>
                 </tr>
             </tbody>
@@ -170,27 +183,32 @@
                     <td><?php _e('Customize according to theme color', 'chp-adsblocker-detector'); ?></td>
                 </tr>
                 <tr>
-                    <td><?php _e('Content Wrapper: Automatically Blur Content If Detected', 'chp-adsblocker-detector'); ?></td>
+                    <td><?php _e('Content Wrapper: Automatically Blur Content If Detected', 'chp-adsblocker-detector'); ?>
+                    </td>
                 </tr>
                 <tr>
                     <td><?php _e('Google Analytics Trackers', 'chp-adsblocker-detector'); ?></td>
                 </tr>
                 <tr>
-                    <td><a target="_blank" href="https://chpadblock.com/docs/features/"><strong><?php _e('And Many More . . .', 'chp-adsblocker-detector'); ?></strong></a></td>
+                    <td><a target="_blank"
+                            href="https://chpadblock.com/docs/features/"><strong><?php _e('And Many More . . .', 'chp-adsblocker-detector'); ?></strong></a>
+                    </td>
                 </tr>
             </tbody>
             <thead>
                 <tr>
-                    <th style="text-align:center;"><a target="_blank"
-                            href="https://chpadblock.com/pricing/"
-                            style="    padding: 0;border: none;outline: none;box-shadow: none;background: transparent;color: #fff;text-align: center;text-decoration:none;"><?php _e('Check PRO Version', 'chp-adsblocker-detector'); ?></a></th>
+                    <th style="text-align:center;"><a target="_blank" href="https://chpadblock.com/pricing/"
+                            style="    padding: 0;border: none;outline: none;box-shadow: none;background: transparent;color: #fff;text-align: center;text-decoration:none;"><?php _e('Check PRO Version', 'chp-adsblocker-detector'); ?></a>
+                    </th>
                 </tr>
             </thead>
         </table>
     </div>
 
     <div class="chp_ads_button_row">
-        <button class="button button-primary" type="button" id="chp_ads_save_settings"><?php _e('Save Changes', 'chp-adsblocker-detector'); ?></button>
-        <button class="button button-secondary" type="button" id="chp_ads_reset_settings"><?php _e('Reset Changes', 'chp-adsblocker-detector'); ?></button>
+        <button class="button button-primary" type="button"
+            id="chp_ads_save_settings"><?php _e('Save Changes', 'chp-adsblocker-detector'); ?></button>
+        <button class="button button-secondary" type="button"
+            id="chp_ads_reset_settings"><?php _e('Reset Changes', 'chp-adsblocker-detector'); ?></button>
     </div>
 </div>

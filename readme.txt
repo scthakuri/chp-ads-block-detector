@@ -2,8 +2,8 @@
 Contributors: sureshchand12a
 Tags: adsense, adblock, anti-adblock, chpadblock, chp, chp-adblock, adblock-plus, ublock-origin
 Requires at least: 5.2
-Tested up to: 6.1
-Stable tag: 3.9.3
+Tested up to: 6.2
+Stable tag: 3.9.4
 Requires PHP: 7.2
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -136,7 +136,13 @@ Yes, For this you have to purchase the premium version of Ads Block Detector. An
 
 == Changelog ==
 
-= 3.9.2 =
+= 3.9.4 =
+*  ☞ Fixed for uBlock origin extension
+*  ☞ Compressed Scripts
+*  ☞ Remove multiple ads servers. Now, Only check via class request and google add request.
+*  ☞ Minor issues fixed
+
+= 3.9.3 =
 *  ☞ Fixed for Brave Browser Adblock
 *  ☞ Updated Server List
 *  ☞ Minor issues fixed

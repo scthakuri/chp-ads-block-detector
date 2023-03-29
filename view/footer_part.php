@@ -5,11 +5,16 @@
      * 
      * @since 5.1.2
      */
-    $googleAds = apply_filters('adb/checkby/googleads', false);
-    $adsrequest = apply_filters('adb/adrequest/url', "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js");
-    $classAds = apply_filters('adb/checkby/classads', true);
     $debug = apply_filters('adb/debug/js', false);
     $onPageFullyLoaded = apply_filters('adb/onpageload', true);
+    $branding = apply_filters('adb/branding', $settings->branding);
+
+    $brandingcode = '';
+    if( filter_var($branding, FILTER_VALIDATE_BOOLEAN) ){
+        $brandingURLArray = array("https://chpadblock.com/");
+        $brandingURL = $brandingURLArray[array_rand($brandingURLArray)];
+        $brandingcode = sprintf('<div class="%s"><a id="%s" href="%s" target="_blank" rel="noopener noreferrer"><span class="%s" style="color: rgb(9, 13, 22);">Powered By</span> <div class="%s"><img src="%sassets/img/d.svg" alt="Best Wordpress Adblock Detecting Plugin | CHP Adblock" /></div></a></div>', $this->rclass("chp_branding"), $this->rclass("chp_branding"), $brandingURL, $this->rclass("powered_by"), $this->rclass("chp_brading_svg"), CHP_ADSB_URL);
+    }
 ?>
 
 <div id="<?php echo esc_attr($this->rclass("modal")); ?>" class="<?php echo esc_attr($this->rclass("modal")); ?>">
@@ -44,13 +49,15 @@
                             <a class="<?php echo esc_attr($this->rclass("action-btn-close")); ?>" id="<?php echo esc_attr($this->rclass("close_btn_adblock")); ?>"><?php echo esc_attr($settings->btn2_text); ?></a> 
                         <?php endif; ?>
                         <?php if( wp_validate_boolean( $settings->btn1_show ) ): ?> 
-                            <a class="<?php echo esc_attr($this->rclass("action-btn-ok")); ?>" onclick="reload()"><?php echo esc_attr($settings->btn1_text); ?></a>
+                            <a class="<?php echo esc_attr($this->rclass("action-btn-ok")); ?>" onclick="window.location.href=window.location.href"><?php echo esc_attr($settings->btn1_text); ?></a>
                         <?php endif; ?>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+
+    <?php echo $brandingcode; ?>
 </div>
 
 <script><?php
@@ -59,10 +66,18 @@
      * 
      * @since 3.3.2
      */
-    $includeFile = CHP_ADSB_DIR . sprintf('view/main_scripts%s.php', wp_validate_boolean( $this->minify ) ? "_min" : "");
-    if( file_exists( $includeFile ) && !$debug ){
-        require_once $includeFile;
-    }else{
-        require_once CHP_ADSB_DIR . 'view/main_scripts.php';
+    ob_start();
+    require_once CHP_ADSB_DIR . 'view/main_scripts.php';
+    $content = ob_get_clean();
+    if( ! $debug ){
+        $hunter = new \CHPADB\Includes\Obfuscator($content);
+        $hunter->setExpiration('+5 day');
+
+        $parse = parse_url( site_url() );
+        $domain_name = $parse['host'];
+        $hunter->addDomainName($domain_name);
+
+        $content = $hunter->Obfuscate();
     }
+    echo $content;
 ?></script>

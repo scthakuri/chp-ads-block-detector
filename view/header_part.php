@@ -442,4 +442,47 @@ body .<?php echo esc_attr($this->rclass("modal")); ?>{
     z-index:-20;
     bottom:0;
 }
+
+.<?php echo $this->rclass("chp_branding"); ?>{
+    display: inline-block;
+    height: 40px;
+    padding: 10px 20px;
+    text-align: center;
+    background-color: white;
+    border-radius: 20px;
+    box-sizing: border-box;
+    position: fixed;
+    bottom: 2%;
+    z-index: 9999999;
+    right: 2%;
+}
+
+.<?php echo $this->rclass("powered_by"); ?>,
+.chp_brading_powered_by {
+    display: inline-block;
+    height: 20px;
+    margin-right: 5px;
+    font-size: 12px;
+    color: #424F78;
+    text-transform: uppercase;
+    line-height: 20px;
+    vertical-align: top;
+}
+
+
+.<?php echo $this->rclass("chp_brading_svg"); ?>{
+    display: inline-block;
+    height: 20px;
+    vertical-align: top;
+}
+
+.<?php echo $this->rclass("chp_brading_svg"); ?> img{
+    display: block;
+    height: 100%;
+    width: auto;
+}
+
+.<?php echo $this->rclass("chp_branding"); ?>.hide {
+    display: none !important
+}
 </style>
