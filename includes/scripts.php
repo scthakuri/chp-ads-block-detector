@@ -30,8 +30,23 @@ class scripts extends \CHPADB\adb{
     public function init(){
         $this->minify = apply_filters( "adb/minify/enable", true );
         add_action( 'admin_enqueue_scripts',  [$this, 'admin_scripts']);
+
+        /****************************************
+        Get user settings
+        *****************************************/ 
+        $this->settings = \CHPADB\Includes\adbClass('settings')->get();
+        
         add_action( 'wp_head',  [$this, 'css'], 1);
-        add_action( 'wp_footer',  [$this, 'js'], 1);
+
+        if( ! filter_var( @$this->settings->header, FILTER_VALIDATE_BOOLEAN ) ){
+            add_action( 'wp_footer',  [$this, 'js'], 1);
+        }else{
+            if( has_action("wp_body_open") ){
+                add_action( 'wp_body_open',  [$this, 'js'], 1);
+            }else{
+                add_action( 'wp_footer',  [$this, 'js'], 1);
+            }
+        }
     }
 
     /**
@@ -57,7 +72,7 @@ class scripts extends \CHPADB\adb{
         wp_localize_script( 'chp-ads-admin-js', 'chpadb', array(
             'plugin_path' => CHP_ADSB_URL,
             'response' => __('Response!!!', 'chp-adsblocker-detector')
-        ) );
+        ));
     }
 
     public function minify($content){
@@ -72,12 +87,8 @@ class scripts extends \CHPADB\adb{
     }
 
     public function css( ){
-
-        //get user settings
-        $settings = \CHPADB\Includes\adbClass('settings')->get();
-        
         //Check Whether plugin is active
-        if( filter_var( $settings->enable, FILTER_VALIDATE_BOOLEAN ) ){
+        if( filter_var( @$this->settings->enable, FILTER_VALIDATE_BOOLEAN ) ){
 
             $header_part = CHP_ADSB_DIR . 'view/header_part.php';
             if( file_exists( $header_part ) ){
@@ -92,18 +103,12 @@ class scripts extends \CHPADB\adb{
                 ));
             }
         }
-
     }
 
     public function js(){
-
-        /****************************************
-        Get user settings
-        *****************************************/ 
-        $settings = \CHPADB\Includes\adbClass('settings')->get();
         
         //Check Whether plugin is active
-        if( filter_var( $settings->enable, FILTER_VALIDATE_BOOLEAN ) ){
+        if( filter_var( @$this->settings->enable, FILTER_VALIDATE_BOOLEAN ) ){
 
             $iconAlernativeFile = CHP_ADSB_URL . 'assets/img/icon.png';
             $iconAlernativeFile = apply_filters( 'adb/change/icon', $iconAlernativeFile );

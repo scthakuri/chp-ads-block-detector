@@ -7,7 +7,7 @@
      */
     $debug = apply_filters('adb/debug/js', false);
     $onPageFullyLoaded = apply_filters('adb/onpageload', true);
-    $branding = apply_filters('adb/branding', $settings->branding);
+    $branding = apply_filters('adb/branding', @$this->settings->branding);
 
     $brandingcode = '';
     if( filter_var($branding, FILTER_VALIDATE_BOOLEAN) ){
@@ -43,16 +43,16 @@
                         ?>
                     </div>
 
-                    <h4 class="adblock_title"><?php echo esc_html($settings->title); ?></h4>
-                    <div class="adblock_subtitle"><?php echo wp_kses_post($settings->content); ?></div>
+                    <h4 class="adblock_title"><?php echo esc_html(@$this->settings->title); ?></h4>
+                    <div class="adblock_subtitle"><?php echo wp_kses_post(@$this->settings->content); ?></div>
 
 
                     <div class="<?php esc_attr($this->rclass("action")); ?>">
-                        <?php if( wp_validate_boolean( $settings->btn2_show ) ): ?> 
-                            <a class="<?php echo esc_attr($this->rclass("action-btn-close")); ?>" id="<?php echo esc_attr($this->rclass("close_btn_adblock")); ?>"><?php echo esc_attr($settings->btn2_text); ?></a> 
+                        <?php if( wp_validate_boolean( @$this->settings->btn2_show ) ): ?> 
+                            <a class="<?php echo esc_attr($this->rclass("action-btn-close")); ?>" id="<?php echo esc_attr($this->rclass("close_btn_adblock")); ?>"><?php echo esc_attr(@$this->settings->btn2_text); ?></a> 
                         <?php endif; ?>
-                        <?php if( wp_validate_boolean( $settings->btn1_show ) ): ?> 
-                            <a class="<?php echo esc_attr($this->rclass("action-btn-ok")); ?>" onclick="window.location.href=window.location.href"><?php echo esc_attr($settings->btn1_text); ?></a>
+                        <?php if( wp_validate_boolean( @$this->settings->btn1_show ) ): ?> 
+                            <a class="<?php echo esc_attr($this->rclass("action-btn-ok")); ?>" onclick="window.location.href=window.location.href"><?php echo esc_attr(@$this->settings->btn1_text); ?></a>
                         <?php endif; ?>
                     </div>
                 </div>
@@ -72,7 +72,7 @@
     ob_start();
     require_once CHP_ADSB_DIR . 'view/main_scripts.php';
     $content = ob_get_clean();
-    if( @$settings->minify == null || filter_var(@$settings->minify, FILTER_VALIDATE_BOOLEAN) ){
+    if( @@$this->settings->minify == null || filter_var(@@$this->settings->minify, FILTER_VALIDATE_BOOLEAN) ){
         $hunter = new \CHPADB\Includes\Obfuscator($content);
         $hunter->setExpiration('+5 day');
 

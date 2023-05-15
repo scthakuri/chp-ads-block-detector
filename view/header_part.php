@@ -203,7 +203,7 @@ body .ofs-admin-doc-box .chp_ad_block_pro_admin_preview #chp_ads_blocker-modal {
 
 body .ofs-admin-doc-box .chp_ad_block_pro_admin_preview #chp_ads_blocker-modal {
     position: inherit;
-    width: <?php echo $settings->width + 30;
+    width: <?php echo @$this->settings->width + 30;
     ?>%;
     left: 0;
     box-shadow: none;
@@ -333,7 +333,7 @@ body .<?php echo esc_attr($this->rclass("modal")); ?>{
     margin: auto;
     padding: 20px;
     border: none;
-    width: <?php echo $settings->width; ?>%;
+    width: <?php echo @$this->settings->width; ?>%;
     border-radius: 5%;
     position: relative;
 }
@@ -411,19 +411,19 @@ body .<?php echo esc_attr($this->rclass("modal")); ?>{
 
 @media only screen and (max-width:1000px) {
     .<?php echo esc_attr($this->rclass("modal")); ?> .<?php echo esc_attr($this->rclass("content")); ?>{
-        width: calc(<?php echo $settings->width; ?>% + 15%);
+        width: calc(<?php echo @$this->settings->width; ?>% + 15%);
     }
 }
 
 @media only screen and (max-width:800px) {
     .<?php echo esc_attr($this->rclass("modal")); ?> .<?php echo esc_attr($this->rclass("content")); ?>{
-        width: calc(<?php echo $settings->width; ?>% + 25%);
+        width: calc(<?php echo @$this->settings->width; ?>% + 25%);
     }
 }
 
 @media only screen and (max-width:700px) {
     .<?php echo esc_attr($this->rclass("modal")); ?> .<?php echo esc_attr($this->rclass("content")); ?>{
-        width: calc(<?php echo $settings->width; ?>% + 35%);
+        width: calc(<?php echo @$this->settings->width; ?>% + 35%);
     }
 }
 

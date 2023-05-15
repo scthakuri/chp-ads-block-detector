@@ -38,7 +38,7 @@
                     <td>
                         <label class="checkbox_container">
                             <input type="checkbox"
-                                <?php echo filter_var($settings->enable, FILTER_VALIDATE_BOOLEAN) ? 'checked' : null; ?>
+                                <?php echo filter_var(@$settings->enable, FILTER_VALIDATE_BOOLEAN) ? 'checked' : null; ?>
                                 name="enable" class="chpabd_form_settings include">
                             <span class="checkmark"></span>
                         </label>
@@ -49,7 +49,7 @@
                         <?php _e('Title', 'chp-adsblocker-detector'); ?>
                     </td>
                     <td>
-                        <input type="text" value="<?php echo empty($settings->title) ? null : $settings->title; ?>"
+                        <input type="text" value="<?php echo empty(@$settings->title) ? null : @$settings->title; ?>"
                             class="chpabd_form_settings include" name="title" placeholder="Title">
                     </td>
                 </tr>
@@ -58,7 +58,7 @@
                         <?php _e('Content', 'chp-adsblocker-detector'); ?>
                     </td>
                     <td>
-                        <?php echo wp_editor( $settings->content , 'chp_ads_content', array(
+                        <?php echo wp_editor( @$settings->content , 'chp_ads_content', array(
                                     'tinymce'       => array(
                                         'toolbar1'      => 'bold,italic,underline,link,unlink,undo,redo',
                                         'toolbar2'      => '',
@@ -74,7 +74,7 @@
                         <?php _e('Width (in %)', 'chp-adsblocker-detector'); ?>
                     </td>
                     <td>
-                        <input type="number" value="<?php echo $settings->width; ?>"
+                        <input type="number" value="<?php echo @$settings->width; ?>"
                             class="chpabd_form_settings include" name="width" placeholder="Width in pixel">
                     </td>
                 </tr>
@@ -86,7 +86,7 @@
                     <td>
                         <label class="checkbox_container">
                             <input type="checkbox"
-                                <?php echo filter_var($settings->btn1_show, FILTER_VALIDATE_BOOLEAN) ? 'checked' : null; ?>
+                                <?php echo filter_var(@$settings->btn1_show, FILTER_VALIDATE_BOOLEAN) ? 'checked' : null; ?>
                                 name="btn1_show" class="chpabd_form_settings include">
                             <span class="checkmark"></span>
                         </label>
@@ -98,7 +98,7 @@
                         <?php _e('Refresh Button (Text)', 'chp-adsblocker-detector'); ?>
                     </td>
                     <td>
-                        <input type="text" value="<?php echo $settings->btn1_text; ?>"
+                        <input type="text" value="<?php echo @$settings->btn1_text; ?>"
                             class="chpabd_form_settings include" name="btn1_text"
                             placeholder="<?php _e('Button Text', 'chp-adsblocker-detector'); ?>">
                     </td>
@@ -111,7 +111,7 @@
                     <td>
                         <label class="checkbox_container">
                             <input type="checkbox"
-                                <?php echo filter_var($settings->btn2_show, FILTER_VALIDATE_BOOLEAN) ? 'checked' : null; ?>
+                                <?php echo filter_var(@$settings->btn2_show, FILTER_VALIDATE_BOOLEAN) ? 'checked' : null; ?>
                                 name="btn2_show" class="chpabd_form_settings include">
                             <span class="checkmark"></span>
                         </label>
@@ -123,9 +123,29 @@
                         <?php _e('Close Button (Text)', 'chp-adsblocker-detector'); ?>
                     </td>
                     <td>
-                        <input type="text" value="<?php echo $settings->btn2_text; ?>"
+                        <input type="text" value="<?php echo @$settings->btn2_text; ?>"
                             class="chpabd_form_settings include" name="btn2_text"
                             placeholder="<?php _e('Button Text', 'chp-adsblocker-detector'); ?>">
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <?php _e('Include in Header', 'chp-adsblocker-detector'); ?>
+                    </td>
+                    <td>
+                        <div style="display:block;margin-bottom:10px;min-height: 25px;">
+                            <label class="checkbox_container">
+                                <input type="checkbox"
+                                    <?php echo filter_var(@@$settings->header, FILTER_VALIDATE_BOOLEAN) ? 'checked' : null; ?>
+                                    name="header" class="chpabd_form_settings include">
+                                <span class="checkmark"></span>
+                            </label>
+                        </div>
+
+                        <div class="notice notice-info" style="margin-left:0;">
+                            <em>Make sure your theme supports <strong>wp_body_open</strong> hook. If not exists, this options will not work and render in footer.</em>
+                        </div>
                     </td>
                 </tr>
 
@@ -150,7 +170,7 @@
                     <td>
                         <div style="display:block;margin-bottom:10px;min-height: 25px;">
                             <label class="checkbox_container">
-                                <input type="checkbox" <?php echo filter_var($settings->branding, FILTER_VALIDATE_BOOLEAN) ? 'checked' : null; ?>
+                                <input type="checkbox" <?php echo filter_var(@$settings->branding, FILTER_VALIDATE_BOOLEAN) ? 'checked' : null; ?>
                                     name="branding" class="chpabd_form_settings include">
                                 <span class="checkmark"></span>
                             </label>
