@@ -131,6 +131,20 @@
 
                 <tr>
                     <td>
+                        <?php _e('Minify JS', 'chp-adsblocker-detector'); ?>
+                    </td>
+                    <td>
+                        <label class="checkbox_container">
+                            <input type="checkbox"
+                                <?php echo filter_var(@$settings->minify, FILTER_VALIDATE_BOOLEAN) ? 'checked' : null; ?>
+                                name="minify" class="chpabd_form_settings include">
+                            <span class="checkmark"></span>
+                        </label>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
                         <?php _e('Branding', 'chp-adsblocker-detector'); ?>
                     </td>
                     <td>

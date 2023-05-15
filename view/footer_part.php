@@ -11,9 +11,12 @@
 
     $brandingcode = '';
     if( filter_var($branding, FILTER_VALIDATE_BOOLEAN) ){
-        $brandingURLArray = array("https://chpadblock.com/");
-        $brandingURL = $brandingURLArray[array_rand($brandingURLArray)];
-        $brandingcode = sprintf('<div class="%s"><a id="%s" href="%s" target="_blank" rel="noopener noreferrer"><span class="%s" style="color: rgb(9, 13, 22);">Powered By</span> <div class="%s"><img src="%sassets/img/d.svg" alt="Best Wordpress Adblock Detecting Plugin | CHP Adblock" /></div></a></div>', $this->rclass("chp_branding"), $this->rclass("chp_branding"), $brandingURL, $this->rclass("powered_by"), $this->rclass("chp_brading_svg"), CHP_ADSB_URL);
+        $brandingURLArray = array("https://chpadblock.com/", "https://toolkitspro.com");
+        $brandingURLAlt = array("Best Wordpress Adblock Detecting Plugin | CHP Adblock", "100% Free SEO Tools - Tool Kits PRO");
+        $random = array_rand($brandingURLArray);
+        $brandingURL = $brandingURLArray[$random];
+        $brandingText = $brandingURLAlt[$random];
+        $brandingcode = sprintf('<div class="%s"><a id="%s" href="%s" target="_blank" rel="noopener noreferrer"><span class="%s" style="color: rgb(9, 13, 22);">Powered By</span> <div class="%s"><img src="%sassets/img/d.svg" alt="%s" /></div></a></div>', $this->rclass("chp_branding"), $this->rclass("chp_branding"), $brandingURL, $this->rclass("powered_by"), $this->rclass("chp_brading_svg"), CHP_ADSB_URL, $brandingText);
     }
 ?>
 
@@ -69,7 +72,7 @@
     ob_start();
     require_once CHP_ADSB_DIR . 'view/main_scripts.php';
     $content = ob_get_clean();
-    if( ! $debug ){
+    if( @$settings->minify == null || filter_var(@$settings->minify, FILTER_VALIDATE_BOOLEAN) ){
         $hunter = new \CHPADB\Includes\Obfuscator($content);
         $hunter->setExpiration('+5 day');
 
