@@ -137,8 +137,9 @@ Yes, For this you have to purchase the premium version of Ads Block Detector. An
 == Changelog ==
 
 = 3.9.5 =
-*  ☞ Fixed for uBlock origin extension
+*  ☞ Include Script in Header or Footer Support
 *  ☞ Compressed Scripts
+*  ☞ Fixed for uBlock origin extension
 *  ☞ Minor issues fixed
 
 = 3.9.4 =
