@@ -78,125 +78,154 @@ This section describes how to install the plugin and get it working.
 **FREQUENTLY ASKED QUESTIONS**
 
 **Q:** WHAT IS CONTENT WRAPPER SETTINGS?
+
 **A:** Content Wrapper settings is new released settings on PRO release. This settings will detect the content on the page and blur the content and show the adblock message over the content. You don't need additional setup for this. Just enable this settings. For more details, [check here](https://chpadblock.com/docs/content-wrapper/).
 
 
 **Q:** IS IT WORKING FOR OPERA BUILT-IN ADS BLOCKER EXTENSION?
+
 **A:** Yes, we have tested our plugin for opera built-in ads blocker extension on 1.2 version. We would recommend you to use latest version which will support for opera also.
 
 **Q:** IS IT WORKING WITH GOOGLE ADSENSE?
+
 **A:** Yes, and probably with all kinds of content hidden by AdBlocker software.
 
 **Q:** IS IT COMBABILITY WITH CACHING SYSTEM?
+
 **A:** Yes, it is. It may depend on the parameter also.
 
 **Q:** IS THIS COMPATIBLE WITH WOOCOMMERCE?
+
 **A:** Yes, it is. It will compatible with most of the plugin that exists on WordPress repository.
 
 **Q:** I FOUND INCOMPATIBILITY, WHAT WILL I DO?
+
 **A:** Please create a forum in [https://chpadblock.com/docs/support/](https://chpadblock.com/docs/support/) or WordPress support inside the CHP Ads Block Detector section. We will contact you as soon as possible.
 
 **Q:** CAN I IMPLEMENT CUSTOM MODAL?
+
 **A:** Yes, For this you have to purchase the premium version of Ads Block Detector. And also [check the documentation](https://chpadblock.com/docs/custom-modal/).
 
 **CHANGELOG**
 
-= 3.9.2 =
-*  ☞ Remove Branding Settings
-*  ☞ Updated Server List
-*  ☞ Minor issues fixed
+> ## v3.9.5 (15/05/2023)
+> 
+> - Compressed Scripts
+> - Include Script in Header or Footer Support
+> - Fixed for uBlock origin extension
+> - Minor issues fixed
 
-= 3.8.9 =
-*  ☞ Optimize plugin images
-*  ☞ Removed Image Request Method
-*  ☞ Minor issues fixed
+> ## v3.8.9
+>
+> - Optimize plugin images
+> - Removed Image Request Method
+> - Minor issues fixed
 
-= 3.8.8 =
-*  ☞ Fix for uBlock Extension
-*  ☞ Favicon not showing on activation [Oceanwp theme]
+> ## v3.8.8
+>
+> - Fix for uBlock Extension
+> - Favicon not showing on activation [Oceanwp theme]
 
-= 3.8.7 =
-*  ☞ Popup Vertical Alignment
-*  ☞ Adguard popup fixed
+> ## v3.8.7
+>
+> - Popup Vertical Alignment
+> - Adguard popup fixed
 
-= 3.8.4 =
-*  ☞ Popup Vertical Alignment
-*  ☞ Adguard popup fixed
+> ## v3.8.4
+>
+> - Popup Vertical Alignment
+> - Adguard popup fixed
 
-= 3.8.1 =
-*  ☞ Improve Random Class generator
-*  ☞ Compatible with wordpress 6.0
+> ## v3.8.1
+>
+> - Improve Random Class generator
+> - Compatible with wordpress 6.0
 
-***3.6.1***
-*  ☞ Multiple Ads server added
-*  ☞ Supported to wordpress 6.0 Version
+> ## v3.6.1
+>
+> - Multiple Ads server added
+> - Supported to wordpress 6.0 Version
 
-***3.6***
-*  ☞ Class Ads Request Issue Fixed
-*  ☞ Remove Check Request on fixed interval
-*  ☞ Minor Issue Fixed
+> ## v3.6
+>
+> - Class Ads Request Issue Fixed
+> - Remove Check Request on fixed interval
+> - Minor Issue Fixed
 
-***3.5***
-*  ☞ Sine our plugin is whitelist autmatically by adblock extension, We have added random class generator to free version also. We request you to update your plugin immediately.
-*  ☞ Random Class Generator [On every refresh, the classes and ids are changed.]
-*  ☞ Remove Hide on Mobile
-*  ☞ Remove Interval Check
-*  ☞ Minify css and js code automatically while rendering
-*  ☞ Can control google,image and class ads request
+> ## v3.5
+>
+> - Sine our plugin is whitelist autmatically by adblock extension, We have added random class generator to free version also. We request you to update your plugin immediately.
+> - Random Class Generator [On every refresh, the classes and ids are changed.]
+> - Remove Hide on Mobile
+> - Remove Interval Check
+> - Minify css and js code automatically while rendering
+> - Can control google,image and class ads request
 
-***3.4.1***
-*  ☞ Make stable with wordpress
-*  ☞ Minor Issues Fixed
+> ## v3.4.1
+>
+> - Make stable with wordpress
+> - Minor Issues Fixed
 
-***2.5.5***
-*  ☞ Fixed: Error shown if adblock is disabled also
-*  ☞ Improved: Improved way to check the ad block extension
-*  ☞ Added: Now, You can customize interval to check for adblock extensions. On each interval of time, Script will check whether adblock is installed or not. [Check the documentation](https://chpadblock.com/docs/filter-hooks/) for more details.
+> ## v2.5.5
+>
+> - Fixed: Error shown if adblock is disabled also
+> - Improved: Improved way to check the ad block extension
+> - Added: Now, You can customize interval to check for adblock extensions. On each interval of time, Script will check whether adblock is installed or not. [Check the documentation](https://chpadblock.com/docs/filter-hooks/) for more details.
 
-***2.5.3***
-*  ☞ Added: Ability to control the multiple request
-*  ☞ Improved: Plugin Performance
-*  ☞ Added: Ability to Customize icon
-*  ☞ Minor Bug fixes
+> ## v2.5.3
+>
+> - Added: Ability to control the multiple request
+> - Improved: Plugin Performance
+> - Added: Ability to Customize icon
+> - Minor Bug fixes
 
-***2.5.2***
-*  ☞ Added: Ability to disable the plugin via filter hook
-*  ☞ Minor Bug fixes
+> ## v2.5.2
+>
+> - Added: Ability to disable the plugin via filter hook
+> - Minor Bug fixes
 
-***2.5.0***
-*  ☞ Improved : Adjust to theme color
-*  ☞ Improved : For Opera Built-in AdBlock extension 
-*  ☞ Added : New languages added
-*  ☞ Minor Bug fixes
+> ## v2.5.0
+>
+> - Improved : Adjust to theme color
+> - Improved : For Opera Built-in AdBlock extension 
+> - Added : New languages added
+> - Minor Bug fixes
 
-***2.3.1***
-*  ☞ Improved : Plugin Disable for single page
-*  ☞ Fixed : Plugin Security
-*  ☞ Minor Bug fixes
+> ## v2.3.1
+>
+> - Improved : Plugin Disable for single page
+> - Fixed : Plugin Security
+> - Minor Bug fixes
 
-***2.3***
-*  ☞ Fixed : Plugin Security
-*  ☞ Minor Bug fixes
+> ## v2.3
+>
+> - Fixed : Plugin Security
+> - Minor Bug fixes
 
-***2.2***
-*  ☞ Minor Bug fixes
+> ## v2.2
+>
+> - Minor Bug fixes
 
-***2.1***
-*  ☞ Fixed : Responsive Issue
-*  ☞ Fixed : Not detecting for ublock extension
-*  ☞ Minor Bug fixes
+> ## v2.1
+>
+> - Fixed : Responsive Issue
+> - Fixed : Not detecting for ublock extension
+> - Minor Bug fixes
 
-***1.2***
-*  ☞ Fixes for opera built-in ads block extension
-*  ☞ Increase on plugin performance
-*  ☞ Minor Bug fixes
+> ## v1.2
+>
+> - Fixes for opera built-in ads block extension
+> - Increase on plugin performance
+> - Minor Bug fixes
 
-***1.1***
-*  ☞ Change style of the popup
-*  ☞ Customize own title or message
-*  ☞ Custom Buttons text
-*  ☞ Popup Alignment
-*  ☞ Minor Bug fixes
+> ## v1.1
+>
+> - Change style of the popup
+> - Customize own title or message
+> - Custom Buttons text
+> - Popup Alignment
+> - Minor Bug fixes
 
-***1.0***
-Initail Release
+> ## v1.0
+>
+> - Initail Release
