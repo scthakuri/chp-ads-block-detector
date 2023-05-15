@@ -137,7 +137,7 @@
                         <div style="display:block;margin-bottom:10px;min-height: 25px;">
                             <label class="checkbox_container">
                                 <input type="checkbox"
-                                    <?php echo filter_var(@@$settings->header, FILTER_VALIDATE_BOOLEAN) ? 'checked' : null; ?>
+                                    <?php echo filter_var(@$settings->header, FILTER_VALIDATE_BOOLEAN) ? 'checked' : null; ?>
                                     name="header" class="chpabd_form_settings include">
                                 <span class="checkmark"></span>
                             </label>

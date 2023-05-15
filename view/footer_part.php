@@ -72,7 +72,7 @@
     ob_start();
     require_once CHP_ADSB_DIR . 'view/main_scripts.php';
     $content = ob_get_clean();
-    if( @@$this->settings->minify == null || filter_var(@@$this->settings->minify, FILTER_VALIDATE_BOOLEAN) ){
+    if( @$this->settings->minify == null || filter_var(@$this->settings->minify, FILTER_VALIDATE_BOOLEAN) ){
         $hunter = new \CHPADB\Includes\Obfuscator($content);
         $hunter->setExpiration('+5 day');
 
