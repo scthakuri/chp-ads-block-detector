@@ -240,6 +240,7 @@
     </div>
 
     <div class="chp_ads_button_row">
+        <?php echo wp_nonce_field('update_chpadb_settings'); ?>
         <button class="button button-primary" type="button"
             id="chp_ads_save_settings"><?php _e('Save Changes', 'chp-adsblocker-detector'); ?></button>
         <button class="button button-secondary" type="button"

@@ -81,43 +81,47 @@ class ajax{
 
         /****************************************
         Save All the settings
-        *****************************************/ 
-        if( isset( $_POST['settings'] ) ){
-            $settings = $this->recursive_sanitize_array_field($_POST['settings']);
-            $defaults = (array) \CHPADB\Includes\defaults();
-            if(is_array($settings) && !empty($settings)){
-
-                //sanitize post message
-                $newSettings = array();
-                foreach($settings as $k => $v){
-                    if( isset( $settings[$k] ) ){
-                        if( $k == 'content' ){
-                            $newSettings[$k] = wp_kses_post($settings[$k]);
-                        }else if( $k == 'servers' ){
-                            $newSettings[$k] = sanitize_textarea_field($settings[$k]);
+        *****************************************/
+        if ( isset($_REQUEST['_wpnonce']) && wp_verify_nonce($_REQUEST['_wpnonce'], 'update_chpadb_settings' ) ){
+            if( isset( $_POST['settings'] ) ){
+                $settings = $this->recursive_sanitize_array_field($_POST['settings']);
+                $defaults = (array) \CHPADB\Includes\defaults();
+                if(is_array($settings) && !empty($settings)){
+    
+                    //sanitize post message
+                    $newSettings = array();
+                    foreach($settings as $k => $v){
+                        if( isset( $settings[$k] ) ){
+                            if( $k == 'content' ){
+                                $newSettings[$k] = wp_kses_post($settings[$k]);
+                            }else if( $k == 'servers' ){
+                                $newSettings[$k] = sanitize_textarea_field($settings[$k]);
+                            }else{
+                                $newSettings[$k] = sanitize_text_field($settings[$k]);
+                            }
                         }else{
-                            $newSettings[$k] = sanitize_text_field($settings[$k]);
+                            $newSettings[$k] = $defaults[$k];
                         }
-                    }else{
-                        $newSettings[$k] = $defaults[$k];
                     }
+                    update_option( "chpadb_plugin_settings", json_encode($newSettings) );
+                    
+                    echo __('Settings save successfully', 'chp-adsblocker-detector');
+                }else{
+                    echo __('We got some issue on updating settings.', 'chp-adsblocker-detector');
                 }
-                update_option( "chpadb_plugin_settings", json_encode($newSettings) );
-                
-                echo __('Settings save successfully', 'chp-adsblocker-detector');
-            }else{
-                echo __('We got some issue on updating settings.', 'chp-adsblocker-detector');
             }
-        }
 
-
-        /****************************************
-        Reset All the settings
-        *****************************************/ 
-        if( isset( $_POST['reset'] ) ){
-            setDefaultValues();
-            
-            echo __('Settings reset successfully.', 'chp-adsblocker-detector');
+            /****************************************
+            Reset All the settings
+            *****************************************/ 
+            if( isset( $_POST['reset'] ) ){
+                setDefaultValues();
+                
+                echo __('Settings reset successfully.', 'chp-adsblocker-detector');
+            }
+        }else{
+            echo __('Unable to update settings.', 'chp-adsblocker-detector');
+            die();
         }
 
         /****************************************

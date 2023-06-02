@@ -108,6 +108,10 @@ This section describes how to install the plugin and get it working.
 
 **CHANGELOG**
 
+> ## v3.9.6 (02/06/2023)
+> 
+> - Security Update
+
 > ## v3.9.5 (15/05/2023)
 > 
 > - Compressed Scripts

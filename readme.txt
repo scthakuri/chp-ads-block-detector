@@ -3,7 +3,7 @@ Contributors: sureshchand12a
 Tags: adsense, adblock, anti-adblock, chpadblock, chp, chp-adblock, adblock-plus, ublock-origin
 Requires at least: 5.2
 Tested up to: 6.2
-Stable tag: 3.9.5
+Stable tag: 3.9.6
 Requires PHP: 7.2
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -135,6 +135,9 @@ Yes, For this you have to purchase the premium version of Ads Block Detector. An
 6. Instruction to Disable the Adblock
 
 == Changelog ==
+
+= 3.9.6 =
+*  ☞ Security Update
 
 = 3.9.5 =
 *  ☞ Include Script in Header or Footer Support
