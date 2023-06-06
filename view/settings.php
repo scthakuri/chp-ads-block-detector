@@ -2,16 +2,16 @@
     <div class="hamrocsit_adb_top-section">
         <img class="hamrocsit_adb_logo" src="<?php echo CHP_ADSB_URL . 'assets/img/icon.png'; ?>">
         <div class="hamrocsit_adb_content">
-            <h1><?php _e('CHP ADS Block Detector!', 'chp-adsblocker-detector'); ?></h1>
-            <span>#<?php _e('The Best ads block detector wordpress plugin', 'chp-adsblocker-detector'); ?></span>
+            <h1><?php esc_attr_e('CHP ADS Block Detector!', 'chp-adsblocker-detector'); ?></h1>
+            <span>#<?php esc_attr_e('The Best ads block detector wordpress plugin', 'chp-adsblocker-detector'); ?></span>
         </div>
-        <div class="hamrocsit_adb_version"><?php _e('Version', 'chp-adsblocker-detector'); ?>:
+        <div class="hamrocsit_adb_version"><?php esc_attr_e('Version', 'chp-adsblocker-detector'); ?>:
             <b><?php echo CHP_ADSB_VERSION; ?></b>
         </div>
     </div>
     <div class="hamrocsit_adb_nav-tab-wrapper">
         <a target="_blank" href="https://chpadblock.com/pricing/"
-            class="hamrocsit_adb_nav-tab pro"><?php _e('Check Pro Version', 'chp-adsblocker-detector'); ?></a>
+            class="hamrocsit_adb_nav-tab pro"><?php esc_attr_e('Check Pro Version', 'chp-adsblocker-detector'); ?></a>
     </div>
 </div>
 
@@ -27,13 +27,13 @@
         <table class="table" id="hamrocsit_adb_table">
             <thead>
                 <tr>
-                    <th colspan="2"><?php _e('Settings', 'chp-adsblocker-detector'); ?></th>
+                    <th colspan="2"><?php esc_attr_e('Settings', 'chp-adsblocker-detector'); ?></th>
                 </tr>
             </thead>
             <tbody>
                 <tr>
                     <td>
-                        <?php _e('Enable', 'chp-adsblocker-detector'); ?>
+                        <?php esc_attr_e('Enable', 'chp-adsblocker-detector'); ?>
                     </td>
                     <td>
                         <label class="checkbox_container">
@@ -46,7 +46,7 @@
                 </tr>
                 <tr>
                     <td>
-                        <?php _e('Title', 'chp-adsblocker-detector'); ?>
+                        <?php esc_attr_e('Title', 'chp-adsblocker-detector'); ?>
                     </td>
                     <td>
                         <input type="text" value="<?php echo empty(@$settings->title) ? null : @$settings->title; ?>"
@@ -55,7 +55,7 @@
                 </tr>
                 <tr>
                     <td>
-                        <?php _e('Content', 'chp-adsblocker-detector'); ?>
+                        <?php esc_attr_e('Content', 'chp-adsblocker-detector'); ?>
                     </td>
                     <td>
                         <?php echo wp_editor( @$settings->content , 'chp_ads_content', array(
@@ -71,7 +71,7 @@
                 </tr>
                 <tr>
                     <td>
-                        <?php _e('Width (in %)', 'chp-adsblocker-detector'); ?>
+                        <?php esc_attr_e('Width (in %)', 'chp-adsblocker-detector'); ?>
                     </td>
                     <td>
                         <input type="number" value="<?php echo @$settings->width; ?>"
@@ -81,7 +81,7 @@
 
                 <tr>
                     <td>
-                        <?php _e('Show Refresh Button', 'chp-adsblocker-detector'); ?>
+                        <?php esc_attr_e('Show Refresh Button', 'chp-adsblocker-detector'); ?>
                     </td>
                     <td>
                         <label class="checkbox_container">
@@ -95,18 +95,18 @@
 
                 <tr>
                     <td>
-                        <?php _e('Refresh Button (Text)', 'chp-adsblocker-detector'); ?>
+                        <?php esc_attr_e('Refresh Button (Text)', 'chp-adsblocker-detector'); ?>
                     </td>
                     <td>
-                        <input type="text" value="<?php echo @$settings->btn1_text; ?>"
+                        <input type="text" value="<?php esc_attr_e($settings->btn1_text, 'chp-adsblocker-detector'); ?>"
                             class="chpabd_form_settings include" name="btn1_text"
-                            placeholder="<?php _e('Button Text', 'chp-adsblocker-detector'); ?>">
+                            placeholder="<?php esc_attr_e('Button Text', 'chp-adsblocker-detector'); ?>">
                     </td>
                 </tr>
 
                 <tr>
                     <td>
-                        <?php _e('Show Close Button', 'chp-adsblocker-detector'); ?>
+                        <?php esc_attr_e('Show Close Button', 'chp-adsblocker-detector'); ?>
                     </td>
                     <td>
                         <label class="checkbox_container">
@@ -120,18 +120,18 @@
 
                 <tr>
                     <td>
-                        <?php _e('Close Button (Text)', 'chp-adsblocker-detector'); ?>
+                        <?php esc_attr_e('Close Button (Text)', 'chp-adsblocker-detector'); ?>
                     </td>
                     <td>
-                        <input type="text" value="<?php echo @$settings->btn2_text; ?>"
+                        <input type="text" value="<?php esc_attr_e($settings->btn2_text, 'chp-adsblocker-detector'); ?>"
                             class="chpabd_form_settings include" name="btn2_text"
-                            placeholder="<?php _e('Button Text', 'chp-adsblocker-detector'); ?>">
+                            placeholder="<?php esc_attr_e('Button Text', 'chp-adsblocker-detector'); ?>">
                     </td>
                 </tr>
 
                 <tr>
                     <td>
-                        <?php _e('Include in Header', 'chp-adsblocker-detector'); ?>
+                        <?php esc_attr_e('Include in Header', 'chp-adsblocker-detector'); ?>
                     </td>
                     <td>
                         <div style="display:block;margin-bottom:10px;min-height: 25px;">
@@ -151,7 +151,7 @@
 
                 <tr>
                     <td>
-                        <?php _e('Minify JS', 'chp-adsblocker-detector'); ?>
+                        <?php esc_attr_e('Minify JS', 'chp-adsblocker-detector'); ?>
                     </td>
                     <td>
                         <label class="checkbox_container">
@@ -165,7 +165,7 @@
 
                 <tr>
                     <td>
-                        <?php _e('Branding', 'chp-adsblocker-detector'); ?>
+                        <?php esc_attr_e('Branding', 'chp-adsblocker-detector'); ?>
                     </td>
                     <td>
                         <div style="display:block;margin-bottom:10px;min-height: 25px;">
@@ -188,7 +188,7 @@
         <table class="table" id="hamrocsit_adb_table" style="width:23%;margin-left:2%;">
             <thead>
                 <tr>
-                    <th><?php _e('PRO Version Capability', 'chp-adsblocker-detector'); ?></th>
+                    <th><?php esc_attr_e('PRO Version Capability', 'chp-adsblocker-detector'); ?></th>
                 </tr>
             </thead>
             <tbody>
@@ -199,40 +199,39 @@
                     </td>
                 </tr>
                 <tr>
-                    <td><?php _e('Button Text Customizable', 'chp-adsblocker-detector'); ?></td>
+                    <td><?php esc_attr_e('Button Text Customizable', 'chp-adsblocker-detector'); ?></td>
                 </tr>
                 <tr>
-                    <td><?php _e('Overlay Effect Customizable', 'chp-adsblocker-detector'); ?></td>
+                    <td><?php esc_attr_e('Overlay Effect Customizable', 'chp-adsblocker-detector'); ?></td>
                 </tr>
                 <tr>
-                    <td><?php _e('Dark and Light Theme', 'chp-adsblocker-detector'); ?></td>
+                    <td><?php esc_attr_e('Dark and Light Theme', 'chp-adsblocker-detector'); ?></td>
                 </tr>
                 <tr>
-                    <td><?php _e('Control Body Scroll', 'chp-adsblocker-detector'); ?>l</td>
+                    <td><?php esc_attr_e('Control Body Scroll', 'chp-adsblocker-detector'); ?>l</td>
                 </tr>
                 <tr>
-                    <td><?php _e('Disable for individual pages and user roles', 'chp-adsblocker-detector'); ?></td>
+                    <td><?php esc_attr_e('Disable for individual pages and user roles', 'chp-adsblocker-detector'); ?></td>
                 </tr>
                 <tr>
-                    <td><?php _e('Customize according to theme color', 'chp-adsblocker-detector'); ?></td>
+                    <td><?php esc_attr_e('Customize according to theme color', 'chp-adsblocker-detector'); ?></td>
                 </tr>
                 <tr>
-                    <td><?php _e('Content Wrapper: Automatically Blur Content If Detected', 'chp-adsblocker-detector'); ?>
+                    <td><?php esc_attr_e('Content Wrapper: Automatically Blur Content If Detected', 'chp-adsblocker-detector'); ?>
                     </td>
                 </tr>
                 <tr>
-                    <td><?php _e('Google Analytics Trackers', 'chp-adsblocker-detector'); ?></td>
+                    <td><?php esc_attr_e('Google Analytics Trackers', 'chp-adsblocker-detector'); ?></td>
                 </tr>
                 <tr>
-                    <td><a target="_blank"
-                            href="https://chpadblock.com/docs/features/"><strong><?php _e('And Many More . . .', 'chp-adsblocker-detector'); ?></strong></a>
+                    <td><a target="_blank" href="https://chpadblock.com/docs/features/"><strong><?php esc_attr_e('And Many More . . .', 'chp-adsblocker-detector'); ?></strong></a>
                     </td>
                 </tr>
             </tbody>
             <thead>
                 <tr>
                     <th style="text-align:center;"><a target="_blank" href="https://chpadblock.com/pricing/"
-                            style="    padding: 0;border: none;outline: none;box-shadow: none;background: transparent;color: #fff;text-align: center;text-decoration:none;"><?php _e('Check PRO Version', 'chp-adsblocker-detector'); ?></a>
+                            style="    padding: 0;border: none;outline: none;box-shadow: none;background: transparent;color: #fff;text-align: center;text-decoration:none;"><?php esc_attr_e('Check PRO Version', 'chp-adsblocker-detector'); ?></a>
                     </th>
                 </tr>
             </thead>
@@ -242,8 +241,8 @@
     <div class="chp_ads_button_row">
         <?php echo wp_nonce_field('update_chpadb_settings'); ?>
         <button class="button button-primary" type="button"
-            id="chp_ads_save_settings"><?php _e('Save Changes', 'chp-adsblocker-detector'); ?></button>
+            id="chp_ads_save_settings"><?php esc_attr_e('Save Changes', 'chp-adsblocker-detector'); ?></button>
         <button class="button button-secondary" type="button"
-            id="chp_ads_reset_settings"><?php _e('Reset Changes', 'chp-adsblocker-detector'); ?></button>
+            id="chp_ads_reset_settings"><?php esc_attr_e('Reset Changes', 'chp-adsblocker-detector'); ?></button>
     </div>
 </div>

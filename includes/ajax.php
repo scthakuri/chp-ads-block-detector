@@ -82,7 +82,7 @@ class ajax{
         /****************************************
         Save All the settings
         *****************************************/
-        if ( isset($_REQUEST['_wpnonce']) && wp_verify_nonce($_REQUEST['_wpnonce'], 'update_chpadb_settings' ) ){
+        if ( isset($_REQUEST['_wpnonce']) && wp_verify_nonce($_REQUEST['_wpnonce'], 'update_chpadb_settings' ) && current_user_can('manage_options') ){
             if( isset( $_POST['settings'] ) ){
                 $settings = $this->recursive_sanitize_array_field($_POST['settings']);
                 $defaults = (array) \CHPADB\Includes\defaults();
@@ -105,9 +105,9 @@ class ajax{
                     }
                     update_option( "chpadb_plugin_settings", json_encode($newSettings) );
                     
-                    echo __('Settings save successfully', 'chp-adsblocker-detector');
+                    echo esc_attr('Settings save successfully', 'chp-adsblocker-detector');
                 }else{
-                    echo __('We got some issue on updating settings.', 'chp-adsblocker-detector');
+                    echo esc_attr('We got some issue on updating settings.', 'chp-adsblocker-detector');
                 }
             }
 
@@ -117,11 +117,10 @@ class ajax{
             if( isset( $_POST['reset'] ) ){
                 setDefaultValues();
                 
-                echo __('Settings reset successfully.', 'chp-adsblocker-detector');
+                echo esc_attr('Settings reset successfully.', 'chp-adsblocker-detector');
             }
         }else{
-            echo __('Unable to update settings.', 'chp-adsblocker-detector');
-            die();
+            echo esc_attr('Unable to update settings.', 'chp-adsblocker-detector');
         }
 
         /****************************************
