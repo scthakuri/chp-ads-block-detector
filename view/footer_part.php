@@ -7,6 +7,7 @@
      */
     $debug = apply_filters('adb/debug/js', false);
     $onPageFullyLoaded = apply_filters('adb/onpageload', true);
+
     $branding = apply_filters('adb/branding', @$this->settings->branding);
 
     $brandingcode = '';

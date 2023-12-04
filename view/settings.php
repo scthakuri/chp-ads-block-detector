@@ -240,9 +240,7 @@
 
     <div class="chp_ads_button_row">
         <?php echo wp_nonce_field('update_chpadb_settings'); ?>
-        <button class="button button-primary" type="button"
-            id="chp_ads_save_settings"><?php esc_attr_e('Save Changes', 'chp-adsblocker-detector'); ?></button>
-        <button class="button button-secondary" type="button"
-            id="chp_ads_reset_settings"><?php esc_attr_e('Reset Changes', 'chp-adsblocker-detector'); ?></button>
+        <button class="button button-primary" type="button" id="chp_ads_save_settings"><?php esc_attr_e('Save Changes', 'chp-adsblocker-detector'); ?></button>
+        <button class="button button-secondary" type="button" id="chp_ads_reset_settings"><?php esc_attr_e('Reset Changes', 'chp-adsblocker-detector'); ?></button>
     </div>
 </div>

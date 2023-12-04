@@ -108,7 +108,7 @@ This section describes how to install the plugin and get it working.
 
 **CHANGELOG**
 
-> ## v3.9.7 (06/06/2023)
+> ## v3.9.8 (06/06/2023)
 > 
 > - Security Update
 
