@@ -136,6 +136,10 @@ Yes, For this you have to purchase the premium version of Ads Block Detector. An
 
 == Changelog ==
 
+= 4.0 =
+*  ☞ Security Update
+*  ☞ Compatible with WP 6.4.1
+
 = 3.9.8 =
 *  ☞ Security Update
 

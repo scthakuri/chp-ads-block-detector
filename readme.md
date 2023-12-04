@@ -108,55 +108,60 @@ This section describes how to install the plugin and get it working.
 
 **CHANGELOG**
 
-> ## v3.9.8 (06/06/2023)
+> ### v4.0 (04/12/2023)
+> 
+> - Security Update
+> - Compatible with WP 6.4.1
+
+> ### v3.9.8 (06/06/2023)
 > 
 > - Security Update
 
-> ## v3.9.5 (15/05/2023)
+> ### v3.9.5 (15/05/2023)
 > 
 > - Compressed Scripts
 > - Include Script in Header or Footer Support
 > - Fixed for uBlock origin extension
 > - Minor issues fixed
 
-> ## v3.8.9
+> ### v3.8.9
 >
 > - Optimize plugin images
 > - Removed Image Request Method
 > - Minor issues fixed
 
-> ## v3.8.8
+> ### v3.8.8
 >
 > - Fix for uBlock Extension
 > - Favicon not showing on activation [Oceanwp theme]
 
-> ## v3.8.7
+> ### v3.8.7
 >
 > - Popup Vertical Alignment
 > - Adguard popup fixed
 
-> ## v3.8.4
+> ### v3.8.4
 >
 > - Popup Vertical Alignment
 > - Adguard popup fixed
 
-> ## v3.8.1
+> ### v3.8.1
 >
 > - Improve Random Class generator
 > - Compatible with wordpress 6.0
 
-> ## v3.6.1
+> ### v3.6.1
 >
 > - Multiple Ads server added
 > - Supported to wordpress 6.0 Version
 
-> ## v3.6
+> ### v3.6
 >
 > - Class Ads Request Issue Fixed
 > - Remove Check Request on fixed interval
 > - Minor Issue Fixed
 
-> ## v3.5
+> ### v3.5
 >
 > - Sine our plugin is whitelist autmatically by adblock extension, We have added random class generator to free version also. We request you to update your plugin immediately.
 > - Random Class Generator [On every refresh, the classes and ids are changed.]
@@ -165,64 +170,64 @@ This section describes how to install the plugin and get it working.
 > - Minify css and js code automatically while rendering
 > - Can control google,image and class ads request
 
-> ## v3.4.1
+> ### v3.4.1
 >
 > - Make stable with wordpress
 > - Minor Issues Fixed
 
-> ## v2.5.5
+> ### v2.5.5
 >
 > - Fixed: Error shown if adblock is disabled also
 > - Improved: Improved way to check the ad block extension
 > - Added: Now, You can customize interval to check for adblock extensions. On each interval of time, Script will check whether adblock is installed or not. [Check the documentation](https://chpadblock.com/docs/filter-hooks/) for more details.
 
-> ## v2.5.3
+> ### v2.5.3
 >
 > - Added: Ability to control the multiple request
 > - Improved: Plugin Performance
 > - Added: Ability to Customize icon
 > - Minor Bug fixes
 
-> ## v2.5.2
+> ### v2.5.2
 >
 > - Added: Ability to disable the plugin via filter hook
 > - Minor Bug fixes
 
-> ## v2.5.0
+> ### v2.5.0
 >
 > - Improved : Adjust to theme color
 > - Improved : For Opera Built-in AdBlock extension 
 > - Added : New languages added
 > - Minor Bug fixes
 
-> ## v2.3.1
+> ### v2.3.1
 >
 > - Improved : Plugin Disable for single page
 > - Fixed : Plugin Security
 > - Minor Bug fixes
 
-> ## v2.3
+> ### v2.3
 >
 > - Fixed : Plugin Security
 > - Minor Bug fixes
 
-> ## v2.2
+> ### v2.2
 >
 > - Minor Bug fixes
 
-> ## v2.1
+> ### v2.1
 >
 > - Fixed : Responsive Issue
 > - Fixed : Not detecting for ublock extension
 > - Minor Bug fixes
 
-> ## v1.2
+> ### v1.2
 >
 > - Fixes for opera built-in ads block extension
 > - Increase on plugin performance
 > - Minor Bug fixes
 
-> ## v1.1
+> ### v1.1
 >
 > - Change style of the popup
 > - Customize own title or message
@@ -230,6 +235,6 @@ This section describes how to install the plugin and get it working.
 > - Popup Alignment
 > - Minor Bug fixes
 
-> ## v1.0
+> ### v1.0
 >
 > - Initail Release
