@@ -108,6 +108,11 @@ This section describes how to install the plugin and get it working.
 
 **CHANGELOG**
 
+> ### v4.0.1 (017/01/2024)
+> 
+> - Security Update
+> - Noscript supported added since brave browser has block script supports
+
 > ### v4.0 (04/12/2023)
 > 
 > - Security Update

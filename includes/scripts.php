@@ -18,6 +18,7 @@ if( ! defined( 'ABSPATH' ) ) exit(0);
 class scripts extends \CHPADB\adb{
 
     private $minify = true;
+    private $settings;
 
 
     /**
@@ -82,7 +83,7 @@ class scripts extends \CHPADB\adb{
         return $content;
     }
 
-    private function rclass($class){
+    public function rclass($class){
         return \CHPADB\Includes\adbClass("randomClass")->generate_class($class);
     }
 
@@ -106,9 +107,12 @@ class scripts extends \CHPADB\adb{
     }
 
     public function js(){
-        
+        global $wp;
         //Check Whether plugin is active
         if( filter_var( @$this->settings->enable, FILTER_VALIDATE_BOOLEAN ) ){
+
+            $branding = apply_filters('adb/branding', @$this->settings->branding);
+            $brandingcode = getBrandingCode($branding);
 
             $iconAlernativeFile = CHP_ADSB_URL . 'assets/img/icon.png';
             $iconAlernativeFile = apply_filters( 'adb/change/icon', $iconAlernativeFile );
@@ -124,6 +128,13 @@ class scripts extends \CHPADB\adb{
                 require_once $footer_part;
                 $content = ob_get_clean();
                 echo \CHPADB\Includes\minify_html_code($content);
+            }
+
+            /** Add Noscript tag */
+            if( filter_var( @$this->settings->noscript, FILTER_VALIDATE_BOOLEAN ) ){
+                ob_start();
+                require_once CHP_ADSB_DIR . 'view/noscript.php';;
+                echo ob_get_clean();
             }
         }
     }

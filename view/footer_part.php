@@ -7,18 +7,6 @@
      */
     $debug = apply_filters('adb/debug/js', false);
     $onPageFullyLoaded = apply_filters('adb/onpageload', true);
-
-    $branding = apply_filters('adb/branding', @$this->settings->branding);
-
-    $brandingcode = '';
-    if( filter_var($branding, FILTER_VALIDATE_BOOLEAN) ){
-        $brandingURLArray = array("https://chpadblock.com/", "https://toolkitspro.com");
-        $brandingURLAlt = array("Best Wordpress Adblock Detecting Plugin | CHP Adblock", "100% Free SEO Tools - Tool Kits PRO");
-        $random = array_rand($brandingURLArray);
-        $brandingURL = $brandingURLArray[$random];
-        $brandingText = $brandingURLAlt[$random];
-        $brandingcode = sprintf('<div class="%s"><a id="%s" href="%s" target="_blank" rel="noopener noreferrer"><span class="%s" style="color: rgb(9, 13, 22);">Powered By</span> <div class="%s"><img src="%sassets/img/d.svg" alt="%s" /></div></a></div>', $this->rclass("chp_branding"), $this->rclass("chp_branding"), $brandingURL, $this->rclass("powered_by"), $this->rclass("chp_brading_svg"), CHP_ADSB_URL, $brandingText);
-    }
 ?>
 
 <div id="<?php echo esc_attr($this->rclass("modal")); ?>" class="<?php echo esc_attr($this->rclass("modal")); ?>">

@@ -2,8 +2,8 @@
 Contributors: sureshchand12a
 Tags: adsense, adblock, anti-adblock, chpadblock, chp, chp-adblock, adblock-plus, ublock-origin
 Requires at least: 5.2
-Tested up to: 6.2
-Stable tag: 3.9.8
+Tested up to: 6.4.1
+Stable tag: 4.0.1
 Requires PHP: 7.2
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -135,6 +135,10 @@ Yes, For this you have to purchase the premium version of Ads Block Detector. An
 6. Instruction to Disable the Adblock
 
 == Changelog ==
+
+= 4.0.1 =
+*  ☞ Security Update
+*  ☞ Noscript supported added since brave browser has block script supports
 
 = 4.0 =
 *  ☞ Security Update

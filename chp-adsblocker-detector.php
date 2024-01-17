@@ -4,7 +4,7 @@
  * Plugin Name:       CHP Ads Block Detector
  * Plugin URI:        https://chpadblock.com
  * Description:       CHP Ads Block Detector plugin is developed in order to  detect most of the AdBlock extensions installed on the browser and show a popup to disable the extension. This plugin restricts the user to access the page unless the user will disable the extension for your website.
- * Version:           4.0
+ * Version:           4.0.1
  * Requires at least: 5.2
  * Requires PHP:      7.2
  * Tested up to:      6.4.1

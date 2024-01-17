@@ -60,7 +60,8 @@ function defaults(){
         'hidemobile' => false,
         'branding' => 'yes',
         "minify" => true,
-        "header" => false
+        "header" => false,
+        "noscript" => true
     );
 }
 
@@ -134,4 +135,20 @@ function minify_html_code($buffer){
         $buffer = str_replace( array( 'http://', 'https://' ), '//', $buffer );
 
     return $buffer;
+}
+
+function getBrandingCode($enable=true){
+    if( filter_var($enable, FILTER_VALIDATE_BOOLEAN) ){
+
+        $rclass = \CHPADB\Includes\adbClass('scripts');
+
+        $brandingURLArray = array("https://chpadblock.com/", "https://toolkitspro.com");
+        $brandingURLAlt = array("Best Wordpress Adblock Detecting Plugin | CHP Adblock", "100% Free SEO Tools - Tool Kits PRO");
+        $random = array_rand($brandingURLArray);
+        $brandingURL = $brandingURLArray[$random];
+        $brandingText = $brandingURLAlt[$random];
+        return sprintf('<div class="%s"><a id="%s" href="%s" target="_blank" rel="noopener noreferrer"><span class="%s" style="color: rgb(9, 13, 22);">Powered By</span> <div class="%s"><img src="%sassets/img/d.svg" alt="%s" /></div></a></div>', $rclass->rclass("chp_branding"), $rclass->rclass("chp_branding"), $brandingURL, $rclass->rclass("powered_by"), $rclass->rclass("chp_brading_svg"), CHP_ADSB_URL, $brandingText);
+    }
+
+    return false;
 }

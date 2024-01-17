@@ -44,6 +44,22 @@
                         </label>
                     </td>
                 </tr>
+
+                <tr>
+                    <td>
+                        <?php esc_attr_e('Enable Noscript', 'chp-adsblocker-detector'); ?>
+                    </td>
+                    <td>
+                        <label class="checkbox_container">
+                            <input type="checkbox"
+                                <?php echo filter_var(@$settings->noscript, FILTER_VALIDATE_BOOLEAN) ? 'checked' : null; ?>
+                                name="noscript" class="chpabd_form_settings include">
+                            <span class="checkmark"></span>
+                        </label>
+                    </td>
+                </tr>
+
+
                 <tr>
                     <td>
                         <?php esc_attr_e('Title', 'chp-adsblocker-detector'); ?>
