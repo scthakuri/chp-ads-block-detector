@@ -60,6 +60,7 @@ class dependency{
             'scripts',
             'settings',
             'ajax',
+            'Customizer',
             'update'
         );
 

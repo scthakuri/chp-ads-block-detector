@@ -264,3 +264,15 @@ body .chp_ads_button_row .button {
   font-weight: bold;
   color: #ff7070;
 }
+
+/**
+ * Some "adblock detector bypass" browser extensions run on every URL
+ * (including wp-admin) and hide any link whose href contains our plugin's
+ * slug - which matches our own Activate/Deactivate row-action link on the
+ * Plugins screen. Force it back on. Covers both the free and Pro slugs
+ * since a site may have either or both installed.
+ */
+tr[data-slug="chp-ads-block-detector"] .row-actions a,
+tr[data-slug="chp-ads-block-detector-pro"] .row-actions a {
+  display: inline-block !important;
+}

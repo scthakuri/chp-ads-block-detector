@@ -32,8 +32,8 @@
                         ?>
                     </div>
 
-                    <h4 class="adblock_title"><?php echo esc_html(@$this->settings->title); ?></h4>
-                    <div class="adblock_subtitle"><?php echo wp_kses_post(@$this->settings->content); ?></div>
+                    <h4 class="<?php echo esc_attr($this->rclass("adblock_title")); ?>"><?php echo esc_html(@$this->settings->title); ?></h4>
+                    <div class="<?php echo esc_attr($this->rclass("adblock_subtitle")); ?>"><?php echo wp_kses_post(@$this->settings->content); ?></div>
 
 
                     <div class="<?php esc_attr($this->rclass("action")); ?>">

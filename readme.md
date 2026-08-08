@@ -108,7 +108,11 @@ This section describes how to install the plugin and get it working.
 
 **CHANGELOG**
 
-> ### v4.0.1 (017/01/2024)
+> ### v4.0.3 (07/07/2026)
+> 
+> - Verified compatibility with WordPress 7.0
+
+> ### v4.0.2 (017/01/2024)
 > 
 > - Security Update
 > - Noscript supported added since brave browser has block script supports

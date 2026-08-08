@@ -65,7 +65,7 @@
                         <?php esc_attr_e('Title', 'chp-adsblocker-detector'); ?>
                     </td>
                     <td>
-                        <input type="text" value="<?php echo empty(@$settings->title) ? null : @$settings->title; ?>"
+                        <input type="text" value="<?php echo empty(@$settings->title) ? '' : esc_attr(@$settings->title); ?>"
                             class="chpabd_form_settings include" name="title" placeholder="Title">
                     </td>
                 </tr>
@@ -90,7 +90,7 @@
                         <?php esc_attr_e('Width (in %)', 'chp-adsblocker-detector'); ?>
                     </td>
                     <td>
-                        <input type="number" value="<?php echo @$settings->width; ?>"
+                        <input type="number" value="<?php echo esc_attr(@$settings->width); ?>"
                             class="chpabd_form_settings include" name="width" placeholder="Width in pixel">
                     </td>
                 </tr>

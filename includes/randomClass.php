@@ -89,12 +89,30 @@ class randomClass{
     public function generate_class($class){
         $rclass = $this->get();
         $output = $this->encrypt_decrypt("{$rclass}______{$class}______{$rclass}");
-        $equalreplace = $this->get_equal_rnd();
-        $output = str_replace("=", $equalreplace, $output);
-        $output = preg_replace('!\s+!', ' ', $output);
-        $output = preg_replace('/\s+/', '_', $output);
+
+        /**
+         * Base64 output can contain "+", "/" and "=" which aren't valid,
+         * unescaped, in a CSS class/id token - strip anything that isn't
+         * a letter or digit instead of only substituting "=".
+         */
+        $output = preg_replace('/[^a-zA-Z0-9]/', '', $output);
         $output = preg_replace('/[0-9]+/', '', $output);
-        return trim(strtolower($output));
+        $output = trim(strtolower($output));
+
+        /**
+         * Break up the pure-alphanumeric shape with an underscore. These
+         * generated strings are reused both as CSS class/id tokens AND as
+         * JS variable names (view/main_scripts.php), so the separator must
+         * be valid in both - a hyphen breaks JS identifiers, "_" doesn't.
+         * Ad-block-detector-bypass extensions have been seen blanket-hiding
+         * any element whose id/class matches /^[a-zA-Z0-9]{32,}$/, which a
+         * long uninterrupted alphanumeric string always trips regardless of
+         * its actual (randomized) value.
+         */
+        $mid = (int) floor(strlen($output) / 2);
+        $output = substr($output, 0, $mid) . '_' . substr($output, $mid);
+
+        return $output;
     }
 
 }

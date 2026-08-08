@@ -126,13 +126,13 @@ img.<?php echo esc_attr($this->rclass("icon")); ?>{
 }
 
 
-.<?php echo esc_attr($this->rclass("modal")); ?> .<?php echo esc_attr($this->rclass("content")); ?> .adblock_title,
+.<?php echo esc_attr($this->rclass("modal")); ?> .<?php echo esc_attr($this->rclass("content")); ?> .<?php echo esc_attr($this->rclass("adblock_title")); ?>,
 .chpadbpro_wrap_title {
     margin: 1.3rem 0;
 }
 
 
-.<?php echo esc_attr($this->rclass("modal")); ?> .<?php echo esc_attr($this->rclass("content")); ?> .adblock_subtitle{
+.<?php echo esc_attr($this->rclass("modal")); ?> .<?php echo esc_attr($this->rclass("content")); ?> .<?php echo esc_attr($this->rclass("adblock_subtitle")); ?>{
     padding: 0 1rem;
     padding-bottom: 1rem;
 }
@@ -333,7 +333,7 @@ body .<?php echo esc_attr($this->rclass("modal")); ?>{
     margin: auto;
     padding: 20px;
     border: none;
-    width: <?php echo @$this->settings->width; ?>%;
+    width: <?php echo floatval(@$this->settings->width); ?>%;
     border-radius: 5%;
     position: relative;
 }
@@ -411,19 +411,19 @@ body .<?php echo esc_attr($this->rclass("modal")); ?>{
 
 @media only screen and (max-width:1000px) {
     .<?php echo esc_attr($this->rclass("modal")); ?> .<?php echo esc_attr($this->rclass("content")); ?>{
-        width: calc(<?php echo @$this->settings->width; ?>% + 15%);
+        width: calc(<?php echo floatval(@$this->settings->width); ?>% + 15%);
     }
 }
 
 @media only screen and (max-width:800px) {
     .<?php echo esc_attr($this->rclass("modal")); ?> .<?php echo esc_attr($this->rclass("content")); ?>{
-        width: calc(<?php echo @$this->settings->width; ?>% + 25%);
+        width: calc(<?php echo floatval(@$this->settings->width); ?>% + 25%);
     }
 }
 
 @media only screen and (max-width:700px) {
     .<?php echo esc_attr($this->rclass("modal")); ?> .<?php echo esc_attr($this->rclass("content")); ?>{
-        width: calc(<?php echo @$this->settings->width; ?>% + 35%);
+        width: calc(<?php echo floatval(@$this->settings->width); ?>% + 35%);
     }
 }
 

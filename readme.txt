@@ -2,8 +2,8 @@
 Contributors: sureshchand12a
 Tags: adsense, adblock, anti-adblock, chpadblock, chp, chp-adblock, adblock-plus, ublock-origin
 Requires at least: 5.2
-Tested up to: 6.4.1
-Stable tag: 4.0.1
+Tested up to: 7.0
+Stable tag: 4.0.4
 Requires PHP: 7.2
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -136,7 +136,14 @@ Yes, For this you have to purchase the premium version of Ads Block Detector. An
 
 == Changelog ==
 
-= 4.0.1 =
+= 4.0.4 =
+*  ☞ New: Live preview of the adblock popup (title, content, buttons) inside the WordPress Customizer
+*  ☞ Hardening: escaped admin settings fields (title, width) and front-end CSS width output that were previously echoed unescaped
+
+= 4.0.3 =
+*  ☞ Verified compatibility with WordPress 7.0
+
+= 4.0.2 =
 *  ☞ Security Update
 *  ☞ Noscript supported added since brave browser has block script supports
 
